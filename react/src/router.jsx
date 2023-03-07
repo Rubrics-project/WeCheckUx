@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate} from "react-router-dom";
 import GuestLayout from "./components/GuestLayout";
 //import UserLayout from "./components/UserLayout";
-import Welcome from "./views/Welcome";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import Rubrics from "./views/Rubrics";
@@ -9,6 +8,7 @@ import Edit from "./views/Edit";
 import Create from "./views/Create";
 import Evaluate from "./views/Evaluate";
 import Fqa from "./views/Fqa";
+import Home from "./views/Home";
 
 const router = createBrowserRouter ([
     {
@@ -16,12 +16,12 @@ const router = createBrowserRouter ([
         element: <GuestLayout />,
         children: [
             {
-                path: "/bienvenida",
-                element: <Navigate to="/" />,
+                 path: "/home",
+                 element: <Navigate to="/" />,
             },
             {
-                path: "/bienvenda",
-                element: <Welcome />,
+                path: "/",
+                element: <Home />,
             },
             {
                 path: "/registro",
