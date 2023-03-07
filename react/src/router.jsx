@@ -1,11 +1,81 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter, Navigate} from "react-router-dom";
+import GuestLayout from "./components/GuestLayout";
+//import UserLayout from "./components/UserLayout";
+import Welcome from "./views/Welcome";
 import Login from "./views/Login";
+import Signup from "./views/Signup";
+import Rubrics from "./views/Rubrics";
+import Edit from "./views/Edit";
+import Create from "./views/Create";
+import Evaluate from "./views/Evaluate";
+import Fqa from "./views/Fqa";
 
 const router = createBrowserRouter ([
     {
         path: "/",
-        element: <Login />,
+        element: <GuestLayout />,
+        children: [
+            {
+                path: "/bienvenida",
+                element: <Navigate to="/" />,
+            },
+            {
+                path: "/bienvenda",
+                element: <Welcome />,
+            },
+            {
+                path: "/registro",
+                element: <Signup />,
+            },
+            {
+                path: "/acceso",
+                element: <Login />,
+            },
+            {
+                path: "/rubricas",
+                element: <Rubrics />,
+            },
+            {
+                path: "/crear",
+                element: <Create />,
+            },
+            {
+                path: "/editar",
+                element: <Edit />,
+            },
+            {
+                path: "/evaluar",
+                element: <Evaluate />,
+            },
+            {
+                path: "/preguntasfrecuentes",
+                element: <Fqa />,
+            },
+            
+        ],
     },
+    // {
+    //     path: "/",
+    //     element: <UserLayout />,
+    //     children: [
+    //         {
+    //             path: "/dashboard",
+    //             element: <Navigate to="/" />,
+    //         },
+    //         {
+    //             path: "/",
+    //             element: <Dashboard />,
+    //         },
+    //         {
+    //             path: "/surveys",
+    //             element: <Surveys />,
+    //         },
+    //         {
+    //             path: "/surveys/create",
+    //             element: <SurveyView />,
+    //         },
+    //     ],
+    // },
 ])
 
 export default router

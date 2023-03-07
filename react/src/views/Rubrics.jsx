@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Rubric() {
+export default function Rubrics() {
     return (
         <div>
-            Rubric
+            Rubrics
             <div></div>
         </div>
     );
