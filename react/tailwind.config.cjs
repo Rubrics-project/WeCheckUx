@@ -4,9 +4,17 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "color-bck": "#2f303a",
-                "color-bck": "#2f303a",
-                "color-bck": "#2f303a",
+                "color-bck": "#000000",
+                "color-blue-p": "#0645AD",
+                "color-blue-s": "#3366BB",
+                "color-blue-light": "#A7D7F9",
+                "color-gris-aside": "#F6F6F6",
+                "color-blue-s": "#3366BB",
+                "color-blue-s": "#3366BB",
+                "color-blue-s": "#3366BB",
+                "color-blue-s": "#3366BB",
+                "color-blue-s": "#3366BB",
+                "color-blue-s": "#3366BB",
             },
         },
     },
