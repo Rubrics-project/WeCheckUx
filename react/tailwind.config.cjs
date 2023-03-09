@@ -24,7 +24,12 @@ module.exports = {
       backgroundImage: {
         "gradient-final": "url('./public/assets/gradient1.svg')",
       },
+
+      fontFamily: {
+        latocustom: ["Lato", "sans-serif"],
+        opencustom: ["Open Sans", "sans-serif"],
+      },
     },
+    // plugins: [require("@tailwindcss/forms")],
   },
-  // plugins: [require("@tailwindcss/forms")],
 };
