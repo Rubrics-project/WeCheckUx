@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function ButtonSecondary({children}) {
+export default function ButtonSecondary({text}) {
   return (
-    <button className= "font-bold py-2 px-4 rounded .w-20 bg-gray-100 .rounded   ">
+    <button className= " font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md ">
 
-    {children}
+    {text}
 </button>
   )
 }
