@@ -8,6 +8,8 @@ export default function Home() {
       return (
         <div>
           <Menu/>
+          <ButtonPrimary text={"Registrar"} onClick={"pasar onclick"} />
+          <Footer />
         </div>
       )
     
