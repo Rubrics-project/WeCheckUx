@@ -93,10 +93,7 @@ export default function Menu() {
             <li>
               <a href="/Signup">Registro</a>
             </li>
-            <li>
-              <a href="/Contribute">Contribuir al proyecto</a>
-            </li>
-          </ul>
+            </ul>
         </nav>
       </div>
     </div>
