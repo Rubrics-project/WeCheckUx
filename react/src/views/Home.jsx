@@ -24,18 +24,22 @@ export default function Home() {
           <ButtonSecondaryIconSmall  text={"Añadir dimensión"} onClick={"pasar onclick"} />
           <ButtonSecondaryIconData text={"Evaluaciones: 20"} onClick={"pasar onclick"} /> */}
 
-          <h1 className=" font-opencustom  font-bold text-2xl py-9 px-6" >¡Te damos la bienvenida a WeCheck! </h1>
+          <h1 className=" font-opencustom  font-bold text-2xl py-14 px-6" >¡Te damos la bienvenida a WeCheck! </h1>
 
           <p className="text-sm py-5 px-6 ">Mejorar la <b>experiencia de usuario</b>  (UX) es fundamental para asegurar la satisfacción de cada visitante.</p>
 
-          <p className="text-sm py-5 px-6">En WeCheckUX puedes <b>evaluar, mediante rúbricas</b>  creadas por diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además, tienes la posibilidad de crear tus propias rúbricas. Por eso, tu contribución es muy valiosa.</p>
+          <p className="text-sm py-14 px-6">En WeCheckUX puedes <b>evaluar, mediante rúbricas</b>  creadas por diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además, tienes la posibilidad de crear tus propias rúbricas. Por eso, tu contribución es muy valiosa.</p>
 
           <p className="px-6">Si tienes alguna duda, consulta nuestras </p>
           <a className="px-6" href="url">Preguntas Frecuentes.</a>
 
-          <p className="font-bold py-6 px-6">¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la web!</p>
-          <ButtonPrimary text={"Acceder"} onClick={"pasar onclick"} />
-          <ButtonSecondary text={"Registrarme"} onClick={"pasar onclick"} />
+          <p className="font-bold py-14 px-6">¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la web!</p>
+
+           <div className="py-14 px-6 flex "> 
+           <ButtonPrimary text={"Acceder"} onClick={"pasar onclick"} />
+           <ButtonSecondary text={"Registrarme"} onClick={"pasar onclick"} />
+           </div>
+
           <p>O también puedes:</p>
           <ButtonSecondary text={"Acceder de forma anónima"} onClick={"pasar onclick"} />
           
