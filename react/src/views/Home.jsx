@@ -30,18 +30,22 @@ export default function Home() {
 
           <p className="text-sm py-14 px-6">En WeCheckUX puedes <b>evaluar, mediante rúbricas</b>  creadas por diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además, tienes la posibilidad de crear tus propias rúbricas. Por eso, tu contribución es muy valiosa.</p>
 
-          <p className="px-6">Si tienes alguna duda, consulta nuestras </p>
-          <a className="px-6" href="url">Preguntas Frecuentes.</a>
+          <p className="px-6">Si tienes alguna duda, consulta nuestras <br></br> <a  href="url">Preguntas Frecuentes.</a>  </p>
+          
 
-          <p className="font-bold py-14 px-6">¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la web!</p>
+          <p className="font-bold py-14 px-7">¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la web!</p>
 
-           <div className="py-14 px-6 flex "> 
-           <ButtonPrimary text={"Acceder"} onClick={"pasar onclick"} />
-           <ButtonSecondary text={"Registrarme"} onClick={"pasar onclick"} />
+           <div className="py-14 px-6 flex space-x-6 "> 
+             <ButtonPrimary text={"Acceder"} onClick={"pasar onclick"} />
+             <ButtonSecondary text={"Registrarme"} onClick={"pasar onclick"} />
            </div>
 
-          <p>O también puedes:</p>
-          <ButtonSecondary text={"Acceder de forma anónima"} onClick={"pasar onclick"} />
+           <p className=" flex justify-center">O también puedes:</p>
+           <div className="flex justify-center"> 
+             <ButtonSecondary  text={"Acceder de forma anónima"} onClick={"pasar onclick"} />
+            </div>
+            <Footer/>
+         
           
 
           
