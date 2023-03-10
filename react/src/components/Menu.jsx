@@ -80,24 +80,7 @@ export default function Menu() {
         </section>
       </nav>
       <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: auto;
-        height: 60vh;
-        top: 0;
-        left: 0;
-        background: white;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: left;
-      }
-    `}</style>
+       `}</style>
     </div>
   );
 }
