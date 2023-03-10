@@ -5,6 +5,8 @@ import addIcon from "../../public/assets/addIcon.svg";
 import accessIcon from "../../public/assets/accessIcon.svg";
 import gitHubIcon from "../../public/assets/gitHubIcon.svg";
 import logo from "../../public/assets/logo.svg";
+import { Link } from "react-router-dom";
+import Create from "../views/Create";
 
 export default function Menu() {
   return (
@@ -46,7 +48,7 @@ export default function Menu() {
                 <li className="border-b border-gray-400 my-2 uppercase">
                   <div className="menuIcon">
                     <img src={addIcon} alt="Icon Create Rubric"></img>
-                    <a href="/Create"> Crear rúbricas</a>
+                    <a href="/crear"> Crear rúbricas</a>
                   </div>
                 </li>
                 <li className="border-b border-gray-400 my-2 uppercase">
@@ -82,7 +84,7 @@ export default function Menu() {
               <a href="/Projects">Proyectos</a>
             </li>
             <li>
-              <a href="/Create">Crear rúbricas</a>
+              <a href="/crear">Crear rúbricas</a>
             </li>
             <li>
               <a href="/Fqa">Preguntas frecuentes</a>

@@ -35,10 +35,10 @@ const router = createBrowserRouter ([
                 path: "/rubricas",
                 element: <Rubrics />,
             },
-            {
-                path: "/crear",
-                element: <Create />,
-            },
+            // {
+            //     path: "/crear",
+            //     element: <Create />,
+            // },
             {
                 path: "/editar",
                 element: <Edit />,
