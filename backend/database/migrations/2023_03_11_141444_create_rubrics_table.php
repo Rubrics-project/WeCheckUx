@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('rubrics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
+        Schema::disableForeignKeyConstraints();
     }
 
     /**

@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -21,8 +23,11 @@ return new class extends Migration
             $table->text('suficient');
             $table->text('good');
             $table->text('excelent');
+            $table->unsignedBigInteger('rubric_id');
+            $table->foreign('rubric_id')->references('id')->on('rubrics');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
