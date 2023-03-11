@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proyect;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
-class ProyectController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Proyect::all();
+        return Project::all();
     }
 
     /**
@@ -26,27 +26,27 @@ class ProyectController extends Controller
             'description'=>'required',
         ]);
 
-        $proyect = new Proyect;
-        $proyect->name = $request->name;
-        $proyect->url = $request->url;
-        $proyect->description = $request->description;
+        $project = new Project;
+        $project->name = $request->name;
+        $project->url = $request->url;
+        $project->description = $request->description;
 
-        $proyect->save();
-        return $proyect;
+        $project->save();
+        return $project;
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Proyect $proyect)
+    public function show(Project $project)
     {
-        return $proyect;
+        return $project;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proyect $proyect)
+    public function update(Request $request, Project $project)
     {
         $request->validate([
             'name'=>'required',
@@ -54,12 +54,12 @@ class ProyectController extends Controller
             'description'=>'required',
         ]);
 
-        $proyect->name = $request->name;
-        $proyect->url = $request->url;
-        $proyect->description = $request->description;
+        $project->name = $request->name;
+        $project->url = $request->url;
+        $project->description = $request->description;
 
-        $proyect->update();
-        return $proyect;
+        $project->update();
+        return $project;
     }
 
     /**
@@ -67,11 +67,11 @@ class ProyectController extends Controller
      */
     public function destroy($id)
     {
-        $proyect = Proyect::find($id);
-        if(is_null($proyect)){
+        $project = Project::find($id);
+        if(is_null($project)){
             return response()->json('Proyecto no encontrado', 404);
         }
-        $proyect->delete();
+        $project->delete();
         return response()->noContent();
     }
 }

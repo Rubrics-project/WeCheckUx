@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\EvaluationController;
-use App\Http\Controllers\ProyectController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RubricController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::apiResource('users', UserController::class);
-Route::apiResource('proyects', ProyectController::class);
+Route::apiResource('projects', ProjectController::class);
 Route::apiResource('rubrics', RubricController::class);
 Route::apiResource('evaluations', EvaluationController::class);
 Route::apiResource('answers', AnswerController::class);
