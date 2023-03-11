@@ -13,7 +13,6 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
-        //
     }
 
     /**
@@ -90,6 +89,6 @@ class UserController extends Controller
             return response()->json("Usuario no encontrado", 404);
         }
         $user->delete();
-        return response()->json("Usiario eliminado con exito!", 204);
+        return response()->noContent();
     }
 }
