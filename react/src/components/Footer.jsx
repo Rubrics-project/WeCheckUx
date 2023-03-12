@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="flex flex-col w-full mt-10 absolute bottom-0">
+    <div className="flex flex-col w-full mt-auto">
       <div className="bg-gradient-final h-1"></div>
       <a
         href="https://github.com/Rubrics-project/WeCheckUx"

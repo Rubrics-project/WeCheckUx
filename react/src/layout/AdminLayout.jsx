@@ -5,12 +5,12 @@ import Header from "../components/Header";
 
 export default function AdminLayout() {
   return (
-    <div>
+    <>
       <Header />
-      <main className="px-6">
+      <main className="px-6 relative">
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
