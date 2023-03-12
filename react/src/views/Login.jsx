@@ -4,11 +4,16 @@ import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import Title from "../components/Title";
 
-export default function Login({ password, email }) {
+export default function Login({ onSubmit, password, email }) {
   return (
     <>
       <Title title={"Acceder"} />
-      <form onSubmit="" className="mt-8 space-y-14" action="#" method="POST">
+      <form
+        onSubmit={onSubmit}
+        className="mt-8 space-y-14"
+        action="#"
+        method="POST"
+      >
         <input type="hidden" name="remember" defaultValue="true" />
         <div className="space-y-4">
           <div>
@@ -22,7 +27,7 @@ export default function Login({ password, email }) {
               autoComplete="email"
               required
               value={email}
-              onChange=""
+              onChange="" //poner evento {}
               className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="ejemplo@email.com"
             />
@@ -38,7 +43,7 @@ export default function Login({ password, email }) {
               autoComplete="current-password"
               required
               value={password}
-              onChange=""
+              onChange="" //poner evento {}
               className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="********"
             />
@@ -67,7 +72,7 @@ export default function Login({ password, email }) {
           <ButtonSecondary text={"Cancelar"} onClick={"pasar onclick"} />
         </div>
       </form>
-      <p className="mt-10 font-opencustom text-sm font-normal">
+      <p className="mt-10 font-opencustom text-sm font-normal mb-10">
         ¿No tienes cuenta? Crea una nueva cuenta en{" "}
         <span>
           {" "}
