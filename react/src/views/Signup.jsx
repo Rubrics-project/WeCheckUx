@@ -14,7 +14,7 @@ export default function Signup({
 }) {
   return (
     <>
-      <Title title={"Registro"} />
+      <Title title={"Registrarse"} />
       <form
         onSubmit={onSubmit}
         className="mt-8 space-y-14"
