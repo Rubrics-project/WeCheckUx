@@ -34,7 +34,7 @@ export default function Signup({
               required
               value={name}
               onChange="" //poner evento {}
-              className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+              className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="Nombre"
             />
           </div>
@@ -49,7 +49,7 @@ export default function Signup({
               required
               value={surname}
               onChange="" //poner evento {}
-              className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+              className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="Apellidos"
             />
           </div>
@@ -65,7 +65,7 @@ export default function Signup({
               required
               value={email}
               onChange="" //poner evento {}
-              className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+              className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="ejemplo@email.com"
             />
           </div>
@@ -81,7 +81,7 @@ export default function Signup({
               required
               value={password}
               onChange="" //poner evento {}
-              className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+              className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="********"
             />
           </div>
@@ -96,7 +96,7 @@ export default function Signup({
               required
               value={passwordConfirmation}
               onChange="" //poner evento {}
-              className="w-full rounded border border-color-grey-border-btner px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+              className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
               placeholder="********"
             />
           </div>
