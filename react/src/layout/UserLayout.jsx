@@ -7,7 +7,7 @@ export default function UserLayout() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="px-6">
         <Outlet />
       </main>
       <Footer />
