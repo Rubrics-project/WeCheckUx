@@ -1,18 +1,15 @@
 import React from "react";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
-import ButtonPrimaryIcon from "../components/Buttons/ButtonPrimaryIcon";
-import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
-import ButtonSecondaryIcon from "../components/Buttons/ButtonSecondaryIcon";
-import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
-import ButtonSecondaryIconSmall from "../components/Buttons/ButtonSecondaryIconSmall";
-import Footer from "../components/Footer";
-import Menu from "../components/menu";
-import Create from "./Create";
+// import ButtonPrimaryIcon from "../components/Buttons/ButtonPrimaryIcon";
+// import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
+// import ButtonSecondaryIcon from "../components/Buttons/ButtonSecondaryIcon";
+// import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
+// import ButtonSecondaryIconSmall from "../components/Buttons/ButtonSecondaryIconSmall";
 
 export default function Home() {
   return (
-    <div>
+    <>
       {/* <Menu/>
           <ButtonPrimary text={"Registrar"} onClick={"pasar onclick"} />
           <ButtonSecondary text={"Cancelar"} onClick={"pasar onclick"} />
@@ -61,11 +58,6 @@ export default function Home() {
           onClick={"pasar onclick"}
         />
       </div>
-      <Footer />
-
-      <Create />
-
-      <Footer />
-    </div>
+    </>
   );
 }
