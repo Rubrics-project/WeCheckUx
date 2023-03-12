@@ -9,6 +9,7 @@ import Create from "./views/Create";
 import Evaluate from "./views/Evaluate";
 import Fqa from "./views/Fqa";
 import Home from "./views/Home";
+import Projects from "./views/Projects";
 
 const router = createBrowserRouter ([
     {
@@ -51,7 +52,10 @@ const router = createBrowserRouter ([
                 path: "/preguntasfrecuentes",
                 element: <Fqa />,
             },
-            
+            {
+                path: "/proyectos",
+                element: <Projects />,
+            },
         ],
     },
     // {

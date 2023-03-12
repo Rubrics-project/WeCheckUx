@@ -5,7 +5,9 @@ import addIcon from "../../public/assets/addIcon.svg";
 import accessIcon from "../../public/assets/accessIcon.svg";
 import gitHubIcon from "../../public/assets/gitHubIcon.svg";
 import { useState } from "react";
-import Link from "react";export default function Menu() {
+
+
+export default function Menu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
     <div className="flex items-center justify-between border-b border-gray-400 py-8">
@@ -22,10 +24,9 @@ import Link from "react";export default function Menu() {
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-              onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
-            >
+              onClick={() => setIsNavOpen(false)}>
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="h-7 w-7 text-gray-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -38,40 +39,40 @@ import Link from "react";export default function Menu() {
               </svg>
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-left justify-between min-h-[250px]">
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={projectsIcon} alt="Icon Project"></img>
-                  <a href="/Projects">Proyectos</a>
+                  <a href="/Proyectos">Proyectos</a>
                 </div>
               </li>
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={addIcon} alt="Icon Create Rubric"></img>
-                  <a href="/Create"> Crear rúbricas</a>
+                  <a href="/crear"> Crear rúbricas</a>
                 </div>
               </li>
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={faqIcon} alt="Icon Preguntas frecuentes"></img>
-                  <a href="/Fqa"> Preguntas frecuentes</a>
+                  <a href="/preguntasfrecuentes"> Preguntas frecuentes</a>
                 </div>
               </li>
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={accessIcon} alt="Icon Login"></img>
-                  <a href="/Login">Acceder</a>
+                  <a href="/acceso">Acceder</a>
                 </div>
               </li>
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={accessIcon} alt="Icon Login"></img>
-                  <a href="/Signup">Registro</a>
+                  <a href="/registro">Registro</a>
                 </div>
               </li>
-              <li className="border-b border-gray-400 my-2 uppercase">
+              <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={gitHubIcon} alt="Icon Login"></img>
-                  <a href="/Contibute">Constribuye al proyecto</a>
+                 <a href="https://github.com/Rubrics-project/WeCheckUx">Contribuye al proyecto</a>
                 </div>
               </li>
             </ul>
@@ -79,24 +80,7 @@ import Link from "react";export default function Menu() {
         </section>
       </nav>
       <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 60vh;
-        top: 0;
-        left: 0;
-        background: white;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: left;
-      }
-    `}</style>
+       `}</style>
     </div>
   );
     }
