@@ -17,6 +17,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
+Route::group(['middleware' => ["auth:sanctum"]], function(){
+    Route::get('user-profile', [UserController::class, 'userProfile']);
+    Route::get('logout', [UserController::class, 'logout']);
+});
+
 Route::apiResource('projects', ProjectController::class);
 Route::apiResource('rubrics', RubricController::class);
 Route::apiResource('evaluations', EvaluationController::class);
