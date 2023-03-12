@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
+import Title from "../components/Title";
 
 export default function Login({ password, email }) {
   return (
     <>
-      <h1>Acceder</h1>
+      <Title title={"Acceder"} />
       <form onSubmit="" className="mt-8 space-y-14" action="#" method="POST">
         <input type="hidden" name="remember" defaultValue="true" />
         <div className="space-y-4">
