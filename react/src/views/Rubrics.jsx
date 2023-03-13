@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { getAllItems } from '../services/userService.js';
+import { getAllItems } from '../services/userService.js';
 
 
 export default function Rubrics() {
