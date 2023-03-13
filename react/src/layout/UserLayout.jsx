@@ -5,12 +5,12 @@ import Header from "../components/Header";
 
 export default function UserLayout() {
   return (
-    <div>
+    <>
       <Header />
-      <main>
+      <main className="px-6 relative">
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
