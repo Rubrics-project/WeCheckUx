@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 // import ButtonPrimaryIcon from "../components/Buttons/ButtonPrimaryIcon";
@@ -10,16 +11,6 @@ import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 export default function Home() {
   return (
     <>
-      {/* <Menu/>
-          <ButtonPrimary text={"Registrar"} onClick={"pasar onclick"} />
-          <ButtonSecondary text={"Cancelar"} onClick={"pasar onclick"} />
-          <ButtonPrimaryIconBig text={"Crear mi rúbrica"} onClick={"pasar onclick"} />
-          <ButtonPrimaryIcon icon={"./public/assets/edit.svg"} text={"Editar"} onClick={"pasar onclick"} />
-          <ButtonPrimaryIcon icon={"./public/assets/evaluate.svg"} text={"Evaluar"} onClick={"pasar onclick"} />
-          <ButtonSecondaryIcon text={"Borrar"} onClick={"pasar onclick"} />
-          <ButtonSecondaryIconSmall  text={"Añadir dimensión"} onClick={"pasar onclick"} />
-          <ButtonSecondaryIconData text={"Evaluaciones: 20"} onClick={"pasar onclick"} /> */}
-
       <h1 className=" font-opencustom  font-bold text-2xl py-14 px-6">
         ¡Te damos la bienvenida a WeCheck!{" "}
       </h1>
@@ -41,23 +32,29 @@ export default function Home() {
         <a href="url">Preguntas Frecuentes.</a>{" "}
       </p>
 
-      <p className="font-bold py-14 px-7">
+      <p className="font-bold py-12 px-7">
         ¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la
         web!
       </p>
 
-      <div className="py-14 px-6 flex space-x-6 ">
-        <ButtonPrimary text={"Acceder"} onClick={"pasar onclick"} />
-        <ButtonSecondary text={"Registrarme"} onClick={"pasar onclick"} />
+      <div className="py-10 px-6 flex space-x-6 justify-center">
+        <Link
+          to="/acceso"
+          className=" font-opencustom text-color-blue-p font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+        >Acceder</Link>
+        <Link
+          to="/registro"
+          className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+        >Registrarme</Link>
       </div>
 
-      <p className=" flex justify-center">O también puedes:</p>
+      {/* <p className=" flex justify-center">O también puedes:</p>
       <div className="flex justify-center">
         <ButtonSecondary
           text={"Acceder de forma anónima"}
           onClick={"pasar onclick"}
         />
-      </div>
+      </div> */}
     </>
   );
 }
