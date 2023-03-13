@@ -9,6 +9,9 @@ import Fqa from "../views/Fqa";
 import Home from "../views/Home";
 import Projects from "../views/Projects";
 import GuestLayout from "../layout/GuestLayout";
+import Results from "../views/Results";
+import MisRubricas from "../views/MisRubricas";
+import UserLayout from "../layout/UserLayout";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,36 @@ const router = createBrowserRouter([
         element: <Rubrics />,
       },
       {
+        path: "/proyectos",
+        element: <Projects />,
+      },
+      {
+        path: "/crear",
+        element: <Create />,
+      },
+      {
+        path: "/resultados",
+        element: <Results />,
+      },
+      {
+        path: "/preguntasfrecuentes",
+        element: <Fqa />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <UserLayout />,
+    children: [
+      {
+        path: "/mis-rubricas",
+        element: <Navigate to="/" />,
+      },
+      {
+        path: "/",
+        element: <MisRubricas />,
+      },
+      {
         path: "/crear",
         element: <Create />,
       },
@@ -47,38 +80,8 @@ const router = createBrowserRouter([
         path: "/evaluar",
         element: <Evaluate />,
       },
-      {
-        path: "/preguntasfrecuentes",
-        element: <Fqa />,
-      },
-      {
-        path: "/proyectos",
-        element: <Projects />,
-      },
     ],
   },
-  // {
-  //     path: "/",
-  //     element: <UserLayout />,
-  //     children: [
-  //         {
-  //             path: "/dashboard",
-  //             element: <Navigate to="/" />,
-  //         },
-  //         {
-  //             path: "/",
-  //             element: <Dashboard />,
-  //         },
-  //         {
-  //             path: "/surveys",
-  //             element: <Surveys />,
-  //         },
-  //         {
-  //             path: "/surveys/create",
-  //             element: <SurveyView />,
-  //         },
-  //     ],
-  // },
 ]);
 
 export default router;
