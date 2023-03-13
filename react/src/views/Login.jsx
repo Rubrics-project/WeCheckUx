@@ -43,7 +43,7 @@ export default function Login({ password, email }) {
           <form
             onSubmit={onSubmit}
             className="mt-4 space-y-14"
-            action="#"
+            action="/"
             method="POST"
           >
             <input type="hidden" name="remember" defaultValue="true" />
