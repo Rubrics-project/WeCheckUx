@@ -1,11 +1,10 @@
 import React from "react";
-import faqIcon from "../../public/assets/faqIcon.svg";
-import projectsIcon from "../../public/assets/projectsIcon.svg";
-import addIcon from "../../public/assets/addIcon.svg";
-import accessIcon from "../../public/assets/accessIcon.svg";
-import gitHubIcon from "../../public/assets/gitHubIcon.svg";
+import faqIcon from "../assets/faqIcon.svg";
+import projectsIcon from "../assets/projectsIcon.svg";
+import addIcon from "../assets/addIcon.svg";
+import accessIcon from "../assets/accessIcon.svg";
+import gitHubIcon from "../assets/gitHubIcon.svg";
 import { useState } from "react";
-
 
 export default function Menu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -24,7 +23,8 @@ export default function Menu() {
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-              onClick={() => setIsNavOpen(false)}>
+              onClick={() => setIsNavOpen(false)}
+            >
               <svg
                 className="h-7 w-7 text-gray-600"
                 viewBox="0 0 24 24"
@@ -72,7 +72,9 @@ export default function Menu() {
               <li className="border-b border-gray-400 my-2">
                 <div className="menuIcon">
                   <img src={gitHubIcon} alt="Icon Login"></img>
-                 <a href="https://github.com/Rubrics-project/WeCheckUx">Contribuye al proyecto</a>
+                  <a href="https://github.com/Rubrics-project/WeCheckUx">
+                    Contribuye al proyecto
+                  </a>
                 </div>
               </li>
             </ul>
@@ -83,10 +85,8 @@ export default function Menu() {
        `}</style>
     </div>
   );
-    }
+}
 
-
-    
 // import React from "react";
 // import faqIcon from "../../public/assets/faqIcon.svg";
 // import projectsIcon from "../../public/assets/projectsIcon.svg";

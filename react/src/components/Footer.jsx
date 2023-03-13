@@ -1,4 +1,5 @@
 import React from "react";
+import githubBlue from "../assets/gitHubIconBlue.svg";
 
 export default function Footer() {
   return (
@@ -14,11 +15,7 @@ export default function Footer() {
 
         <div className="flex mr-3">
           <p className="font-opencustom text-color-blue-p text-xs">GitHub</p>
-          <img
-            className="ml-2"
-            src="../../public/assets/gitHubIconBlue.svg"
-            alt="Github icon"
-          />
+          <img className="ml-2" src={githubBlue} alt="Github icon" />
         </div>
       </a>
     </div>
