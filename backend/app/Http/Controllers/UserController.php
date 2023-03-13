@@ -88,6 +88,39 @@ class UserController extends Controller
         ]);
     }
 
+    public function show(User $user)
+    {
+        return $user;
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+        ]);
+
+       $user->name =  $request->name;
+       $user->email = $request->email;
+       $user->password = Hash::make($request->password);
+
+       $user->update();
+       return response()->json([
+        "status"=> 1,
+        "msg"=>"Usuario acrializado!"
+    ]);
+    }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        if(is_null($user)){
+            return response()->json("Usuario no encontrado", 404);
+        }
+        $user->delete();
+        return response()->json("Usuario Eliminado");
+    }
+
 
 
 
