@@ -97,7 +97,7 @@ export default function Login({ password, email }) {
                   htmlFor="remember-me"
                   className="ml-2 block text-sm text-color-bck "
                 >
-                  Remember me
+                  Recuerdame
                 </label>
               </div>
             </div>
