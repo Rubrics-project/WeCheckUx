@@ -11,7 +11,7 @@ export default function Signup() {
   const [isUser, setIsUser] = useState(false);
 
   const [name, setName] = useState("");
-  // const [surname, setSurname] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -31,7 +31,7 @@ export default function Signup() {
     e.preventDefault();
     const formData = {
       name,
-      // surname,
+      surname,
       email,
       password,
       password_confirmation: passwordConfirmation,
@@ -88,7 +88,7 @@ export default function Signup() {
                   placeholder="Nombre"
                 />
               </div>
-              {/* <div>
+              <div>
                 <label htmlFor="surname" className="font-opencustom text-sm">
                   Apellidos:
                 </label>
@@ -102,7 +102,7 @@ export default function Signup() {
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="Apellidos"
                 />
-              </div> */}
+              </div>
               <div>
                 <label
                   htmlFor="email-address"
