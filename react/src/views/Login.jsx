@@ -100,23 +100,6 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-color-grey-border-btn text-color-blue-p focus:ring-color-blue-p"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-color-bck "
-                >
-                  Recuerdame
-                </label>
-              </div>
-            </div>
-
             <div className="flex justify-center object-contain w-auto">
               <ReCAPTCHA
                 ref={captcha}
