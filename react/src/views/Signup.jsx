@@ -39,6 +39,7 @@ export default function Signup() {
     try {
       const response = await createItem(formData);
       setSuccess(true);
+      window.location.href = "/acceso";
     } catch (err) {
       setError(err.response.data.error);
     }
@@ -52,6 +53,7 @@ export default function Signup() {
       setValidCaptcha(false);
     }
   };
+
   return (
     <>
       {!isUser && (
@@ -60,11 +62,6 @@ export default function Signup() {
           {error && (
             <div className="bg-red-500 rounded py-2 px-3 text-white">
               {error}
-            </div>
-          )}
-          {success && (
-            <div className="bg-color-blue-p rounded py-2 px-3 text-white">
-              Registration Successful!
             </div>
           )}
 
@@ -189,6 +186,11 @@ export default function Signup() {
             </span>
           </p>
         </>
+      )}
+      {isUser && success && (
+        <div className="bg-color-blue-p rounded py-2 px-3 text-white">
+          Registration Successful!
+        </div>
       )}
     </>
   );
