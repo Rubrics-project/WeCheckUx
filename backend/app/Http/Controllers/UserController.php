@@ -20,12 +20,14 @@ class UserController extends Controller
     public function register(Request $request){
         $request->validate([
             'name'=>'required',
+            'surname'=>'required',
             'email'=>'required|email|unique:users',
             'password'=>'required|confirmed'
         ]);
 
         $user = new User;
         $user->name =  $request->name;
+        $user->surname =  $request->surname;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
@@ -97,11 +99,13 @@ class UserController extends Controller
     {
         $request->validate([
             'name'=>'required',
+            'surname'=>'required',
             'email'=>'required',
             'password'=>'required',
         ]);
 
        $user->name =  $request->name;
+       $user->surname =  $request->surname;
        $user->email = $request->email;
        $user->password = Hash::make($request->password);
 

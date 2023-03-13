@@ -1,15 +1,18 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
-import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
+import { postLogin } from "../services/userService";
 
-export default function Login({ password, email }) {
+export default function Login() {
   const [validCaptcha, setValidCaptcha] = useState(null);
   const [isUser, setIsUser] = useState(false);
-
   const captcha = useRef(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const onChange = () => {
     if (captcha.current.getValue()) {
@@ -18,12 +21,19 @@ export default function Login({ password, email }) {
     }
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-
-    // Validamos los inputs del formulario
-    // Si son correctos ya podemos enviar el fomulario, actualizar la Interfaz, etc.
-
+    const formData = {
+      email,
+      password,
+    };
+    try {
+      const response = await postLogin(formData);
+      setSuccess(true);
+      window.location.href = "/proyectos";
+    } catch (err) {
+      setError(err.response.data.error);
+    }
     if (captcha.current.getValue()) {
       console.log("El usuario no es un robot");
       setIsUser(true);
@@ -46,6 +56,11 @@ export default function Login({ password, email }) {
             action="#"
             method="POST"
           >
+            {error && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                {error}
+              </div>
+            )}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
@@ -62,7 +77,7 @@ export default function Login({ password, email }) {
                   autoComplete="email"
                   required
                   value={email}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="ejemplo@email.com"
                 />
@@ -78,27 +93,10 @@ export default function Login({ password, email }) {
                   autoComplete="current-password"
                   required
                   value={password}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="********"
                 />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-color-grey-border-btn text-color-blue-p focus:ring-color-blue-p"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-color-bck "
-                >
-                  Recuerdame
-                </label>
               </div>
             </div>
 
@@ -116,8 +114,13 @@ export default function Login({ password, email }) {
             )}
 
             <div className="flex justify-between">
-              <ButtonPrimary text={"Aceptar"} onClick={"pasar onclick"} />
-              <ButtonSecondary text={"Cancelar"} onClick={"pasar onclick"} />
+              <ButtonPrimary text={"Aceptar"} />
+              <Link
+                to="/"
+                className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+              >
+                Cancelar
+              </Link>
             </div>
           </form>
 
@@ -135,9 +138,11 @@ export default function Login({ password, email }) {
           </p>
         </>
       )}
-      {/* {isUser && 
-				//ir a dash usuario
-			} */}
+      {isUser && success && (
+        <div className="bg-color-blue-p rounded py-2 px-3 text-white">
+          ¡Acceso exitoso!
+        </div>
+      )}
     </>
   );
 }
