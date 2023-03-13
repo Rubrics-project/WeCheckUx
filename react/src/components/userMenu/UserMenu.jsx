@@ -20,9 +20,9 @@ export default function UserMenu() {
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
           </div>
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+          <div className={isNavOpen ? "showUserMenuNav" : "hideMenuNav"}>
             <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+              className="CROSS-ICON absolute top-0 right-0 px-38 py-8"
               onClick={() => setIsNavOpen(false)}>
               <svg
                 className="h-7 w-7 text-gray-600"
@@ -37,7 +37,7 @@ export default function UserMenu() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-left justify-between min-h-[250px]">
+            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-right justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
                   <img src={projectsIcon} alt="Icon Project"></img>
@@ -46,25 +46,26 @@ export default function UserMenu() {
               </li>
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
-                  <img src={addIcon} alt="Icon Create Rubric"></img>
+                  <img src={projectsIcon} alt="Icon Project"></img>
                   <a href="/rubricas"> Mis rúbricas</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
-                  <img src={faqIcon} alt="Icon Preguntas frecuentes"></img>
+                  <img src={projectsIcon} alt="Icon Project"></img>
                   <a href="/evaluar"> Mis evaluaciones</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
-                  <img src={accessIcon} alt="Icon Login"></img>
+                  <img src={addIcon} alt="Icon Add"></img>
                   <a href="/crear">Crear rúbrica</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
-                  <img src={accessIcon} alt="Icon Login"></img>
+                  {/* logoutIcon */}
+                  <img src={accessIcon} alt="Icon Logout"></img>
                   <a href="/home">Cerrar sesión</a>
                 </div>
               </li>
