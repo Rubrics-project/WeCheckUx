@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
-import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
 import { createItem } from "../services/userService";
@@ -9,7 +8,7 @@ import { createItem } from "../services/userService";
 export default function Signup() {
   const [validCaptcha, setValidCaptcha] = useState(null);
   const [isUser, setIsUser] = useState(false);
-
+  const captcha = useRef(null);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -17,8 +16,6 @@ export default function Signup() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-
-  const captcha = useRef(null);
 
   const onChange = () => {
     if (captcha.current.getValue()) {
@@ -59,11 +56,6 @@ export default function Signup() {
       {!isUser && (
         <>
           <Title title={"Registrarse"} />
-          {error && (
-            <div className="bg-red-500 rounded py-2 px-3 text-white">
-              {error}
-            </div>
-          )}
 
           <form
             onSubmit={onSubmit}
@@ -71,6 +63,11 @@ export default function Signup() {
             action="#"
             method="POST"
           >
+            {error && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                {error}
+              </div>
+            )}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
@@ -170,7 +167,12 @@ export default function Signup() {
 
             <div className="flex justify-between">
               <ButtonPrimary text={"Registrame"} />
-              <ButtonSecondary text={"Cancelar"} />
+              <Link
+                to="/"
+                className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+              >
+                Cancelar
+              </Link>
             </div>
           </form>
           <p className="mt-10 font-opencustom text-sm font-normal mb-10">
@@ -189,7 +191,7 @@ export default function Signup() {
       )}
       {isUser && success && (
         <div className="bg-color-blue-p rounded py-2 px-3 text-white">
-          Registration Successful!
+          ¡Registro exitoso!
         </div>
       )}
     </>

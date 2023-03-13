@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function ButtonSecondary({text}) {
+export default function ButtonSecondary({ text, onclick }) {
   return (
-    <button className= " font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md ">
-
-    {text}
-   </button>
-  )
+    <button
+      className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+      onClick={onclick}
+      type="button"
+    >
+      {text}
+    </button>
+  );
 }
