@@ -12,15 +12,8 @@ module.exports = {
         "color-grey-title": "#72777D",
         "color-grey-border": "#C8CCD1",
         "color-grey-border-btn": "#A2A9B1",
-
-        // "gradient-one": "#0634AD",
-        // "gradient-two": "#15D177",
-        // "gradient-tres": "#1D6C3D",
-        // "gradient-four": "#B219F0",
-        // "gradient-five": "#F4CD42",
-        // "gradient-seven": "#DE43A8",
-        // "gradient-eight": "#3B8F39",
       },
+      
       backgroundImage: {
         "gradient-final": "url('./public/assets/gradient1.svg')",
       },
