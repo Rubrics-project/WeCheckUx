@@ -4,16 +4,19 @@ import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
+import { createItem } from "../services/userService";
 
-export default function Signup({
-  name,
-  surname,
-  email,
-  password,
-  passwordConfirmation,
-}) {
+export default function Signup() {
   const [validCaptcha, setValidCaptcha] = useState(null);
   const [isUser, setIsUser] = useState(false);
+
+  const [name, setName] = useState("");
+  // const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const captcha = useRef(null);
 
@@ -24,12 +27,21 @@ export default function Signup({
     }
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-
-    // Validamos los inputs del formulario
-    // Si son correctos ya podemos enviar el fomulario, actualizar la Interfaz, etc.
-
+    const formData = {
+      name,
+      // surname,
+      email,
+      password,
+      password_confirmation: passwordConfirmation,
+    };
+    try {
+      const response = await createItem(formData);
+      setSuccess(true);
+    } catch (err) {
+      setError(err.response.data.error);
+    }
     if (captcha.current.getValue()) {
       console.log("El usuario no es un robot");
       setIsUser(true);
@@ -45,6 +57,17 @@ export default function Signup({
       {!isUser && (
         <>
           <Title title={"Registrarse"} />
+          {error && (
+            <div className="bg-red-500 rounded py-2 px-3 text-white">
+              {error}
+            </div>
+          )}
+          {success && (
+            <div className="bg-color-blue-p rounded py-2 px-3 text-white">
+              Registration Successful!
+            </div>
+          )}
+
           <form
             onSubmit={onSubmit}
             className="mt-8 space-y-14"
@@ -63,12 +86,12 @@ export default function Signup({
                   type="text"
                   required
                   value={name}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="Nombre"
                 />
               </div>
-              <div>
+              {/* <div>
                 <label htmlFor="surname" className="font-opencustom text-sm">
                   Apellidos:
                 </label>
@@ -78,11 +101,11 @@ export default function Signup({
                   type="text"
                   required
                   value={surname}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setSurname(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="Apellidos"
                 />
-              </div>
+              </div> */}
               <div>
                 <label
                   htmlFor="email-address"
@@ -97,7 +120,7 @@ export default function Signup({
                   autoComplete="email"
                   required
                   value={email}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="ejemplo@email.com"
                 />
@@ -113,7 +136,7 @@ export default function Signup({
                   autoComplete="current-password"
                   required
                   value={password}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="********"
                 />
@@ -128,7 +151,7 @@ export default function Signup({
                   type="password"
                   required
                   value={passwordConfirmation}
-                  onChange="" //poner evento {}
+                  onChange={(e) => setPasswordConfirmation(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
                   placeholder="********"
                 />
@@ -149,8 +172,8 @@ export default function Signup({
             )}
 
             <div className="flex justify-between">
-              <ButtonPrimary text={"Registrame"} onClick={"pasar onclick"} />
-              <ButtonSecondary text={"Cancelar"} onClick={"pasar onclick"} />
+              <ButtonPrimary text={"Registrame"} />
+              <ButtonSecondary text={"Cancelar"} />
             </div>
           </form>
           <p className="mt-10 font-opencustom text-sm font-normal mb-10">
