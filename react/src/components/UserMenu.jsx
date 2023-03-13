@@ -1,9 +1,9 @@
 import React from "react";
-import faqIcon from "../../public/assets/faqIcon.svg";
-import projectsIcon from "../../public/assets/projectsIcon.svg";
-import addIcon from "../../public/assets/addIcon.svg";
-import accessIcon from "../../public/assets/accessIcon.svg";
-import gitHubIcon from "../../public/assets/gitHubIcon.svg";
+import faqIcon from "../assets/faqIcon.svg";
+import projectsIcon from "../assets/projectsIcon.svg";
+import addIcon from "../assets/addIcon.svg";
+import accessIcon from "../assets/accessIcon.svg";
+import gitHubIcon from "../assets/gitHubIcon.svg";
 import { useState } from "react";
 
 
