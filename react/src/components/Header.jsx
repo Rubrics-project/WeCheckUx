@@ -1,5 +1,7 @@
 import React from "react";
-import Menu from "./menu";
+import Menu from "./Menu";
+
+
 
 export default function Header() {
   return (
