@@ -36,19 +36,13 @@ export default function Signup() {
     try {
       const response = await createItem(formData);
       setSuccess(true);
-      window.location.href = "/acceso";
-    } catch (err) {
-      setError(err.response.data.error);
-    }
-    if (captcha.current.getValue()) {
-      console.log("El usuario no es un robot");
       setIsUser(true);
       setValidCaptcha(true);
-    } else {
-      console.log("Por favor acepta el captcha");
-      setIsUser(false);
-      setValidCaptcha(false);
+      window.location.href = "/acceso";
+    } catch (err) {
+      setError(JSON.parse(err.request.response).msg);
     }
+   
   };
 
   return (

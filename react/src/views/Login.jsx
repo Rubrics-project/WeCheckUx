@@ -14,13 +14,6 @@ export default function Login() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const onChange = () => {
-    if (captcha.current.getValue()) {
-      console.log("El usuario no es un robot");
-      setValidCaptcha(true);
-    }
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = {
@@ -30,18 +23,18 @@ export default function Login() {
     try {
       const response = await postLogin(formData);
       setSuccess(true);
+      setIsUser(true);
+      setValidCaptcha(true)
       window.location.href = "/proyectos";
     } catch (err) {
-      setError(err.response.data.error);
+      setError((JSON.parse(err.request.response).msg));
     }
+  };
+
+  const onChange = () => {
     if (captcha.current.getValue()) {
       console.log("El usuario no es un robot");
-      setIsUser(true);
       setValidCaptcha(true);
-    } else {
-      console.log("Por favor acepta el captcha");
-      setIsUser(false);
-      setValidCaptcha(false);
     }
   };
 
