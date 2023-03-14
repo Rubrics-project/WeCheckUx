@@ -1,10 +1,8 @@
 import React from "react";
-import faqIcon from "../../assets/faqIcon.svg";
 import projectsIcon from "../../assets/projectsIcon.svg";
 import addIcon from "../../assets/addIcon.svg";
-import accessIcon from "../../assets/accessIcon.svg";
+import logoutIcon from "../../assets/logoutIcon.svg";
 import { useState } from "react";
-
 
 export default function UserMenu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,7 +21,8 @@ export default function UserMenu() {
           <div className={isNavOpen ? "showUserMenuNav" : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-38 py-8"
-              onClick={() => setIsNavOpen(false)}>
+              onClick={() => setIsNavOpen(false)}
+            >
               <svg
                 className="h-7 w-7 text-gray-600"
                 viewBox="0 0 24 24"
@@ -64,8 +63,7 @@ export default function UserMenu() {
               </li>
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">
-                  {/* logoutIcon */}
-                  <img src={accessIcon} alt="Icon Logout"></img>
+                  <img src={logoutIcon} alt="Icon Logout"></img>
                   <a href="/home">Cerrar sesión</a>
                 </div>
               </li>
@@ -77,7 +75,4 @@ export default function UserMenu() {
        `}</style>
     </div>
   );
-    }
-
-
-  
+}
