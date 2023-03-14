@@ -1,4 +1,7 @@
 import React from 'react'
+import ReCAPTCHA from 'react-google-recaptcha';
+import { Link } from 'react-router-dom';
+import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import InformationBox from '../components/InformationBox';
 import Title from "../components/Title";
 
@@ -39,11 +42,39 @@ export default function Create() {
             <lable for="regular" className="font-opencustom text-sm" >Regular:</lable>
             <input type="text" id="regular" name="regular" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
-            
+            <lable for="suficient" className="font-opencustom text-sm" >Suficiente:</lable>
+            <input type="text" id="suficiente" name="suficiente" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
+            <lable for="good" className="font-opencustom text-sm" >Bien:</lable>
+            <input type="text" id="suficiente" name="good" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
+            <lable for="excelent" className="font-opencustom text-sm" >Excelente:</lable>
+            <input type="text" id="excelent" name="excelent" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
             <button type="submit">Añadir dimensión</button>
+
+            {/* <div className="flex justify-center object-contain w-auto">
+              <ReCAPTCHA
+                ref={captcha}
+                sitekey="6LelgfUkAAAAALIEUAndhjmpr1K-TDo8S4CqigxX"
+                onChange={onChange}
+              />
+            </div>
+            {validCaptcha === false && (
+              <div className="flex justify-center text-red-500 font-bold">
+                Por favor acepta el captcha.
+              </div>
+            )} */}
+
+            <div className="flex justify-between">
+              <ButtonPrimary text={"Guardar"} />
+              <Link
+                to="/"
+                className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+              >
+                Cancelar
+              </Link>
+            </div>
             </form>
           
          
