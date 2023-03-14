@@ -1,6 +1,7 @@
 import React from "react";
 import projectsIcon from "../../assets/projectsIcon.svg";
 import addIcon from "../../assets/addIcon.svg";
+import loggedIcon from "../../assets/loggedIcon.svg";
 import logoutIcon from "../../assets/logoutIcon.svg";
 import { useState } from "react";
 
@@ -10,13 +11,17 @@ export default function UserMenu() {
     <div className="">
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
+          
           <div
-            className="HAMBURGER-ICON fixed top-[40px] right-[10px] space-y-2"
+            className="HAMBURGER-ICON fixed top-[20px] right-[10px] space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+            <a
+            href="#"
+            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 fixed top-[7px] right-[1px] space-y-2 font-medium rounded-lg text-sm px-0 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+          >
+            <img src={loggedIcon} alt="PerfilUsuario"></img>
+          </a>
           </div>
           <div className={isNavOpen ? "showUserMenuNav" : "hideMenuNav"}>
             <div
@@ -36,6 +41,7 @@ export default function UserMenu() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
+
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-right justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-2">
                 <div className="UserMenuIcon">

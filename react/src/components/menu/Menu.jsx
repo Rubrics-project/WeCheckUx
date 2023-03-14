@@ -13,7 +13,7 @@ export default function Menu() {
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
-            className="HAMBURGER-ICON fixed top-[40px] left-[10px] space-y-2"
+            className="HAMBURGER-ICON fixed top-[20px] left-[10px] space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             {/* <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>

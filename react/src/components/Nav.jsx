@@ -19,7 +19,6 @@ export default function Nav() {
           <img src={loggedIcon} alt="PerfilUsuario"></img>
         </a>
       </div>
-
       <div
         class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
         id="mobile-menu"
