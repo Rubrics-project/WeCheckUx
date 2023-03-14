@@ -16,9 +16,9 @@ export default function Menu() {
             className="HAMBURGER-ICON fixed top-[40px] left-[10px] space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
+            {/* <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
+            <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span> */}
           </div>
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
