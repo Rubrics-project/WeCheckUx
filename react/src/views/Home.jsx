@@ -1,4 +1,5 @@
 import React from "react";
+import Browser from "../components/Browser"
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
@@ -11,6 +12,7 @@ import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 export default function Home() {
   return (
     <>
+    <Browser />
       <h1 className=" font-opencustom  font-bold text-2xl py-14 px-6">
         ¡Te damos la bienvenida a WeCheck!{" "}
       </h1>
