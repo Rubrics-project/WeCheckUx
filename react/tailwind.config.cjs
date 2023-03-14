@@ -13,9 +13,9 @@ module.exports = {
         "color-grey-border": "#C8CCD1",
         "color-grey-border-btn": "#A2A9B1",
       },
-      
+
       backgroundImage: {
-        "gradient-final": "url('./public/assets/gradient1.svg')",
+        "gradient-final": "url('./src/assets/gradient1.svg')",
       },
 
       fontFamily: {

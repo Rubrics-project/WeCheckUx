@@ -1,9 +1,9 @@
 import React from "react";
-import faqIcon from "../assets/faqIcon.svg";
-import projectsIcon from "../assets/projectsIcon.svg";
-import addIcon from "../assets/addIcon.svg";
-import accessIcon from "../assets/accessIcon.svg";
-import gitHubIcon from "../assets/gitHubIcon.svg";
+import faqIcon from "../../assets/faqIcon.svg";
+import projectsIcon from "../../assets/projectsIcon.svg";
+import addIcon from "../../assets/addIcon.svg";
+import accessIcon from "../../assets/accessIcon.svg";
+import gitHubIcon from "../../assets/gitHubIcon.svg";
 import { useState } from "react";
 
 export default function Menu() {
@@ -13,7 +13,7 @@ export default function Menu() {
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
-            className="HAMBURGER-ICON space-y-2"
+            className="HAMBURGER-ICON fixed top-[40px] left-[10px] space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
@@ -22,7 +22,7 @@ export default function Menu() {
           </div>
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+              className="CROSS-ICON absolute top-0 right-0 px-38 py-8"
               onClick={() => setIsNavOpen(false)}
             >
               <svg
