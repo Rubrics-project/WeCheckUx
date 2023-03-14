@@ -11,18 +11,11 @@ export default function UserMenu() {
     <div className="">
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
-          
-          <div
-            className="HAMBURGER-ICON fixed top-[20px] right-[10px] space-y-2"
+          <img
+            src={loggedIcon}
+            alt="PerfilUsuario"
             onClick={() => setIsNavOpen((prev) => !prev)}
-          >
-            <a
-            href="#"
-            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 fixed top-[7px] right-[1px] space-y-2 font-medium rounded-lg text-sm px-0 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-          >
-            <img src={loggedIcon} alt="PerfilUsuario"></img>
-          </a>
-          </div>
+          ></img>
           <div className={isNavOpen ? "showUserMenuNav" : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-38 py-8"
@@ -44,31 +37,31 @@ export default function UserMenu() {
 
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-right justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-2">
-                <div className="UserMenuIcon">
+                <div className="menuIcon">
                   <img src={projectsIcon} alt="Icon Project"></img>
                   <a href="/Proyectos">Proyectos</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <div className="UserMenuIcon">
+                <div className="menuIcon">
                   <img src={projectsIcon} alt="Icon Project"></img>
                   <a href="/rubricas"> Mis rúbricas</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <div className="UserMenuIcon">
+                <div className="menuIcon">
                   <img src={projectsIcon} alt="Icon Project"></img>
                   <a href="/evaluar"> Mis evaluaciones</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <div className="UserMenuIcon">
+                <div className="menuIcon">
                   <img src={addIcon} alt="Icon Add"></img>
                   <a href="/crear">Crear rúbrica</a>
                 </div>
               </li>
               <li className="border-b border-gray-400 my-2">
-                <div className="UserMenuIcon">
+                <div className="menuIcon">
                   <img src={logoutIcon} alt="Icon Logout"></img>
                   <a href="/home">Cerrar sesión</a>
                 </div>
