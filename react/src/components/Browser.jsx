@@ -4,9 +4,9 @@ import browserIcon from "../assets/browserIcon.svg";
 
 export default function Browser() {
   return (
-    <form>
-        <div class='browser'>
-            <input class= 'bg-color-grey-bg focus:ring-1 focus:ring-indigo-500 rounded-1xl p-2 mx-auto w-11/12 mt-3' type='text' placeholder='Buscar...'/>
+    <form className= 'flex justify-center mb-50'>
+        <div className='flex relative p-0.5 bg-color-grey-title rounded w-2/6'>
+            <input className='flex-1 p-2 pl4 rounded w-full' type='text' placeholder='Buscar...'/>
         </div>
     </form>
   )
