@@ -100,8 +100,9 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="flex justify-center object-contain w-auto">
+            <div className="flex flex-col justify-center items-center">
               <ReCAPTCHA
+                className="max-w-3/4 mx-auto"
                 ref={captcha}
                 sitekey="6LelgfUkAAAAALIEUAndhjmpr1K-TDo8S4CqigxX"
                 onChange={onChange}
