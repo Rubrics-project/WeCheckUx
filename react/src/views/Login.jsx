@@ -113,11 +113,11 @@ export default function Login() {
               </div>
             )}
 
-            <div className="flex justify-between">
+            <div className="w-full grid grid-cols-2 gap-7">
               <ButtonPrimary text={"Aceptar"} />
               <Link
                 to="/"
-                className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
               >
                 Cancelar
               </Link>
