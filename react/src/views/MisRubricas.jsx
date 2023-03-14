@@ -1,5 +1,10 @@
 import React from "react";
+import Title from "../components/Title";
 
 export default function MisRubricas() {
-  return <div>MisRubricas</div>;
+  return (
+    <>
+      <Title title={"Mis rúbricas"} />
+    </>
+  );
 }

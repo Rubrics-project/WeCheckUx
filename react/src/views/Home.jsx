@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <h1 className="font-opencustom font-bold text-2xl py-14">
-        ¡Te damos la bienvenida a WeCheck!{" "}
+        ¡Te damos la bienvenida a WeCheck!
       </h1>
 
       <p className="font-opencustom text-sm">
@@ -26,7 +26,7 @@ export default function Home() {
           {" "}
           <Link
             to="/preguntasfrecuentes"
-            className="font-opencustom text-sm font-bold text-color-blue-p underline hover:text-color-blue-light"
+            className="font-opencustom text-sm text-color-blue-p underline hover:text-color-blue-light"
           >
             Preguntas frecuentes.
           </Link>
