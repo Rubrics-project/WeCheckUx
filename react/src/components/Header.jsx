@@ -6,9 +6,10 @@ import logo from "../assets/logo.svg";
 
 export default function Header() {
   return (
-    <>
-      <Menu />
+    <div className="flex  justify-between  p-8">
+         <Menu />
+       <a><img src={logo} alt="Icon Create Rubric"></img></a>
       <UserMenu />
-    </>
+    </div>
   );
 }

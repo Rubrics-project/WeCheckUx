@@ -9,11 +9,11 @@ import { useState } from "react";
 export default function Menu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 py-8">
+    // <div className="flex items-center justify-between border-b border-gray-400 py-8">
       <nav>
-        <section className="MOBILE-MENU flex lg:hidden">
+        <section className="flex lg:hidden">
           <div
-            className="HAMBURGER-ICON fixed top-[20px] left-[10px] space-y-2"
+            className="space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
@@ -22,11 +22,11 @@ export default function Menu() {
           </div>
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
-              className="CROSS-ICON absolute top-0 right-0 px-38 py-8"
+              className="absolute top-0 right-0"
               onClick={() => setIsNavOpen(false)}
             >
               <svg
-                className="h-7 w-7 text-gray-600"
+                className="h-7 text-gray-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -81,8 +81,6 @@ export default function Menu() {
           </div>
         </section>
       </nav>
-      <style>{`
-       `}</style>
-    </div>
-  );
+      //   </div>
+   );
 }
