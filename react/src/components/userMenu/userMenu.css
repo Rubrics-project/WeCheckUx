@@ -12,7 +12,7 @@
   display: block;
   position: absolute;
   width: auto;
-  height: 59vh;
+  height: 56%;
   top: 0;
   left: 60%;
   right:10px;
@@ -22,4 +22,5 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: right;
+  margin-top: 9vh;
 }
