@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
@@ -18,31 +19,46 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
-        $request->validate([
-            'name'=>'required',
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
             'surname'=>'required',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|confirmed'
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $user = new User;
-        $user->name =  $request->name;
-        $user->surname =  $request->surname;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        if ($validator->fails()) {
+            return response()->json([
+                "status"=> 0,
+                "msg"=>"¡Completa los campos correctamente!"
+            ], 404);
+        }
 
-        $user->save();
+        if (User::where('email', $request->email)->exists()) {
+            return response()->json([
+                "status"=> 0,
+                "msg"=>"¡Este email ya existe!"
+            ], 404);
+        }
 
-        return response()->json([
-            "status"=> 1,
-            "msg"=>"Registro exitoso!"
+        if(!$validator->fails() && !User::where('email', $request->email)->exists()){
+            $user = new User;
+            $user->name =  $request->name;
+            $user->surname =  $request->surname;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
 
-        ]);
+            $user->save();
+            return response()->json([
+                "status"=> 1,
+                "msg"=>"Registro exitoso!"]);
+        }
+
     }
 
     public function login(Request $request){
          $request->validate([
-            'email'=>'required|email',
+            'email'=>'required|string|email|max:255',
             'password'=>'required'
         ]);
 
@@ -61,14 +77,14 @@ class UserController extends Controller
             else{
                 return response()->json([
                     "status"=> 0,
-                    "msg"=>"Password incorrecta!"
+                    "msg"=>"¡Usuario y/o Contraseña incorrectos!"
                 ], 404);
             }
         }
         else{
             return response()->json([
                 "status"=> 0,
-                "msg"=>"User no encontrado!"
+                "msg"=>"¡Usuario y/o Contraseña incorrectos!"
             ], 404);
         }
 
