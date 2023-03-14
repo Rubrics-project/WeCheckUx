@@ -6,6 +6,7 @@ import "./index.css";
 import "./components/menu/menu.css";
 import "./components/userMenu/userMenu.css";
 import router from "./router/router";
+import "./components/menu/menu.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
