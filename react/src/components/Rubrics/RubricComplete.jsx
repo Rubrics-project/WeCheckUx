@@ -1,7 +1,5 @@
 import icon from "../../assets/doubleCheck.svg";
-import arrow from "../../assets/arrowIcon.svg";
-import { useState } from "react";
-// import Dimensión from "./Dimension";
+import Dimensión from "./Dimension";
 
 export default function Rubric({
   title,
@@ -11,16 +9,7 @@ export default function Rubric({
   project_title,
   project_url,
   project_description,
-  dimension_title,
-  dimension_description,
-  criteria_description,
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
       <div className="flex bg-color-grey-bg p-2">
@@ -69,50 +58,30 @@ export default function Rubric({
         </h4>
         <p className="font-opencustom text-xs">{project_description}</p>
       </div>
-      {/* <Dimensión
-        dimension_title={dimension_title}
-        dimension_description={dimension_description}
-      /> */}
-      <>
-        {/* Dimension traerla como un componente? */}
-        <hr className=" border-color-blue-p border-t" />
-        <div className="px-3 space-y-1 py-3">
-          <h4 className="font-opencustom text-xs text-color-grey-title ">
-            Dimensión:
-          </h4>
-          <p className="font-opencustom text-xs font-bold">{dimension_title}</p>
-        </div>
-        <hr className=" border-color-grey-bg border-2" />
-        <div className="px-3 space-y-1 py-3">
-          <h4 className="font-opencustom text-xs text-color-grey-title ">
-            Descripción de la dimensión:
-          </h4>
-          <p className="font-opencustom text-xs">{dimension_description}</p>
-        </div>
-        <hr className=" border-color-grey-bg border-2" />
-        <div className="space-y-1 py-3">
-          <h4 className="pl-3 font-opencustom text-xs text-color-grey-title ">
-            Criterio a evaluar:
-          </h4>
-          <div className="flex bg-color-grey-bg p-3">
-            <p className="font-opencustom text-xs">{criteria_description}</p>
-          </div>
-          <div
-            className="flex bg-color-grey-bg p-3 justify-center cursor-pointer"
-            onClick={toggleAccordion}
-          >
-            <img src={arrow} alt="Icono flecha desplegable" />
-          </div>
-          {isOpen && (
-            <div className="px-3 space-y-1 py-3">
-              <h4 className="font-opencustom text-xs text-color-grey-title ">
-                Negativo:
-              </h4>
-              <p className="font-opencustom text-xs">Texto</p>
-            </div>
-          )}
-        </div>
-      </>
+      <Dimensión
+        dimension_title={"Identidad de género"}
+        dimension_description={
+          "Problemas de acceso basados en los roles e identidad de género."
+        }
+        criteria_description={
+          "Lorem Ipsum is simply dummy text of the printing typesetting text of the printing."
+        }
+        negative_description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
+        }
+        regular_description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
+        }
+        suficient_description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
+        }
+        bien_description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
+        }
+        excelent_description={
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
+        }
+      />
     </div>
   );
 }

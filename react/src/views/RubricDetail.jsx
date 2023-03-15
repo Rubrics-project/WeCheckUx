@@ -16,13 +16,6 @@ export default function RubricDetail() {
         project_description={
           "Buscador de contenidos en la red. Analizamos la versión “.es”."
         }
-        dimension_title={"Identidad de género"}
-        dimension_description={
-          "Problemas de acceso basados en los roles e identidad de género."
-        }
-        criteria_description={
-          "Lorem Ipsum is simply dummy text of the printing typesetting text of the printing."
-        }
       />
     </>
   );
