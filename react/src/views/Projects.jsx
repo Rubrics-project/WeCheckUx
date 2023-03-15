@@ -8,7 +8,16 @@ export default function Projects() {
     <>
       <Browser />
       <Title title={"Proyectos"} />
-      <ProjectCard />
+      <ProjectCard
+        project_name={"Google"}
+        project_description={
+          "Lorem Ipsum is simply dummy text of the printing typesetting."
+        }
+        project_url={"wwww.google.com"}
+        projectOnClick={""}
+        totalRubrics={"0"}
+        totalEvaluations={"0"}
+      />
     </>
   );
 }
