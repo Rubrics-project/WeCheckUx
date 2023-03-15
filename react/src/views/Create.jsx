@@ -6,6 +6,7 @@ import ButtonSecondaryIconSmall from '../components/buttons/ButtonSecondaryIconS
 import InformationBox from '../components/InformationBox';
 import Title from "../components/Title";
 import dropdownIcon from "../assets/dropdownIcon.svg";
+import Browser from '../components/Browser';
 
 
  export default function Create() {
@@ -37,6 +38,7 @@ import dropdownIcon from "../assets/dropdownIcon.svg";
 
   return (
     <>
+    <Browser />
  <form action="#" method="post" id="create" className="mt-2 space-y-1">
 
     <Title title={"Google"} />
@@ -69,7 +71,7 @@ import dropdownIcon from "../assets/dropdownIcon.svg";
             <lable for="evaluation" className="font-opencustom text-sm"> Criterio a evaluar:</lable>
             <input type="text" id="evaluation" name="evaluation" placeholder="Criterio que ha de ser evaluado"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
-            <img className='mr-2' src="{dropdownIcon}" alt="dropdown icon" ></img>
+            <img className='mr-2' src="../assets/dropdownIcon.svg" alt="dropdown icon" ></img>
 
             <lable for="negative" className="font-opencustom text-sm" >Negativo:</lable>
             <input type="taxt" id="negative" name="negative" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
