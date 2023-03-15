@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Browser from "../components/Browser.jsx";
 import { getAllItems } from "../services/userService.js";
 
 export default function Rubrics() {
@@ -14,11 +15,14 @@ export default function Rubrics() {
       });
   }, []);
   return (
-    <div>
-      Rubrics
-      {items.map((item) => (
-        <div key={item.id}>{item.name}</div>
-      ))}
-    </div>
+    <>
+      <Browser />
+      <div>
+        Rubrics
+        {items.map((item) => (
+          <div key={item.id}>{item.name}</div>
+        ))}
+      </div>
+    </>
   );
 }
