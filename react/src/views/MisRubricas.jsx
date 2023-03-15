@@ -30,6 +30,12 @@ export default function MisRubricas() {
           rubric_date={"20/3/2022"}
         />
       ))}
+      <RubricUser
+        title={"nombre"}
+        rubric_description={"descripcion"}
+        project_title={"Google"}
+        rubric_date={"20/3/2022"}
+      />
     </>
   );
 }

@@ -10,7 +10,9 @@ import Projects from "../views/Projects";
 import GuestLayout from "../layout/GuestLayout";
 import Results from "../views/Results";
 import MisRubricas from "../views/MisRubricas";
+import ProjectDetail from "../views/ProjectDetail";
 import RubricDetail from "../views/RubricDetail";
+import Rubrics from "../views/Rubrics";
 import UserLayout from "../layout/UserLayout";
 
 const router = createBrowserRouter([
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
         element: <Projects />,
       },
       {
+        path: "/proyectos/id",
+        element: <ProjectDetail />,
+      },
+      {
         path: "/crear",
         element: <Create />,
       },
@@ -63,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/mis-rubricas",
         element: <MisRubricas />,
+      },
+      {
+        path: "/rubricas",
+        element: <Rubrics />,
       },
       {
         path: "/mis-rubricas/id",

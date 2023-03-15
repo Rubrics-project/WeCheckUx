@@ -7,9 +7,9 @@ export default function ProjectDetail() {
     <>
       {/* PONER EN EL TITULO EL ID DEL TITULO DEL PROYECTO */}
       <Title title={"Google"} />
+      <p>proyecto detalle -- botones no iran</p>
       {/* HACER BUCLE PARA TRAER TODOS LOS ID DE RUBRICAS DE EL PROYECTO SELECCIONADO */}
       {/* Añadir botones Evaluar y evaluaciones */}
-      <Title title={"Google"} />
       <RubricProject
         title={"Título rúbrica"}
         rubric_description={
