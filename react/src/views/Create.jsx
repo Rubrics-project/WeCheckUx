@@ -39,30 +39,25 @@ import Title from "../components/Title";
 
     <Title title={"Google"} />
 
-    <label for="url" className="font-opencustom text-sm">URL:</label>
-            <input type="text" id="url" name="url" placeholder={"www.google.com"}  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+    <label for="url" className="font-opencustom text-sm text-color-grey-title">URL:</label>
+            <input type="text" id="url" name="url" placeholder={"www.google.com"}  className="w-full px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10  focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "/>
+            <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-    <label for="description:" className="font-opencustom text-sm">Description:</label>
-    <input type="text" id="description" name="description" placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+    <label for="description:" className="font-opencustom text-sm  text-color-grey-title">Description:</label>
+    <input type="text" id="description" name="description" placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."  className="w-full  px-3 py-2 text-color-bck focus:z-10 focus:outline-none font-opencustom text-base mt-2"/>
+    <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-    <div className="bg-A7D7F9">
-    {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"}  />}
+    <div className="content-start bg-blue-100 text-color-blue-s">
+    {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"} />}
     </div>
 
-     <label for="title" className="font-opencustom text-sm">Título:</label>
-            <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
-
-     <label for="description:" className="font-opencustom text-sm">Description:</label>
-            <input type="text" id="description" name="description" placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
-   
-          
-            <label for="title" className="font-opencustom text-sm">Título:</label>
-            <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+     <label for="title" className="font-opencustom text-base font-bold">Título:</label>
+            <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "/>
 
             <label for="description" className="font-opencustom text-sm">Descripción de la rúbrica:</label>
             <input type="text" id="description" name="description" placeholder="Problemas de acceso basados en los roles e identidad de género." className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
-            <label for="dimension" className="font-opencustom text-sm">Dimensión:</label>
+            <label for="dimension" className="font-opencustom text-sm font-bold">Dimensión:</label>
             <input type="text" id="dimension" name="dimension" placeholder="Dimensión" className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
             <label for="description" className="font-opencustom text-sm">Descripción de la dimensión:</label>
