@@ -11,7 +11,10 @@ class Rubric extends Model
 
     protected $fillable = [
         'title',
-        'description',
+        'description'
+        // 'user_id',
+        // 'evaluation_id',
+        // 'project_id'
 
     ];
 }
