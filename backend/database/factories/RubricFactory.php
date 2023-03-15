@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Evaluation;
+
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,7 +23,6 @@ class RubricFactory extends Factory
             'title'=> fake()->sentence(),
             'description'=> fake()->paragraph(),
             'user_id'=> User::pluck('id')->random(),
-            'evaluation_id'=> Evaluation::pluck('id')->random(),
             'project_id'=> Project::pluck('id')->random(),
         ];
     }

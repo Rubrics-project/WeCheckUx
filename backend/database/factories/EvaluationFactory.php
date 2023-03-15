@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Rubric;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,6 +26,7 @@ class EvaluationFactory extends Factory
             'suficient'=> fake()->paragraph(),
             'good'=> fake()->paragraph(),
             'excelent'=> fake()->paragraph(),
+            'rubric_id'=> Rubric::pluck('id')->random(),
         ];
     }
 }
