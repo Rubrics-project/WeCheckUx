@@ -7,53 +7,66 @@ use Illuminate\Http\Request;
 
 class RubricController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return Rubric::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-
+            'user_id'=> 'required',
+            'evaluation_id'=> 'required',
+            'project_id' => 'required'
         ]);
         $rubric = new Rubric();
         $rubric->title =  $request->title;
         $rubric->description = $request->description;
+        $rubric->user_id =  $request->user_id;
+        $rubric->evaluation_id =  $request->evaluation_id;
+        $rubric->project_id =  $request->project_id;
 
         $rubric->save();
         return $rubric;
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Rubric $rubric)
     {
-        //
+        return $rubric;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Rubric $rubric)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            // 'user_id'=> 'required',
+            // 'evaluation_id'=> 'required',
+            // 'project_id' => 'required'
+        ]);
+
+        $rubric->title =  $request->title;
+        $rubric->description = $request->description;
+        // $rubric->user_id =  $request->user_id;
+        // $rubric->evaluation_id =  $request->evaluation_id;
+        // $rubric->project_id =  $request->project_id;
+
+        $rubric->update();
+        return response()->json('Proyecto modificado!', 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Rubric $rubric)
+
+    public function destroy($id)
     {
-        //
+        $rubric = Rubric::find($id);
+        if(is_null($rubric)){
+            return response()->json("Rúbrica no encontrada", 404);
+        }
+        $rubric->delete();
+        return response()->json("¡La rúbrica se ha eliminado con éxito!", 200);
     }
 }

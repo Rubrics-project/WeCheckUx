@@ -7,17 +7,13 @@ use Illuminate\Http\Request;
 
 class EvaluationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return Evaluation::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -32,25 +28,26 @@ class EvaluationController extends Controller
         ]);
 
         $evaluation = new Evaluation();
-        $evaluation->name = $request->name;
-        $evaluation->url = $request->url;
+        $evaluation->title = $request->title;
         $evaluation->description = $request->description;
+        $evaluation->evaluation_text = $request->evaluation_text;
+        $evaluation->negative = $request->negative;
+        $evaluation->regular = $request->regular;
+        $evaluation->suficient = $request->suficient;
+        $evaluation->good = $request->good;
+        $evaluation->excelent = $request->excelent;
 
         $evaluation->save();
         return $evaluation;
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Evaluation $evaluation)
     {
         return $evaluation;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Evaluation $evaluation)
     {
         $request->validate([
@@ -64,24 +61,27 @@ class EvaluationController extends Controller
             'excelent'=>'required',
         ]);
 
-        $evaluation->name = $request->name;
-        $evaluation->url = $request->url;
+        $evaluation->title = $request->title;
         $evaluation->description = $request->description;
+        $evaluation->evaluation_text = $request->evaluation_text;
+        $evaluation->negative = $request->negative;
+        $evaluation->regular = $request->regular;
+        $evaluation->suficient = $request->suficient;
+        $evaluation->good = $request->good;
+        $evaluation->excelent = $request->excelent;
 
         $evaluation->update();
-        return $evaluation;
+        return response()->json('Evaluación modificada', 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
         $evaluation = Evaluation::find($id);
         if(is_null($evaluation)){
-            return response()->json('Evaluación no encontrada');
+            return response()->json('Evaluación no encontrada', 404);
         }
         $evaluation->delete();
-        return response()->noContent();
+        return response()->json('Evaluación eliminada!', 200);
     }
 }
