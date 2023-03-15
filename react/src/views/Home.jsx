@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
+      <Browser />
       <h1 className="font-opencustom font-bold text-2xl py-14">
         ¡Te damos la bienvenida a WeCheck!
       </h1>
