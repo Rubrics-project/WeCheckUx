@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Title from "../components/Title";
 
 export default function Fqa() {
   return (
-    <div>Fqa</div>
-  )
+    <>
+      <Title title={"Preguntas Frecuentes"} />
+    </>
+  );
 }

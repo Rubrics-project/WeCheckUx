@@ -23,8 +23,6 @@ return new class extends Migration
             $table->text('suficient');
             $table->text('good');
             $table->text('excelent');
-            $table->unsignedBigInteger('rubric_id');
-            $table->foreign('rubric_id')->references('id')->on('rubrics');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

@@ -1,62 +1,58 @@
 import React from "react";
 import Browser from "../components/Browser"
 import { Link } from "react-router-dom";
-import ButtonPrimary from "../components/buttons/ButtonPrimary";
-import ButtonSecondary from "../components/Buttons/ButtonSecondary";
-// import ButtonPrimaryIcon from "../components/Buttons/ButtonPrimaryIcon";
-// import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
-// import ButtonSecondaryIcon from "../components/Buttons/ButtonSecondaryIcon";
-// import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
-// import ButtonSecondaryIconSmall from "../components/Buttons/ButtonSecondaryIconSmall";
 
 export default function Home() {
   return (
     <>
-    <Browser />
-      <h1 className=" font-opencustom  font-bold text-2xl py-14 px-6">
-        ¡Te damos la bienvenida a WeCheck!{" "}
+      <h1 className="font-opencustom font-bold text-2xl py-14">
+        ¡Te damos la bienvenida a WeCheck!
       </h1>
 
-      <p className="text-sm py-5 px-6 ">
+      <p className="font-opencustom text-sm">
         Mejorar la <b>experiencia de usuario</b> (UX) es fundamental para
         asegurar la satisfacción de cada visitante.
       </p>
 
-      <p className="text-sm py-14 px-6">
+      <p className="font-opencustom text-sm py-10">
         En WeCheckUX puedes <b>evaluar, mediante rúbricas</b> creadas por
         diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además,
         tienes la posibilidad de crear tus propias rúbricas. Por eso, tu
         contribución es muy valiosa.
       </p>
 
-      <p className="px-6">
-        Si tienes alguna duda, consulta nuestras <br></br>{" "}
-        <a href="url">Preguntas Frecuentes.</a>{" "}
+      <p className="font-opencustom text-sm">
+        Si tienes alguna duda, consulta nuestras <br />{" "}
+        <span>
+          {" "}
+          <Link
+            to="/preguntasfrecuentes"
+            className="font-opencustom text-sm text-color-blue-p underline hover:text-color-blue-light"
+          >
+            Preguntas frecuentes.
+          </Link>
+        </span>
       </p>
 
-      <p className="font-bold py-12 px-7">
+      <p className="font-opencustom text-sm font-bold py-12">
         ¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la
         web!
       </p>
 
-      <div className="py-10 px-6 flex space-x-6 justify-center">
+      <div className="w-full grid grid-cols-2 gap-7 mb-20 ">
         <Link
           to="/acceso"
-          className=" font-opencustom text-color-blue-p font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
-        >Acceder</Link>
+          className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
+        >
+          Acceder
+        </Link>
         <Link
           to="/registro"
-          className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
-        >Registrarme</Link>
+          className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
+        >
+          Registrarme
+        </Link>
       </div>
-
-      {/* <p className=" flex justify-center">O también puedes:</p>
-      <div className="flex justify-center">
-        <ButtonSecondary
-          text={"Acceder de forma anónima"}
-          onClick={"pasar onclick"}
-        />
-      </div> */}
     </>
   );
 }

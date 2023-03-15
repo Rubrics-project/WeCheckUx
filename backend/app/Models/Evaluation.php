@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluation extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'evaluation_text',
+        'negative',
+        'regular',
+        'suficient',
+        'good',
+        'excelent',
+    ];
 }
