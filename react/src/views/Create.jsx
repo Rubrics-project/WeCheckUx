@@ -2,8 +2,10 @@ import React from 'react'
 //import ReCAPTCHA from 'react-google-recaptcha';
 import { Link } from 'react-router-dom';
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
+import ButtonSecondaryIconSmall from '../components/buttons/ButtonSecondaryIconSmall';
 import InformationBox from '../components/InformationBox';
 import Title from "../components/Title";
+import dropdownIcon from "../assets/dropdownIcon.svg";
 
 
  export default function Create() {
@@ -51,7 +53,7 @@ import Title from "../components/Title";
     {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"} />}
     </div>
 
-    <div className=" border rounded  border-color-grey-blue-p"> 
+    <div className=" border rounded  border-color-blue-p p-1.5 "> 
      <label for="title" className="font-opencustom text-base font-bold">Título:</label>
             <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "/>
 
@@ -67,24 +69,38 @@ import Title from "../components/Title";
             <lable for="evaluation" className="font-opencustom text-sm"> Criterio a evaluar:</lable>
             <input type="text" id="evaluation" name="evaluation" placeholder="Criterio que ha de ser evaluado"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
-            <img className='mr-2' src="../../public/assets/dropdow.svg" alt="dropdown icon" />
+            <img className='mr-2' src="{dropdownIcon}" alt="dropdown icon" ></img>
 
             <lable for="negative" className="font-opencustom text-sm" >Negativo:</lable>
             <input type="taxt" id="negative" name="negative" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+            <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
             <lable for="regular" className="font-opencustom text-sm" >Regular:</lable>
             <input type="text" id="regular" name="regular" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+            <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
             <lable for="suficient" className="font-opencustom text-sm" >Suficiente:</lable>
             <input type="text" id="suficiente" name="suficiente" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+            <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
             <lable for="good" className="font-opencustom text-sm" >Bien:</lable>
             <input type="text" id="suficiente" name="good" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+            <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
             <lable for="excelent" className="font-opencustom text-sm" >Excelente:</lable>
             <input type="text" id="excelent" name="excelent" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+            <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-            <button type="submit">Añadir dimensión</button>
+            <div> 
+            <ButtonSecondaryIconSmall text={"Añadir dimensión"} />
+              <Link
+                to="/"
+                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
+              >
+              </Link>
+            </div>
+            
+            
             </div>
 
             {/* <div className="flex justify-center object-contain w-auto">
