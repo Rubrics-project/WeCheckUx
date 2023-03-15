@@ -7,17 +7,12 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return Project::all();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -35,17 +30,11 @@ class ProjectController extends Controller
         return $project;
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Project $project)
     {
         return $project;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Project $project)
     {
         $request->validate([
@@ -59,12 +48,9 @@ class ProjectController extends Controller
         $project->description = $request->description;
 
         $project->update();
-        return $project;
+        return response()->json('Proyecto modificado!', 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $project = Project::find($id);
@@ -72,6 +58,6 @@ class ProjectController extends Controller
             return response()->json('Proyecto no encontrado', 404);
         }
         $project->delete();
-        return response()->noContent();
+        return response()->json('¡El proyecto se ha eliminado con éxito!', 200);
     }
 }
