@@ -19,6 +19,10 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('evaluation_id');
+            $table->foreign('evaluation_id')->references('id')->on('evaluations');
+            $table->unsignedBigInteger('project_id');
+            $table->foreign('project_id')->references('id')->on('projects');
             $table->timestamps();
         });
         Schema::disableForeignKeyConstraints();

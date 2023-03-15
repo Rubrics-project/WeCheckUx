@@ -14,13 +14,6 @@ export default function Login() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const onChange = () => {
-    if (captcha.current.getValue()) {
-      console.log("El usuario no es un robot");
-      setValidCaptcha(true);
-    }
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = {
@@ -30,18 +23,18 @@ export default function Login() {
     try {
       const response = await postLogin(formData);
       setSuccess(true);
+      setIsUser(true);
+      setValidCaptcha(true)
       window.location.href = "/proyectos";
     } catch (err) {
-      setError(err.response.data.error);
+      setError((JSON.parse(err.request.response).msg));
     }
+  };
+
+  const onChange = () => {
     if (captcha.current.getValue()) {
       console.log("El usuario no es un robot");
-      setIsUser(true);
       setValidCaptcha(true);
-    } else {
-      console.log("Por favor acepta el captcha");
-      setIsUser(false);
-      setValidCaptcha(false);
     }
   };
 
@@ -100,8 +93,9 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="flex justify-center object-contain w-auto">
+            <div className="flex flex-col justify-center items-center">
               <ReCAPTCHA
+                className="max-w-3/4 mx-auto"
                 ref={captcha}
                 sitekey="6LelgfUkAAAAALIEUAndhjmpr1K-TDo8S4CqigxX"
                 onChange={onChange}
@@ -113,11 +107,11 @@ export default function Login() {
               </div>
             )}
 
-            <div className="flex justify-between">
+            <div className="w-full grid grid-cols-2 gap-7">
               <ButtonPrimary text={"Aceptar"} />
               <Link
                 to="/"
-                className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
               >
                 Cancelar
               </Link>

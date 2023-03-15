@@ -22,6 +22,10 @@ module.exports = {
         latocustom: ["Lato", "sans-serif"],
         opencustom: ["Open Sans", "sans-serif"],
       },
+      maxWidth: {
+        "1/2": "50%",
+        "3/4": "75%",
+      },
     },
     // plugins: [require("@tailwindcss/forms")],
   },

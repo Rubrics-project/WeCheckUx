@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import Title from "../components/Title";
 
 export default function Edit() {
   return (
-    <div>Edit</div>
-  )
+    <>
+      <Title title={"Editar rúbrica"} />
+    </>
+  );
 }

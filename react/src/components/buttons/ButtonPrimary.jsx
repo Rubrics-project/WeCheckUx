@@ -3,7 +3,7 @@ import React from "react";
 export default function ButtonPrimary({ text }) {
   return (
     <button
-      className="font-opencustom text-color-blue-p font-bold text-base px-12 py-2 bg-color-grey-bg border border-color-grey-border-btn border-solid rounded-md"
+      className=" font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border  border border-solid rounded-md"
       type="submit"
     >
       {text}
