@@ -10,6 +10,7 @@ import Projects from "../views/Projects";
 import GuestLayout from "../layout/GuestLayout";
 import Results from "../views/Results";
 import MisRubricas from "../views/MisRubricas";
+import RubricDetail from "../views/RubricDetail";
 import UserLayout from "../layout/UserLayout";
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/mis-rubricas",
         element: <MisRubricas />,
+      },
+      {
+        path: "/mis-rubricas/id",
+        element: <RubricDetail />,
       },
       {
         path: "/crear",
