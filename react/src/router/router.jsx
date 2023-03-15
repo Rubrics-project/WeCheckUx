@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "../views/Login";
 import Signup from "../views/Signup";
-import Rubrics from "../views/Rubrics";
 import Edit from "../views/Edit";
 import Create from "../views/Create";
 import Evaluate from "../views/Evaluate";
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/rubricas",
-        element: <Rubrics />,
-      },
-      {
         path: "/proyectos",
         element: <Projects />,
       },
@@ -60,12 +55,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <UserLayout />,
     children: [
+      // {
+      //   path: "/mis-rubricas",
+      //   element: <Navigate to="/" />,
+      // },
       {
         path: "/mis-rubricas",
-        element: <Navigate to="/" />,
-      },
-      {
-        path: "/",
         element: <MisRubricas />,
       },
       {
