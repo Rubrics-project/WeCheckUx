@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return User::all();
@@ -138,7 +135,7 @@ class UserController extends Controller
             return response()->json("Usuario no encontrado", 404);
         }
         $user->delete();
-        return response()->json("Usuario Eliminado");
+        return response()->json("Usuario Eliminado", 200);
     }
 
 

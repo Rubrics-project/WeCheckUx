@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "../views/Login";
 import Signup from "../views/Signup";
-import Rubrics from "../views/Rubrics";
 import Edit from "../views/Edit";
 import Create from "../views/Create";
 import Evaluate from "../views/Evaluate";
@@ -11,6 +10,9 @@ import Projects from "../views/Projects";
 import GuestLayout from "../layout/GuestLayout";
 import Results from "../views/Results";
 import MisRubricas from "../views/MisRubricas";
+import ProjectDetail from "../views/ProjectDetail";
+import RubricDetail from "../views/RubricDetail";
+import Rubrics from "../views/Rubrics";
 import UserLayout from "../layout/UserLayout";
 
 const router = createBrowserRouter([
@@ -35,12 +37,12 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/rubricas",
-        element: <Rubrics />,
-      },
-      {
         path: "/proyectos",
         element: <Projects />,
+      },
+      {
+        path: "/proyectos/id",
+        element: <ProjectDetail />,
       },
       {
         path: "/crear",
@@ -60,13 +62,21 @@ const router = createBrowserRouter([
     path: "/",
     element: <UserLayout />,
     children: [
+      // {
+      //   path: "/mis-rubricas",
+      //   element: <Navigate to="/" />,
+      // },
       {
         path: "/mis-rubricas",
-        element: <Navigate to="/" />,
+        element: <MisRubricas />,
       },
       {
-        path: "/",
-        element: <MisRubricas />,
+        path: "/rubricas",
+        element: <Rubrics />,
+      },
+      {
+        path: "/mis-rubricas/id",
+        element: <RubricDetail />,
       },
       {
         path: "/crear",
