@@ -30,6 +30,18 @@ export default function MisRubricas() {
         }
         rubric_author={"Juana Arcos"}
         rubric_date={"20/3/2022"}
+        project_title={"Google"}
+        project_url={"www.google.es"}
+        project_description={
+          "Buscador de contenidos en la red. Analizamos la versión “.es”."
+        }
+        dimension_title={"Identidad de género"}
+        dimension_description={
+          "Problemas de acceso basados en los roles e identidad de género."
+        }
+        criteria_description={
+          "Lorem Ipsum is simply dummy text of the printing typesetting text of the printing."
+        }
       />
     </>
   );
