@@ -1,26 +1,61 @@
 import React from 'react'
-import ReCAPTCHA from 'react-google-recaptcha';
+//import ReCAPTCHA from 'react-google-recaptcha';
 import { Link } from 'react-router-dom';
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import InformationBox from '../components/InformationBox';
 import Title from "../components/Title";
 
-export default function Create() {
+
+ export default function Create() {
+//   const [validCaptcha, setValidCaptcha] = useState(null);
+
+//   const onSubmit = async (e) => {
+//     e.preventDefault();
+//     const formData = {
+//       email,
+//       password,
+//     };
+//     try {
+//       const response = await postLogin(formData);
+//       setSuccess(true);
+//       window.location.href = "/proyectos";
+//     } catch (err) {
+//       setError(err.response.data.error);
+//     }
+//     if (captcha.current.getValue()) {
+//       console.log("El usuario no es un robot");
+//       setIsUser(true);
+//       setValidCaptcha(true);
+//     } else {
+//       console.log("Por favor acepta el captcha");
+//       setIsUser(false);
+//       setValidCaptcha(false);
+//     }
+//   };
+
   return (
     <>
- <form action="#" method="post" id="create" className="mt-1 ">
+ <form action="#" method="post" id="create" className="mt-2 space-y-1">
 
     <Title title={"Google"} />
+
+    <label for="url" className="font-opencustom text-sm">URL:</label>
+            <input type="text" id="url" name="url" placeholder={"www.google.com"}  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+
+    <label for="description:" className="font-opencustom text-sm">Description:</label>
+    <input type="text" id="description" name="description" placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+
+    <div className="bg-A7D7F9">
+    {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"}  />}
+    </div>
+
      <label for="title" className="font-opencustom text-sm">Título:</label>
             <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
      <label for="description:" className="font-opencustom text-sm">Description:</label>
             <input type="text" id="description" name="description" placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
-     <div className="bg-A7D7F9">
-    {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"}  />}
-    </div>
+   
           
-           
             <label for="title" className="font-opencustom text-sm">Título:</label>
             <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
