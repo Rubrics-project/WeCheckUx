@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Browser from "../components/Browser";
 import RubricUser from "../components/Rubrics/RubricUser";
 import Title from "../components/Title";
 import { getAllItems } from "../services/rubricService";
@@ -18,6 +19,7 @@ export default function MisRubricas() {
 
   return (
     <>
+      <Browser />
       <Title title={"Mis rúbricas"} />
       {items.map((item) => (
         <RubricUser
