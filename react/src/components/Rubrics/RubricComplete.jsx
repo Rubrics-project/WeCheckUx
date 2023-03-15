@@ -1,5 +1,6 @@
 import icon from "../../assets/doubleCheck.svg";
 import arrow from "../../assets/arrowIcon.svg";
+import { useState } from "react";
 // import Dimensión from "./Dimension";
 
 export default function Rubric({
@@ -14,6 +15,12 @@ export default function Rubric({
   dimension_description,
   criteria_description,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
       <div className="flex bg-color-grey-bg p-2">
@@ -90,9 +97,20 @@ export default function Rubric({
           <div className="flex bg-color-grey-bg p-3">
             <p className="font-opencustom text-xs">{criteria_description}</p>
           </div>
-          <div className="flex bg-color-grey-bg p-3 justify-center">
+          <div
+            className="flex bg-color-grey-bg p-3 justify-center cursor-pointer"
+            onClick={toggleAccordion}
+          >
             <img src={arrow} alt="Icono flecha desplegable" />
           </div>
+          {isOpen && (
+            <div className="px-3 space-y-1 py-3">
+              <h4 className="font-opencustom text-xs text-color-grey-title ">
+                Negativo:
+              </h4>
+              <p className="font-opencustom text-xs">Texto</p>
+            </div>
+          )}
         </div>
       </>
     </div>
