@@ -51,6 +51,7 @@ import Title from "../components/Title";
     {<InformationBox text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."} onClick={"pasar onclick"} />}
     </div>
 
+    <div className=" border rounded  border-color-grey-blue-p"> 
      <label for="title" className="font-opencustom text-base font-bold">Título:</label>
             <input type="text" id="title" name="title" placeholder="Título"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "/>
 
@@ -65,6 +66,8 @@ import Title from "../components/Title";
 
             <lable for="evaluation" className="font-opencustom text-sm"> Criterio a evaluar:</lable>
             <input type="text" id="evaluation" name="evaluation" placeholder="Criterio que ha de ser evaluado"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
+
+            <img className='mr-2' src="../../public/assets/dropdow.svg" alt="dropdown icon" />
 
             <lable for="negative" className="font-opencustom text-sm" >Negativo:</lable>
             <input type="taxt" id="negative" name="negative" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
@@ -82,6 +85,7 @@ import Title from "../components/Title";
             <input type="text" id="excelent" name="excelent" placeholder="Descripción del nivel"  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"/>
 
             <button type="submit">Añadir dimensión</button>
+            </div>
 
             {/* <div className="flex justify-center object-contain w-auto">
               <ReCAPTCHA
