@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAllItems } from '../services/rubricService.js';
 import browserIcon from "../assets/browserIcon.svg";
 import { useMemo, useRef, useState } from 'react';
 import { createAutocomplete } from '@algolia/autocomplete-core'
@@ -7,7 +8,7 @@ import Link from 'next/link'
 const autocompleteItem = ({ title, description }) => {
   return (
     <li>
-      <Link hred={`/detail/${id}`}>
+      <Link href={`/detail/${id}`}>
         <a className='flex-gap4 p-4'>
           <div>
             <h3 className='text-sm font-semibold'>{title}</h3>
@@ -29,7 +30,7 @@ export default function Browser(props) {
     placeholder: 'Buscar...',
     onStateChange: ({ state }) => setAutocompleteState(state),
     getSources: () => [{
-      souceId: 'rubrics-api',
+      sourceId: 'rubrics-api',
       getItems: ({ query }) => {
         if (!!query) {
           return fetch(`/api/search?q=´${query}`)
@@ -37,7 +38,7 @@ export default function Browser(props) {
         }
 
       }
-    }]
+    }],
     ...props
   }), [props])
 
