@@ -27,8 +27,7 @@ export default function Login() {
       setIsUser(true);
       setValidCaptcha(true)
       localStorage.setItem('token', response.data.access_token);
-      window.location.reload();
-      // window.location.href = "/proyectos";
+      window.location.href = "/";
     } catch (err) {
       setError((JSON.parse(err.request.response).msg));
     }

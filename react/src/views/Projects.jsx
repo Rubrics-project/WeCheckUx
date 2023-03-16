@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Browser from "../components/Browser";
-<<<<<<< HEAD
-import Card from "../components/projects/Card";
-=======
 import ProjectCard from "../components/ProjectCard";
->>>>>>> dev
 import Title from "../components/Title";
 import { getAllItems } from "../services/projectsService";
 
@@ -24,18 +20,6 @@ export default function Projects() {
     <>
       <Browser />
       <Title title={"Proyectos"} />
-<<<<<<< HEAD
-      {/* HACER BUCLE PARA TRAER TODOS LOS ID DE RUBRICAS DE EL PROYECTO SELECCIONADO */}
-      {/* Añadir botones Evaluar y evaluaciones */}
-      <Card
-        title={"Título proyecto"}
-        rubric_description={
-          "Problemas de acceso basados en los roles e identidad de género."
-        }
-        rubric_author={"Juana Arcos"}
-        rubric_date={"20/3/2022"}
-      />
-=======
       {projects.map((project, index) => (
         <ProjectCard
           key={index}
@@ -48,7 +32,6 @@ export default function Projects() {
           // totalEvaluations={project.totalEvaluations}
         />
       ))}
->>>>>>> dev
     </>
   );
 }
