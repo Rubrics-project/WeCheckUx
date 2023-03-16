@@ -2,8 +2,9 @@ import React from 'react';
 import { getAllItems } from '../services/rubricService.js';
 import browserIcon from "../assets/browserIcon.svg";
 import { useMemo, useRef, useState } from 'react';
-import { createAutocomplete } from '@algolia/autocomplete-core'
-import Link from 'next/link'
+import { createAutocomplete } from '@algolia/autocomplete-core';
+import Link from 'next/link';
+import { LinkHTMLAttributes } from 'react';
 
 const autocompleteItem = ({ title, description }) => {
   return (
