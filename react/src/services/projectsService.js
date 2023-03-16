@@ -8,11 +8,11 @@ const axiosInstance = axios.create({
 });
 
 export const getAllItems = () => {
-  console.log("Fetching all items...");
+  // console.log("Fetching all items...");
   return axiosInstance
     .get("projects")
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {

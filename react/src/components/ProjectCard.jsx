@@ -4,11 +4,11 @@ import eye from "../assets/eyeIconBlue.svg";
 
 export default function ProjectCard({
   project_name,
-  project_description,
   project_url,
+  project_description,
   projectOnClick,
-  totalRubrics,
-  totalEvaluations,
+  // totalRubrics,
+  // totalEvaluations,
 }) {
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
@@ -40,7 +40,7 @@ export default function ProjectCard({
           <h3 className="font-opencustom font-bold text-color-grey-title">
             Rúbricas:{" "}
             <span className="font-opencustom font-bold text-color-grey-title">
-              {totalRubrics}
+              0{/* {totalRubrics} */}
             </span>
           </h3>
         </div>
@@ -48,7 +48,7 @@ export default function ProjectCard({
           <h3 className="font-opencustom font-bold text-color-blue-p ">
             Evaluaciones:{" "}
             <span className="font-opencustom font-bold text-color-blue-p">
-              {totalEvaluations}
+              0{/* {totalEvaluations} */}
             </span>
           </h3>
         </div>
