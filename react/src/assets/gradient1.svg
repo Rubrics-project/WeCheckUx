@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <defs>
+    <linearGradient id="0" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#0634ad"/>
+      <stop offset="5.33%" stop-color="#087088"/>
+      <stop offset="16%" stop-color="#15d177"/>
+      <stop offset="20.83%" stop-color="#20ae63"/>
+      <stop offset="30.5%" stop-color="#1d6c3d"/>
+      <stop offset="36%" stop-color="#1d706d"/>
+      <stop offset="47%" stop-color="#b219f0"/>
+      <stop offset="51.67%" stop-color="#fa41ba"/>
+      <stop offset="61%" stop-color="#f4cd42"/>
+      <stop offset="66%" stop-color="#f7a267"/>
+      <stop offset="76%" stop-color="#de43a8"/>
+      <stop offset="84%" stop-color="#b430b0"/>
+      <stop offset="100%" stop-color="#0634ad"/>
+      <stop offset="95.67%" stop-color="#175d6d"/>
+      <stop offset="87%" stop-color="#3b8f39"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#0)" height="100%" width="100%"/>
+</svg>
