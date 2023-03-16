@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import faqIcon from "../assets/faqIcon.svg";
 import projectsIcon from "../assets/projectsIcon.svg";
-import addIcon from "../assets/addIcon.svg";
+import addIconGray from "../assets/addIconGray.svg";
 import accessIcon from "../assets/accessIcon.svg";
 import gitHubIcon from "../assets/gitHubIcon.svg";
 import logoutIcon from "../assets/logoutIcon.svg";
-
-import menuIcon from '../assets/hamburger.svg'
+import Hamburger from "hamburger-react";
 
 
 
@@ -23,7 +22,8 @@ export default function Nav() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
-    // redirigir a la página de inicio de sesión o a la página principal
+    window.location.reload();
+    // redirigir a la pag q iria
   };
 
 
@@ -31,36 +31,33 @@ export default function Nav() {
   return (
 
     <div>
-      <img
-            src={menuIcon}
-            alt="Menu Hamburgesa"
-            onClick={() => setIsNavOpen((prev) => !prev)}
-          ></img>
-      <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+      <div onClick={() => setIsNavOpen((prev) => !prev)}>
+      <Hamburger color='#72777D'/>
+      </div>
+      <div className={isNavOpen ? "absolute z-10 block bg-color-grey-bg py-0 left-0 top-35" : "hidden"} >
 
           {isAuthenticated ? (
             <>
-              <a href="/proyectos" className='flex'><img src={projectsIcon} alt="Icon Project"></img>Proyectos</a>
-              <a href="/rubricas" className='flex'><img src={projectsIcon} alt="Icon Project"/>Mis Rúbricas</a>
-              <a href="/evaluar" className='flex'><img src={projectsIcon} alt="Icon Project"/>Mis Evaluaciones</a>
-              <a href="/crear" className='flex'><img src={addIcon} alt="Icon Create Rubric"/>Crear Rúbrica</a>
-              <a href="/preguntasfrecuentes" className='flex'><img src={faqIcon} alt="Icon Preguntas frecuentes"></img>Preguntas Frecuentes</a>
-              <button onClick={handleLogout}><img src={logoutIcon} alt="Icon Logout"/>Cerrar sesión</button>
+              <a href="/proyectos" className='flex py-3 px-6   text-color-grey-title font-semibold font-opencustom'><img src={projectsIcon} alt="Icon Project" className='mr-5'></img>Proyectos</a>
+              <a href="/rubricas" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={projectsIcon} alt="Icon Project" className='mr-5'/>Mis Rúbricas</a>
+              <a href="/evaluar" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={projectsIcon} alt="Icon Project" className='mr-5'/>Mis Evaluaciones</a>
+              <a href="/crear" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={addIconGray} alt="Icon Create Rubric" className='mr-5'/>Crear Rúbrica</a>
+              <a href="/preguntasfrecuentes" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={faqIcon} alt="Icon Preguntas frecuentes" className='mr-5'></img>Preguntas Frecuentes</a>
+              <a onClick={handleLogout} className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-bold font-opencustom'><img src={logoutIcon} alt="Icon Logout" className='mr-5'/>Cerrar sesión</a>
             </>
           ) : (
             <>
-              <a href="/proyectos" className='flex'><img src={projectsIcon} alt="Icon Project"/>Proyectos</a>
-              <a href="/preguntasfrecuentes" className='flex'><img src={faqIcon} alt="Icon Preguntas frecuentes"/>Preguntas Frecuentes</a>
-              <a href="/acceso" className='flex'><img src={accessIcon} alt="Icon Login"/>Iniciar sesión</a>
-              <a href="/registro" className='flex'><img src={accessIcon} alt="Icon Login"/>Registrarse</a>
+              <a href="/proyectos" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={projectsIcon} alt="Icon Project" className='mr-5'/>Proyectos</a>
+              <a href="/preguntasfrecuentes" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={faqIcon} alt="Icon Preguntas frecuentes" className='mr-5'/>Preguntas Frecuentes</a>
+              <a href="/acceso" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={accessIcon} alt="Icon Registro" className='mr-5'/>Iniciar sesión</a>
+              <a href="/registro" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={accessIcon} alt="Icon Login" className='mr-5'/>Registrarse</a>
             </>
           )}
-          <a href="https://github.com/Rubrics-project/WeCheckUx" className='flex'><img src={gitHubIcon} alt="Icon Login"/>Contribuye al proyecto</a>
+          <a href="https://github.com/Rubrics-project/WeCheckUx" className='flex py-5 px-6 border-t border-t-gray-300 text-color-grey-title font-light font-opencustom'><img src={gitHubIcon} alt="Icon de logout" className='mr-5'/>Contribuye al proyecto</a>
       </div>
 
 
     </div>
-    // </Menu>
   )
 }
 
