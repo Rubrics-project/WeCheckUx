@@ -5,12 +5,12 @@ import Title from "../components/Title";
 import { getAllItems } from "../services/projectsService";
 
 export default function Projects() {
-  const [items, setItems] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     getAllItems()
       .then((response) => {
-        setItems(response);
+        setProjects(response);
       })
       .catch((error) => {
         console.error(error);
@@ -20,15 +20,16 @@ export default function Projects() {
     <>
       <Browser />
       <Title title={"Proyectos"} />
-      {items.map((item, index) => (
+      {projects.map((project, index) => (
         <ProjectCard
           key={index}
-          project_name={item.name}
-          projectOnClick={""}
-          project_url={item.url}
-          project_description={item.description}
-          // totalRubrics={item.totalRubrics}
-          // totalEvaluations={item.totalEvaluations}
+          project_name={project.name}
+          projectOnClick={""} //configurar el onclick que lleva al id del proyecto con todas sus rubricas
+          project_url={project.url}
+          project_description={project.description}
+          //falta llamar a esta info
+          // totalRubrics={project.totalRubrics}
+          // totalEvaluations={project.totalEvaluations}
         />
       ))}
     </>

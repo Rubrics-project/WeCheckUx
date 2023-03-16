@@ -22,17 +22,53 @@ export const getAllItems = () => {
 };
 
 export const getItemById = (id) => {
-  return axiosInstance.get(`projects/${id}`);
+  return axiosInstance
+    .get(`projects/${id}`)
+    .then((response) => {
+      console.log("Response data: ", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 };
 
 export const createItem = (data) => {
-  return axiosInstance.post("projects", data);
+  return axiosInstance
+    .post("projects", data)
+    .then((response) => {
+      console.log("Response data: ", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 };
 
 export const updateItem = (id, data) => {
-  return axiosInstance.put(`projects/${id}`, data);
+  return axiosInstance
+    .put(`projects/${id}`, data)
+    .then((response) => {
+      console.log("Response data: ", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 };
 
 export const deleteItem = (id) => {
-  return axiosInstance.delete(`projects/${id}`);
+  return axiosInstance
+    .delete(`projects/${id}`)
+    .then((response) => {
+      console.log("Response data: ", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 };

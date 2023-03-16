@@ -1,8 +1,10 @@
+import React, { useEffect, useState } from "react";
 import icon from "../../assets/doubleCheck.svg";
 import Dimensión from "./Dimension";
+import { getAllItems } from "../../services/evaluationService";
 
 export default function Rubric({
-  title,
+  rubric_title,
   rubric_description,
   rubric_author,
   rubric_date,
@@ -10,11 +12,25 @@ export default function Rubric({
   project_url,
   project_description,
 }) {
+  const [evaluations, setEvaluations] = useState([]);
+
+  useEffect(() => {
+    getAllItems()
+      .then((response) => {
+        setEvaluations(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
       <div className="flex bg-color-grey-bg p-2">
         <img className=" mx-2" src={icon} alt="Icono de doble check" />
-        <h2 className="font-latocustom font-bold text-lg ml-1">{title}</h2>
+        <h2 className="font-latocustom font-bold text-lg ml-1">
+          {rubric_title}
+        </h2>
       </div>
       <div className="px-3 space-y-1 py-3">
         <h4 className="font-opencustom text-xs text-color-grey-title ">
@@ -58,30 +74,19 @@ export default function Rubric({
         </h4>
         <p className="font-opencustom text-xs">{project_description}</p>
       </div>
-      <Dimensión
-        dimension_title={"Identidad de género"}
-        dimension_description={
-          "Problemas de acceso basados en los roles e identidad de género."
-        }
-        criteria_description={
-          "Lorem Ipsum is simply dummy text of the printing typesetting text of the printing."
-        }
-        negative_description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
-        }
-        regular_description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
-        }
-        suficient_description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
-        }
-        bien_description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
-        }
-        excelent_description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla elit et odio commodo, ut bibendum magna volutpat. Sed eget lectus in orci porttitor pellentesque. "
-        }
-      />
+      {evaluations.map((evaluation, index) => (
+        <Dimensión
+          key={index}
+          dimension_title={evaluation.title}
+          dimension_description={evaluation.description}
+          criteria_description={evaluation.evaluation_text}
+          negative_description={evaluation.negative}
+          regular_description={evaluation.regular}
+          suficient_description={evaluation.suficient}
+          bien_description={evaluation.good}
+          excelent_description={evaluation.excelent}
+        />
+      ))}
     </div>
   );
 }
