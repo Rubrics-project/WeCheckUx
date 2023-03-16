@@ -22,10 +22,13 @@ export default function Login() {
     };
     try {
       const response = await postLogin(formData);
+      // console.log(response.data.access_token);
       setSuccess(true);
       setIsUser(true);
       setValidCaptcha(true)
-      window.location.href = "/proyectos";
+      localStorage.setItem('token', response.data.access_token);
+      window.location.reload();
+      // window.location.href = "/proyectos";
     } catch (err) {
       setError((JSON.parse(err.request.response).msg));
     }

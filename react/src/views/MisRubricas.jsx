@@ -5,12 +5,12 @@ import Title from "../components/Title";
 import { getAllItems } from "../services/rubricService";
 
 export default function MisRubricas() {
-  const [items, setItems] = useState([]);
+  const [rubrics, setRubrics] = useState([]);
 
   useEffect(() => {
     getAllItems()
       .then((response) => {
-        setItems(response.data);
+        setRubrics(response);
       })
       .catch((error) => {
         console.error(error);
@@ -21,21 +21,15 @@ export default function MisRubricas() {
     <>
       <Browser />
       <Title title={"Mis rúbricas"} />
-      {items.map((item) => (
+      {rubrics.map((rubric, index) => (
         <RubricUser
-          key={item.id}
-          title={item.name}
-          rubric_description={item.description}
-          project_title={"Google"}
-          rubric_date={"20/3/2022"}
+          key={index}
+          rubric_title={rubric.title}
+          rubric_description={rubric.description}
+          project_title={rubric.project_id} //falta llamar al nombre del proyecto asociado a esta rúbrica
+          rubric_date={rubric.created_at.slice(0, 10)}
         />
       ))}
-      <RubricUser
-        title={"nombre"}
-        rubric_description={"descripcion"}
-        project_title={"Google"}
-        rubric_date={"20/3/2022"}
-      />
     </>
   );
 }

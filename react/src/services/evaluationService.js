@@ -8,10 +8,11 @@ const axiosInstance = axios.create({
 });
 
 export const getAllItems = () => {
+  // console.log("Fetching all items...");
   return axiosInstance
-    .get("rubrics")
+    .get("evaluations")
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -22,7 +23,7 @@ export const getAllItems = () => {
 
 export const getItemById = (id) => {
   return axiosInstance
-    .get(`rubrics/${id}`)
+    .get(`evaluations/${id}`)
     .then((response) => {
       console.log("Response data: ", response.data);
       return response.data;
@@ -35,7 +36,7 @@ export const getItemById = (id) => {
 
 export const createItem = (data) => {
   return axiosInstance
-    .post("rubrics", data)
+    .post("evaluations", data)
     .then((response) => {
       console.log("Response data: ", response.data);
       return response.data;
@@ -48,7 +49,7 @@ export const createItem = (data) => {
 
 export const updateItem = (id, data) => {
   return axiosInstance
-    .put(`rubrics/${id}`, data)
+    .put(`evaluations/${id}`, data)
     .then((response) => {
       console.log("Response data: ", response.data);
       return response.data;
@@ -61,7 +62,7 @@ export const updateItem = (id, data) => {
 
 export const deleteItem = (id) => {
   return axiosInstance
-    .delete(`rubrics/${id}`)
+    .delete(`evaluations/${id}`)
     .then((response) => {
       console.log("Response data: ", response.data);
       return response.data;
