@@ -8,7 +8,6 @@ import logoutIcon from "../assets/logoutIcon.svg";
 import Hamburger from "hamburger-react";
 
 
-
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
