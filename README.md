@@ -8,11 +8,11 @@ This project was created to evaluate, create, and check the results of different
 
 
 ## `WeCheck's logo`
-![Image text](./src/assets/design/logo.jpeg)
+![Image text](./react/src/assets/design/logo.jpeg)
 
 
 ## `Home`
-![Image text](./src/assets/design/design_for_README.jpeg)
+![Image text](./react/src/assets/design/design_for_README.jpeg)
 
 
 
@@ -54,9 +54,6 @@ Launches the test runner in the interactive watch mode.
 
 ### `More information about React`
 You can know more details by checking the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-## API Reference 👩‍💻
-Click [here](https://63f6400d59c944921f706c26.mockapi.io/api/user) 
 
 
 
