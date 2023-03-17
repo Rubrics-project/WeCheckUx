@@ -24,7 +24,8 @@ export default function ProjectCard({
             </p>
           </div>
         </div>
-        <button onClick={projectOnClick}>
+        {/* <button onClick={projectOnClick}> */}
+          <button>
           <img className="mr-3" src={eye} alt="Icono de ojo" />
         </button>
       </div>
