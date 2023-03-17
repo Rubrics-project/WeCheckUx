@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Browser from "../components/Browser";
 import ProjectCard from "../components/ProjectCard";
 import Title from "../components/Title";
-import { getAllItems } from "../services/projectsService";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -18,7 +17,7 @@ export default function Projects() {
   }, []);
   return (
     <>
-      <Browser />
+      <Browser busqueda={busqueda} handleChange={handleChange} />
       <Title title={"Proyectos"} />
       {projects.map((project, index) => (
         <ProjectCard
