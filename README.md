@@ -55,9 +55,6 @@ Launches the test runner in the interactive watch mode.
 ### `More information about React`
 You can know more details by checking the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## API Reference 👩‍💻
-Click [here](https://63f6400d59c944921f706c26.mockapi.io/api/user) 
-
 
 
 ## Contributors :family_woman_woman_girl_girl: 
