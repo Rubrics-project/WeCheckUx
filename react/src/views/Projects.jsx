@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Browser from "../components/Browser";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard from "../components/projects/ProjectCard";
 import Title from "../components/Title";
 import { getAllItems } from "../services/projectsService";
 

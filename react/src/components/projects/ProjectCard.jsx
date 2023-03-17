@@ -1,6 +1,6 @@
 import React from "react";
-import icon from "../assets/doubleCheckBig.svg";
-import eye from "../assets/eyeIconBlue.svg";
+import icon from "../../assets/doubleCheckBig.svg";
+import eye from "../../assets/eyeIconBlue.svg";
 
 export default function ProjectCard({
   project_name,
