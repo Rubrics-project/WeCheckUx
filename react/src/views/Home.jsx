@@ -16,7 +16,7 @@ export default function Home() {
       </p>
 
       <p className="font-opencustom text-sm py-10">
-        En WeCheckUX puedes <b>evaluar, mediante rúbricas</b> creadas por
+        En WeCheck puedes <b>evaluar, mediante rúbricas</b> creadas por
         diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además,
         tienes la posibilidad de crear tus propias rúbricas. Por eso, tu
         contribución es muy valiosa.
