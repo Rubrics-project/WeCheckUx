@@ -15,91 +15,94 @@ class UserController extends Controller
         return User::all();
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'surname'=>'required',
+            'surname' => 'required',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                "status"=> 0,
-                "msg"=>"¡Completa los campos correctamente!"
+                "status" => 0,
+                "msg" => "¡Completa los campos correctamente!"
             ], 404);
         }
 
         if (User::where('email', $request->email)->exists()) {
             return response()->json([
-                "status"=> 0,
-                "msg"=>"¡Este email ya existe!"
+                "status" => 0,
+                "msg" => "¡Este email ya existe!"
             ], 404);
         }
 
-        if(!$validator->fails() && !User::where('email', $request->email)->exists()){
+        if (!$validator->fails() && !User::where('email', $request->email)->exists()) {
             $user = new User;
-            $user->name =  $request->name;
-            $user->surname =  $request->surname;
+            $user->name = $request->name;
+            $user->surname = $request->surname;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
 
             $user->save();
             return response()->json([
-                "status"=> 1,
-                "msg"=>"Registro exitoso!"]);
+                "status" => 1,
+                "msg" => "Registro exitoso!"
+            ]);
         }
 
     }
 
-    public function login(Request $request){
-         $request->validate([
-            'email'=>'required|string|email|max:255',
-            'password'=>'required'
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+            'password' => 'required'
         ]);
 
         $user = User::where("email", "=", $request->email)->first();
 
-        if(isset($user->id)){
-            if(Hash::check($request->password, $user->password)){
+        if (isset($user->id)) {
+            if (Hash::check($request->password, $user->password)) {
                 //crear token
                 $token = $user->createToken("auth_token")->plainTextToken;
                 return response()->json([
-                    "status"=> 1,
-                    "msg"=>"Usuario logeado con exito!",
-                    "access_token"=>$token
+                    "status" => 1,
+                    "msg" => "Usuario logeado con exito!",
+                    "access_token" => $token
                 ]);
-            }
-            else{
+            } else {
                 return response()->json([
-                    "status"=> 0,
-                    "msg"=>"¡Usuario y/o Contraseña incorrectos!"
+                    "status" => 0,
+                    "msg" => "¡Usuario y/o Contraseña incorrectos!"
                 ], 404);
             }
-        }
-        else{
+        } else {
             return response()->json([
-                "status"=> 0,
-                "msg"=>"¡Usuario y/o Contraseña incorrectos!"
+                "status" => 0,
+                "msg" => "¡Usuario y/o Contraseña incorrectos!"
             ], 404);
         }
 
     }
 
-    public function userProfile(){
+    public function userProfile()
+    {
         return response()->json([
-            "status"=> 0,
-            "msg"=>"Perfil del Usuario!",
-            "data"=>auth()->user()
+            "status" => 0,
+            "msg" => "Perfil del Usuario!",
+            "data" => auth()->user()
         ]);
     }
 
-    public function logout(){
+    public function logout()
+    {
         auth()->user()->tokens()->delete();
         return response()->json([
-            "status"=> 1,
-            "msg"=>"Cierre de sesión!"
+            "status" => 1,
+            "msg" => "Cierre de sesión!"
         ]);
     }
 
@@ -111,27 +114,27 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name'=>'required',
-            'surname'=>'required',
-            'email'=>'required',
-            'password'=>'required',
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
 
-       $user->name =  $request->name;
-       $user->surname =  $request->surname;
-       $user->email = $request->email;
-       $user->password = Hash::make($request->password);
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
-       $user->update();
-       return response()->json([
-        "status"=> 1,
-        "msg"=>"Usuario acrializado!"
-    ]);
+        $user->update();
+        return response()->json([
+            "status" => 1,
+            "msg" => "Usuario acrializado!"
+        ]);
     }
     public function destroy($id)
     {
         $user = User::find($id);
-        if(is_null($user)){
+        if (is_null($user)) {
             return response()->json("Usuario no encontrado", 404);
         }
         $user->delete();
