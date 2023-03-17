@@ -41,7 +41,7 @@ export default function Nav() {
               <a href="/evaluar" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={projectsIcon} alt="Icon Project" className='mr-5'/>Mis Evaluaciones</a>
               <a href="/crear" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={addIconGray} alt="Icon Create Rubric" className='mr-5'/>Crear Rúbrica</a>
               <a href="/preguntasfrecuentes" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={faqIcon} alt="Icon Preguntas frecuentes" className='mr-5'></img>Preguntas Frecuentes</a>
-              <a onClick={handleLogout} className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-bold font-opencustom'><img src={logoutIcon} alt="Icon Logout" className='mr-5'/>Cerrar sesión</a>
+              <a onClick={handleLogout} className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-bold font-opencustom cursor-pointer'><img src={logoutIcon} alt="Icon Logout" className='mr-5'/>Cerrar sesión</a>
             </>
           ) : (
             <>
