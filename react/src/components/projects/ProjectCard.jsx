@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheckBig.svg";
 import eye from "../../assets/eyeIconBlue.svg";
 
@@ -6,7 +7,7 @@ export default function ProjectCard({
   project_name,
   project_url,
   project_description,
-  projectOnClick,
+  _id,
   // totalRubrics,
   // totalEvaluations,
 }) {
@@ -24,10 +25,9 @@ export default function ProjectCard({
             </p>
           </div>
         </div>
-        {/* <button onClick={projectOnClick}> */}
-          <button>
-          <img className="mr-3" src={eye} alt="Icono de ojo" />
-        </button>
+        <Link className="flex align-middle mr-3" to={`${_id}`}>
+          <img src={eye} alt="Icono de ojo" />
+        </Link>
       </div>
       <div className="px-3 space-y-1 py-3">
         <h4 className="font-opencustom text-xs text-color-grey-title ">
