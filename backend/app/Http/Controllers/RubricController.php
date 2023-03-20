@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rubric;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class RubricController extends Controller
@@ -33,10 +34,14 @@ class RubricController extends Controller
         return $rubric;
     }
 
-
-    public function show(Rubric $rubric)
+    public function show(Evaluation $evaluation)
     {
-        return $rubric;
+        $evaluations = $rubric->evaluations;
+
+        // lo que retorna
+        return response()->json([
+            'rubric' => $rubric,
+        ]);
     }
 
     public function update(Request $request, Rubric $rubric)
