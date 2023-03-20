@@ -40,6 +40,7 @@ export default function Projects() {
     <>
       <Browser busqueda={busqueda} handleChange={handleChange} />
       <Title title={"Proyectos"} />
+
       {projects.map((project, index) => (
         <ProjectCard
           key={index}

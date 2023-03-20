@@ -4,8 +4,11 @@ import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
 import { postLogin } from "../services/userService";
+import { Navigate } from "react-router-dom";
+import { userAuthContext } from "../context/AuthProvider";
 
 export default function Login() {
+  const { userToken } = userAuthContext();
   const [validCaptcha, setValidCaptcha] = useState(null);
   const [isUser, setIsUser] = useState(false);
   const captcha = useRef(null);
@@ -13,6 +16,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  if (userToken) {
+    return <Navigate to="/" />;
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -23,14 +30,14 @@ export default function Login() {
     try {
       const response = await postLogin(formData);
       // console.log(response.data.access_token);
-      
+
       setSuccess(true);
       setIsUser(true);
-      setValidCaptcha(true)
-      localStorage.setItem('token', response.data.access_token);
+      setValidCaptcha(true);
+      localStorage.setItem("token", response.data.access_token);
       window.location.href = "/";
     } catch (err) {
-      setError((JSON.parse(err.request.response).msg));
+      setError(JSON.parse(err.request.response).msg);
     }
   };
 

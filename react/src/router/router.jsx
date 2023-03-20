@@ -61,10 +61,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <UserLayout />,
     children: [
-      // {
-      //   path: "/mis-rubricas",
-      //   element: <Navigate to="/" />,
-      // },
       {
         path: "/mis-rubricas",
         element: <MisRubricas />,
