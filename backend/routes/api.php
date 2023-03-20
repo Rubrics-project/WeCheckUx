@@ -26,3 +26,4 @@ Route::apiResource('projects', ProjectController::class);
 Route::apiResource('rubrics', RubricController::class);
 Route::apiResource('evaluations', EvaluationController::class);
 Route::apiResource('answers', AnswerController::class);
+// Route::get('filter-rubric-by-project',[RubricController::class, 'filterRubricByProject']);
