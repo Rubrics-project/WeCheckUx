@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <Projects />,
       },
       {
-        path: "/proyectos/id",
+        path: "/proyectos/:id",
         element: <ProjectDetail />,
       },
       {
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
         element: <MisRubricas />,
       },
       {
-        path: "/mis-rubricas/id",
+        path: "/mis-rubricas/:id",
         element: <RubricDetail />,
       },
       {
