@@ -9,17 +9,25 @@ import { userAuthContext } from "../context/AuthProvider";
 
 export default function Login() {
   const { userToken } = userAuthContext();
-  const [validCaptcha, setValidCaptcha] = useState(null);
-  const [isUser, setIsUser] = useState(false);
-  const captcha = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [validUser, setValidUser] = useState(false);
+
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+
+  const [validCaptcha, setValidCaptcha] = useState(null);
+  const captcha = useRef(null);
 
   if (userToken) {
     return <Navigate to="/" />;
   }
+
+  const onChange = () => {
+    if (captcha.current.getValue()) {
+      setValidCaptcha(true);
+    }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -27,30 +35,35 @@ export default function Login() {
       email,
       password,
     };
+
     try {
       const response = await postLogin(formData);
-      // console.log(response.data.access_token);
-
-      setSuccess(true);
-      setIsUser(true);
-      setValidCaptcha(true);
       localStorage.setItem("token", response.data.access_token);
-      window.location.href = "/";
+      if (captcha.current.getValue()) {
+        console.log("El usuario no es un robot");
+        setValidCaptcha(true);
+        setValidUser(true);
+
+        window.location.href = "/acceso";
+      } else {
+        console.log("Acepta el captcha para continuar.");
+        setValidCaptcha(false);
+        setValidUser(false);
+      }
     } catch (err) {
       setError(JSON.parse(err.request.response).msg);
-    }
-  };
 
-  const onChange = () => {
-    if (captcha.current.getValue()) {
-      console.log("El usuario no es un robot");
-      setValidCaptcha(true);
+      if (!captcha.current.getValue()) {
+        console.log("Acepta el captcha para continuar.");
+        setValidUser(false);
+        setValidCaptcha(false);
+      }
     }
   };
 
   return (
     <>
-      {!isUser && (
+      {!validUser && (
         <>
           <Title title={"Acceder"} />
           <form
@@ -78,7 +91,7 @@ export default function Login() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  required
+                  // required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
@@ -94,7 +107,7 @@ export default function Login() {
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  required
+                  // required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
@@ -102,7 +115,11 @@ export default function Login() {
                 />
               </div>
             </div>
-
+            {validCaptcha === false && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                Por favor acepta el captcha.
+              </div>
+            )}
             <div className="flex flex-col justify-center items-center">
               <ReCAPTCHA
                 className="max-w-3/4 mx-auto"
@@ -111,11 +128,6 @@ export default function Login() {
                 onChange={onChange}
               />
             </div>
-            {validCaptcha === false && (
-              <div className="flex justify-center text-red-500 font-bold">
-                Por favor acepta el captcha.
-              </div>
-            )}
 
             <div className="w-full grid grid-cols-2 gap-7">
               <ButtonPrimary text={"Aceptar"} />
@@ -142,7 +154,7 @@ export default function Login() {
           </p>
         </>
       )}
-      {isUser && success && (
+      {validUser && (
         <div className="bg-color-blue-p rounded py-2 px-3 text-white">
           ¡Acceso exitoso!
         </div>
