@@ -91,7 +91,7 @@ export default function Login() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  // required
+                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
@@ -107,7 +107,7 @@ export default function Login() {
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  // required
+                  required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
