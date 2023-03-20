@@ -106,8 +106,8 @@ class UserController extends Controller
     public function show(User $user)
     {
         $rubrics = $user->rubrics;
+        $answers = $user->answers;
 
-        // lo que retorna
         return response()->json([
             'user' => $user,
         ]);

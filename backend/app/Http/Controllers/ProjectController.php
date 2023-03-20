@@ -49,10 +49,8 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        // obtener lass rubricas vinculadas a project
         $rubrics = $project->rubrics;
 
-        // lo que retorna
         return response()->json([
             'project' => $project,
         ]);

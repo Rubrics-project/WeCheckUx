@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Rubric;
+// use App\Models\Rubric;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,11 +21,12 @@ class User extends Authenticatable
         return $this->hasMany(Rubric::class);
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+
     protected $fillable = [
         'name',
         'surname',
@@ -33,21 +34,11 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rubric;
+use App\Models\Evaluation;
+
 use App\Models\Project;
+
+use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 
 class RubricController extends Controller
@@ -20,28 +24,16 @@ class RubricController extends Controller
             'title'=>'required',
             'description'=>'required',
             'user_id'=> 'required',
-            'evaluation_id'=> 'required',
             'project_id' => 'required'
         ]);
         $rubric = new Rubric();
         $rubric->title =  $request->title;
         $rubric->description = $request->description;
         $rubric->user_id =  $request->user_id;
-        $rubric->evaluation_id =  $request->evaluation_id;
         $rubric->project_id =  $request->project_id;
 
         $rubric->save();
         return $rubric;
-    }
-
-    public function show(Evaluation $evaluation)
-    {
-        $evaluations = $rubric->evaluations;
-
-        // lo que retorna
-        return response()->json([
-            'rubric' => $rubric,
-        ]);
     }
 
     public function update(Request $request, Rubric $rubric)
@@ -49,19 +41,24 @@ class RubricController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            // 'user_id'=> 'required',
-            // 'evaluation_id'=> 'required',
-            // 'project_id' => 'required'
+
         ]);
 
         $rubric->title =  $request->title;
         $rubric->description = $request->description;
-        // $rubric->user_id =  $request->user_id;
-        // $rubric->evaluation_id =  $request->evaluation_id;
-        // $rubric->project_id =  $request->project_id;
+
 
         $rubric->update();
         return response()->json('Proyecto modificado!', 200);
+    }
+
+    public function show(Rubric $rubric)
+    {
+        $evaluations = $rubric->evaluations;
+
+        return response()->json([
+            'rubric' => $rubric,
+        ]);
     }
 
 
