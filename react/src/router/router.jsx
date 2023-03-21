@@ -44,6 +44,10 @@ const router = createBrowserRouter([
         element: <ProjectDetail />,
       },
       {
+        path: "/proyectos/:id/rubricas/:id",
+        element: <RubricDetail />,
+      },
+      {
         path: "/crear",
         element: <Create />,
       },

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import RubricComplete from "../components/Rubrics/RubricComplete";
-import { getAllItems } from "../services/rubricService";
+import { getItemById } from "../services/projectsService";
 
 export default function RubricDetail() {
+  const params = useParams();
   const [rubrics, setRubrics] = useState([]);
 
   useEffect(() => {
-    getAllItems()
+    getItemById(params.id)
       .then((response) => {
-        setRubrics(response);
+        setRubrics(response.project.rubrics);
       })
       .catch((error) => {
         console.error(error);

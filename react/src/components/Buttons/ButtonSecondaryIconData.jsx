@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export default function ButtonSecondaryIconData({ text, onClick }) {
+export default function ButtonSecondaryIconData({ text, src, alt }) {
   return (
-    <button className= " font-opencustom text-color-grey-title font-bold bg-color-grey-bg  flex px-3 py-1 border-color-grey-border  border border-solid rounded-md ">
-    <img className='mr-2' src="../../assets/eyeIcon.svg" alt="eye icon" />
-
-{text}
-</button>
-  )
+    <button className="flex items-center align-middle font-opencustom text-sm text-color-grey-title font-bold bg-color-grey-bg px-2 py-0.5 border-color-grey-border border border-solid rounded-md ">
+      <img className="mr-2" src={src} alt={alt} />
+      {text}
+    </button>
+  );
 }
