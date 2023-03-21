@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import arrow from "../../assets/arrowIcon.svg";
 
-export default function Dimensión({
+export default function Dimension({
   dimension_title,
   dimension_description,
   criteria_description,

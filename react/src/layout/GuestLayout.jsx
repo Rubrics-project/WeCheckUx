@@ -7,7 +7,7 @@ export default function GuestLayout() {
   return (
     <>
       <Header />
-      <main className="px-6 relative">
+      <main className="px-6 relative  mb-14">
         <Outlet />
       </main>
       <Footer />

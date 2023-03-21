@@ -93,7 +93,7 @@ class UserController extends Controller
         return response()->json([
             "status"=> 0,
             "msg"=>"Perfil del Usuario!",
-            "data"=>auth()->user()
+            "data"=>auth()->user(),
         ]);
     }
 
@@ -107,8 +107,15 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return $user;
+        $rubrics = $user->rubrics;
+        $answers = $user->answers;
+
+        return response()->json([
+            'user' => $user,
+        ]);
     }
+
+
 
     public function update(Request $request, User $user)
     {
