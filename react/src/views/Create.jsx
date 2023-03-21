@@ -1,5 +1,4 @@
 import React from "react";
-//import ReCAPTCHA from 'react-google-recaptcha';
 import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import ButtonSecondaryIconSmall from "../components/buttons/ButtonSecondaryIconSmall";
@@ -9,6 +8,7 @@ import dropdownIcon from "../assets/dropdownIcon.svg";
 import addIconGray from "../assets/addIconGray.svg";
 import { Navigate } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
+import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 
 export default function Create() {
   const { userToken } = userAuthContext();
@@ -44,11 +44,11 @@ export default function Create() {
   return (
     <>
       <form action="#" method="post" id="create" className="font-latocustom font-boldmt-2 space-y-1">
-        <Title title={"Google"} />
-
+        <Title
+        title={"Google"} />
         <label
           for="url"
-          className="text-sm text-color-grey-title"
+          className="text-sm text-color-grey-title font-opencustom"
         >
           URL:
         </label>
@@ -60,10 +60,9 @@ export default function Create() {
           className="w-full py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10  focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 "
         />
         <hr class="border-1 color-grey-bg"></hr>
-
         <label
           for="description:"
-          className="text-sm  text-color-grey-title"
+          className="text-sm text-color-grey-title"
         >
           Description:
         </label>
@@ -76,18 +75,17 @@ export default function Create() {
         />
         <hr class="border-1 color-grey-bg"></hr>
 
-        <div className="content-start bg-color-blue-light text-color-blue-s">
+        <div className="bg-color-blue-light text-color-blue-s">
           {
             <InformationBox
-              text={
-                "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
+            text={"Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
               }
               onClick={"pasar onclick"}
             />
           }
         </div>
 
-        <div className=" border rounded  border-color-blue-p p-1.5">
+        <div className="border rounded border-color-blue-p p-1.5">
           <label for="title" className="font-opencustom text-base font-bold">
             <h1 className="font-latocustom font-bold text-ml mt-3">Título:</h1>
           </label>
@@ -132,7 +130,7 @@ export default function Create() {
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <lable for="evaluation" className="font-opencustom text-sm">
+          <lable for="evaluation" className="font-opencustom text-xs">
             {" "}
             Criterio a evaluar:
           </lable>
@@ -144,9 +142,9 @@ export default function Create() {
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <img className="mr-2" src={dropdownIcon} alt="dropdown icon"></img>
+          <img className="flex mr-2" src={dropdownIcon} alt="dropdown icon"></img>
 
-          <lable for="negative" className="font-opencustom text-sm">
+          <lable for="negative" className="font-opencustom text-xs">
             Negativo:
           </lable>
           <input
@@ -158,7 +156,7 @@ export default function Create() {
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-          <lable for="regular" className="font-opencustom text-sm">
+          <lable for="regular" className="font-opencustom text-xs">
             Regular:
           </lable>
           <input
@@ -170,7 +168,7 @@ export default function Create() {
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-          <lable for="suficient" className="font-opencustom text-sm">
+          <lable for="suficient" className="font-opencustom text-xs">
             Suficiente:
           </lable>
           <input
@@ -182,7 +180,7 @@ export default function Create() {
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-          <lable for="good" className="font-opencustom text-sm">
+          <lable for="good" className="font-opencustom text-xs">
             Bien:
           </lable>
           <input
@@ -194,7 +192,7 @@ export default function Create() {
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
-          <lable for="excelent" className="font-opencustom text-sm">
+          <lable for="excelent" className="font-opencustom text-xs">
             Excelente:
           </lable>
           <input
@@ -212,6 +210,7 @@ export default function Create() {
             text={"Añadir dimensión"}
             src={addIconGray}
           />
+          
           {/* <Link
                 to="/"
                 className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
@@ -234,13 +233,8 @@ export default function Create() {
             )} */}
 
         <div className="flex justify-between">
-          <ButtonPrimary text={"Guardar"} />
-          <Link
-            to="/"
-            className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-12 py-2 border-color-grey-border border border-solid rounded-md"
-          >
-            Cancelar
-          </Link>
+          <ButtonPrimary text={"Guardar"}/>
+          <ButtonSecondary text={"Cancelar"}/>
         </div>
       </form>
     </>
