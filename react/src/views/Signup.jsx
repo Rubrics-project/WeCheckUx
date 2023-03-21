@@ -4,8 +4,11 @@ import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
 import { createItem } from "../services/userService";
+import { Navigate } from "react-router-dom";
+import { userAuthContext } from "../context/AuthProvider";
 
 export default function Signup() {
+  const { userToken } = userAuthContext();
   const [validCaptcha, setValidCaptcha] = useState(null);
   const [isUser, setIsUser] = useState(false);
   const captcha = useRef(null);
@@ -16,6 +19,10 @@ export default function Signup() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  if (userToken) {
+    return <Navigate to="/" />;
+  }
 
   const onChange = () => {
     if (captcha.current.getValue()) {
@@ -42,7 +49,6 @@ export default function Signup() {
     } catch (err) {
       setError(JSON.parse(err.request.response).msg);
     }
-   
   };
 
   return (

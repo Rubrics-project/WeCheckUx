@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { userAuthContext } from "../context/AuthProvider";
 import Browser from "../components/Browser";
 import RubricUser from "../components/Rubrics/RubricUser";
 import Title from "../components/Title";
 import { getAllItems } from "../services/rubricService";
 
 export default function MisRubricas() {
+  const { userToken } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
+
+  if (!userToken) {
+    return <Navigate to="/acceso" />;
+  }
 
   useEffect(() => {
     getAllItems()
