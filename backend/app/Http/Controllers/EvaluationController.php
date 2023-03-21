@@ -41,10 +41,13 @@ class EvaluationController extends Controller
         return $evaluation;
     }
 
-
     public function show(Evaluation $evaluation)
     {
-        return $evaluation;
+        $answer = $evaluation->answer;
+
+        return response()->json([
+            'evaluation' => $evaluation,
+        ]);
     }
 
 
