@@ -43,12 +43,12 @@ export default function Create() {
 
   return (
     <>
-      <form action="#" method="post" id="create" className="mt-2 space-y-1">
+      <form action="#" method="post" id="create" className="font-latocustom font-boldmt-2 space-y-1">
         <Title title={"Google"} />
 
         <label
           for="url"
-          className="font-opencustom text-sm text-color-grey-title"
+          className="text-sm text-color-grey-title"
         >
           URL:
         </label>
@@ -56,14 +56,14 @@ export default function Create() {
           type="text"
           id="url"
           name="url"
-          placeholder={"www.google.com"}
-          className="w-full px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10  focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "
+          placeholder={"Ej: www.wecheck.org"}
+          className="w-full py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10  focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 "
         />
-        <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700"></hr>
+        <hr class="border-1 color-grey-bg"></hr>
 
         <label
           for="description:"
-          className="font-opencustom text-sm  text-color-grey-title"
+          className="text-sm  text-color-grey-title"
         >
           Description:
         </label>
@@ -71,35 +71,35 @@ export default function Create() {
           type="text"
           id="description"
           name="description"
-          placeholder="Buscador de contenidos en la red. Analizamos la versión “.es”."
-          className="w-full  px-3 py-2 text-color-bck focus:z-10 focus:outline-none font-opencustom text-base mt-2"
+          placeholder="Describe el objetivo de tu rúbrica."
+          className="w-full py-2 text-color-bck focus:z-10 focus:outline-none font-opencustom text-base text-xs mt-2"
         />
-        <hr class="h-px my-8 bg-gray-200 border-1 dark:bg-gray-700"></hr>
+        <hr class="border-1 color-grey-bg"></hr>
 
-        <div className="content-start bg-blue-100 text-color-blue-s">
+        <div className="content-start bg-color-blue-light text-color-blue-s">
           {
             <InformationBox
               text={
-                "Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web."
+                "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
               }
               onClick={"pasar onclick"}
             />
           }
         </div>
 
-        <div className=" border rounded  border-color-blue-p p-1.5 ">
+        <div className=" border rounded  border-color-blue-p p-1.5">
           <label for="title" className="font-opencustom text-base font-bold">
-            Título:
+            <h1 className="font-latocustom font-bold text-ml mt-3">Título:</h1>
           </label>
           <input
             type="text"
             id="title"
             name="title"
             placeholder="Título"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2 "
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <label for="description" className="font-opencustom text-sm">
+          <label for="description" className="font-opencustom text-sm mt-3">
             Descripción de la rúbrica:
           </label>
           <input
@@ -107,7 +107,7 @@ export default function Create() {
             id="description"
             name="description"
             placeholder="Problemas de acceso basados en los roles e identidad de género."
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-6 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
           <label for="dimension" className="font-opencustom text-sm font-bold">
@@ -118,7 +118,7 @@ export default function Create() {
             id="dimension"
             name="dimension"
             placeholder="Dimensión"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
           <label for="description" className="font-opencustom text-sm">
@@ -129,7 +129,7 @@ export default function Create() {
             id="description"
             name="description"
             placeholder="Descripción"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
           <lable for="evaluation" className="font-opencustom text-sm">
@@ -141,7 +141,7 @@ export default function Create() {
             id="evaluation"
             name="evaluation"
             placeholder="Criterio que ha de ser evaluado"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
           <img className="mr-2" src={dropdownIcon} alt="dropdown icon"></img>
@@ -154,7 +154,7 @@ export default function Create() {
             id="negative"
             name="negative"
             placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
@@ -166,7 +166,7 @@ export default function Create() {
             id="regular"
             name="regular"
             placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
@@ -178,7 +178,7 @@ export default function Create() {
             id="suficiente"
             name="suficiente"
             placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
@@ -190,7 +190,7 @@ export default function Create() {
             id="suficiente"
             name="good"
             placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
@@ -202,11 +202,12 @@ export default function Create() {
             id="excelent"
             name="excelent"
             placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
 
           {/* <div>  */}
+          
           <ButtonSecondaryIconSmall
             text={"Añadir dimensión"}
             src={addIconGray}
@@ -236,7 +237,7 @@ export default function Create() {
           <ButtonPrimary text={"Guardar"} />
           <Link
             to="/"
-            className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg   px-12 py-2 border-color-grey-border  border border-solid rounded-md "
+            className=" font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-12 py-2 border-color-grey-border border border-solid rounded-md"
           >
             Cancelar
           </Link>
