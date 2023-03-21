@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Browser from "../components/Browser";
+import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
 import InformationBox from "../components/InformationBox";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import RubricProject from "../components/Rubrics/RubricProject";
 import Title from "../components/Title";
 import { getItemById } from "../services/projectsService";
 import { getAllItems } from "../services/rubricService";
+import plusIcon from "../assets/addIcon.svg";
+import { userAuthContext } from "../context/AuthProvider";
 
 export default function ProjectDetail() {
   const params = useParams();
@@ -16,12 +19,15 @@ export default function ProjectDetail() {
   const [searchRubrics, setSearchRubrics] = useState([]);
   const [table, setTable] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { userToken } = userAuthContext();
 
   useEffect(() => {
     getItemById(params.id)
       .then((response) => {
         // console.log(response.project);
         setProject(response.project);
+
         setRubrics(
           response.project.rubrics.sort(
             (a, b) =>
@@ -29,10 +35,15 @@ export default function ProjectDetail() {
               b.created_at.slice(0, 10).replace(/(\-)/gm, "")
           )
         );
+        console.log("setRubrics project detail:", response.project.rubrics);
+        if (userToken) {
+          setIsAuthenticated(true);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
+    // buscador
     getAllItems()
       .then((response) => {
         setTable(response);
@@ -81,6 +92,14 @@ export default function ProjectDetail() {
           rubric_date={rubric.created_at.slice(0, 10)}
         />
       ))}
+      <div className="flex justify-center mt-14">
+        <ButtonPrimaryIconBig
+          src={plusIcon}
+          alt={"Icono de añadir"}
+          text={"Crear mi rúbrica"}
+          to={!isAuthenticated ? "/acceso" : "/crear"}
+        />
+      </div>
     </>
   );
 }

@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RubricComplete from "../components/Rubrics/RubricComplete";
-import { getItemById } from "../services/projectsService";
+import { getItemById } from "../services/rubricService";
 
 export default function RubricDetail() {
   const params = useParams();
-  const [rubrics, setRubrics] = useState([]);
+  const [rubric, setRubric] = useState([]);
 
   useEffect(() => {
     getItemById(params.id)
       .then((response) => {
-        setRubrics(response.project.rubrics);
+        setRubric(response.rubric);
+
+        console.log("setRubrics rubric detail: ", response.rubric);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+
   return (
     <>
-      {rubrics.map((rubric, index) => (
-        <RubricComplete
-          key={index}
-          rubric_title={rubric.title}
-          rubric_description={rubric.description}
-          rubric_author={rubric.user_id}
-          rubric_date={rubric.created_at.slice(0, 10)}
-          project_title={rubric.project_id}
-          project_url={rubric.project_id}
-          project_description={rubric.project_id}
-        />
-      ))}
+      <RubricComplete
+        rubric_title={rubric.title}
+        rubric_description={rubric.description}
+        rubric_author={rubric.user_id}
+        rubric_date={rubric.created_at}
+        project_title={rubric.project_id}
+        project_url={rubric.project_id}
+        project_description={rubric.project_id}
+      />
     </>
   );
 }

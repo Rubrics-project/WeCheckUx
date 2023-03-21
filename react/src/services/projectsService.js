@@ -12,7 +12,7 @@ export const getAllItems = () => {
   return axiosInstance
     .get("projects")
     .then((response) => {
-      // console.log("Response data: ", response.data);
+      console.log("Response data all projects: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -25,7 +25,7 @@ export const getItemById = (id) => {
   return axiosInstance
     .get(`projects/${id}`)
     .then((response) => {
-      // console.log("Response data: ", response.data);
+      console.log("Response data id projects: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -38,7 +38,6 @@ export const createItem = (data) => {
   return axiosInstance
     .post("projects", data)
     .then((response) => {
-      console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -51,7 +50,6 @@ export const updateItem = (id, data) => {
   return axiosInstance
     .put(`projects/${id}`, data)
     .then((response) => {
-      console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -64,7 +62,6 @@ export const deleteItem = (id) => {
   return axiosInstance
     .delete(`projects/${id}`)
     .then((response) => {
-      console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {

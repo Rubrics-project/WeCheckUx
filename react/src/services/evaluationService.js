@@ -12,7 +12,7 @@ export const getAllItems = () => {
   return axiosInstance
     .get("evaluations")
     .then((response) => {
-      // console.log("Response data: ", response.data);
+      // console.log("Response data evaluations: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -25,7 +25,7 @@ export const getItemById = (id) => {
   return axiosInstance
     .get(`evaluations/${id}`)
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data evaluations: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -38,7 +38,7 @@ export const createItem = (data) => {
   return axiosInstance
     .post("evaluations", data)
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data evaluations: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -51,7 +51,7 @@ export const updateItem = (id, data) => {
   return axiosInstance
     .put(`evaluations/${id}`, data)
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data evaluations: ", response.data);
       return response.data;
     })
     .catch((error) => {
@@ -64,7 +64,7 @@ export const deleteItem = (id) => {
   return axiosInstance
     .delete(`evaluations/${id}`)
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data evaluations: ", response.data);
       return response.data;
     })
     .catch((error) => {
