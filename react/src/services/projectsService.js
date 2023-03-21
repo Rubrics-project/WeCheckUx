@@ -25,7 +25,7 @@ export const getItemById = (id) => {
   return axiosInstance
     .get(`projects/${id}`)
     .then((response) => {
-      console.log("Response data: ", response.data);
+      // console.log("Response data: ", response.data);
       return response.data;
     })
     .catch((error) => {
