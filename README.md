@@ -8,7 +8,7 @@ This project was created to evaluate, create, and check the results of different
 
 
 ## `WeCheck's logo`
-![Image text](./react/src/assets/Logo.jpeg.jpeg)
+![Image text](./react/src/assets/Logo.jpeg)
 
 
 ## `Home`
