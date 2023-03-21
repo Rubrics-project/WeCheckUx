@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Rubric;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -30,11 +31,6 @@ class ProjectController extends Controller
         return $project;
     }
 
-    public function show(Project $project)
-    {
-        return $project;
-    }
-
     public function update(Request $request, Project $project)
     {
         $request->validate([
@@ -49,6 +45,15 @@ class ProjectController extends Controller
 
         $project->update();
         return response()->json('Proyecto modificado!', 200);
+    }
+
+    public function show(Project $project)
+    {
+        $rubrics = $project->rubrics;
+
+        return response()->json([
+            'project' => $project,
+        ]);
     }
 
     public function destroy($id)
