@@ -7,7 +7,7 @@ export default function AdminLayout() {
   return (
     <>
       <Header />
-      <main className="px-6 relative">
+      <main className="px-6 relative  mb-5">
         <Outlet />
       </main>
       <Footer />
