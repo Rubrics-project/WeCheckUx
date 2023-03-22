@@ -1,14 +1,16 @@
 import React from "react";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
-import ButtonSecondaryIconSmall from "../components/buttons/ButtonSecondaryIconSmall";
 import InformationBox from "../components/InformationBox";
 import Title from "../components/Title";
-import dropdownIcon from "../assets/dropdownIcon.svg";
-import addIconGray from "../assets/addIconGray.svg";
 import { Navigate } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
+import CreateDropdown from "../components/createRubrics/CreateDropdown";
+import addIconGray from "../assets/addIconGray.svg";
+import deleteIcon from "../assets/deleteIcon.svg";
+import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
+
 
 export default function Create() {
   const { userToken } = userAuthContext();
@@ -21,10 +23,10 @@ export default function Create() {
       <form action="#" method="post" id="create" className="font-latocustom font-boldmt-2 space-y-1">
         <Title
           title={"Google"} />
-       
+
         <ProjectHeaderDetail
-        project_url={'www.google.com'}
-        project_description={'Lorem ipsum'}
+          project_url={'www.google.com'}
+          project_description={'Lorem ipsum'}
         />
 
         <InformationBox
@@ -88,79 +90,25 @@ export default function Create() {
             placeholder="Criterio que ha de ser evaluado"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
-
-          <img className="flex mr-2" src={dropdownIcon} alt="dropdown icon"></img>
-
-          <lable for="negative" className="font-opencustom text-xs">
-            Negativo:
-          </lable>
-          <input
-            type="taxt"
-            id="negative"
-            name="negative"
-            placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-          <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
-
-          <lable for="regular" className="font-opencustom text-xs">
-            Regular:
-          </lable>
-          <input
-            type="text"
-            id="regular"
-            name="regular"
-            placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-          <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
-
-          <lable for="suficient" className="font-opencustom text-xs">
-            Suficiente:
-          </lable>
-          <input
-            type="text"
-            id="suficiente"
-            name="suficiente"
-            placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-          <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
-
-          <lable for="good" className="font-opencustom text-xs">
-            Bien:
-          </lable>
-          <input
-            type="text"
-            id="suficiente"
-            name="good"
-            placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-          <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
-
-          <lable for="excelent" className="font-opencustom text-xs">
-            Excelente:
-          </lable>
-          <input
-            type="text"
-            id="excelent"
-            name="excelent"
-            placeholder="Descripción del nivel"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-          <hr class="h-px my-2 bg-gray-200 border-1 dark:bg-gray-700"></hr>
-
-          <ButtonSecondaryIconSmall
-            text={"Añadir dimensión"}
-            src={addIconGray}
-          />
-    
+          <CreateDropdown />
+          <div className="grid w-full grid-cols-2 gap-7 mb-7 mt-5">
+            <ButtonSecondaryIconData
+              text={"Añadir dimensión"}
+              src={addIconGray}
+              alt={"Add icon"}
+            />
+            <ButtonSecondaryIconData
+              text={"Eliminar dimensión"}
+              src={deleteIcon}
+              alt={"Add icon"}
+            />
+          </div>
         </div>
-
-        <div className="grid w-full grid-cols-2 gap-7">
+        <div>
+        <div className="mt-7 grid w-full grid-cols-2 gap-7">
           <ButtonPrimary text={"Guardar"} />
           <ButtonSecondary text={"Cancelar"} />
+        </div>
         </div>
       </form>
     </>
