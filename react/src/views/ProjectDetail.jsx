@@ -28,13 +28,7 @@ export default function ProjectDetail() {
         // console.log(response.project);
         setProject(response.project);
 
-        setRubrics(
-          response.project.rubrics.sort(
-            (a, b) =>
-              a.created_at.slice(0, 10).replace(/(\-)/gm, "") <
-              b.created_at.slice(0, 10).replace(/(\-)/gm, "")
-          )
-        );
+        setRubrics(response.project.rubrics);
         console.log("setRubrics project detail:", response.project.rubrics);
         if (userToken) {
           setIsAuthenticated(true);

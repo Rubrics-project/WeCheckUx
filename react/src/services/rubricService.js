@@ -11,8 +11,19 @@ export const getAllItems = () => {
   return axiosInstance
     .get("rubrics")
     .then((response) => {
-      console.log("Response data all rubrics: ", response.data);
-      return response.data;
+      console.log(
+        "Response data all rubrics: ",
+        response.data.sort(
+          (a, b) =>
+            b.created_at.slice(0, 10).replace(/(\-)/gm, "") -
+            a.created_at.slice(0, 10).replace(/(\-)/gm, "")
+        )
+      );
+      return response.data.sort(
+        (a, b) =>
+          b.created_at.slice(0, 10).replace(/(\-)/gm, "") -
+          a.created_at.slice(0, 10).replace(/(\-)/gm, "")
+      );
     })
     .catch((error) => {
       console.error(error);

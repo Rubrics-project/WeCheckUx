@@ -26,10 +26,9 @@ export const getItemById = (id) => {
   return axiosInstance
     .get(`projects/${id}`)
     .then((response) => {
-
       // resProject = response.data;
       // // console.log("Response data id projects:------ ", response.data.project.rubrics[0].user_id);
-      
+
       // for(let i = 0; i < resProject.project.rubrics.length; i++){
       //   let user_id = resProject.project.rubrics[i].user_id
       //   axiosInstance.get(`users/${user_id}`).then((r) =>{
@@ -38,10 +37,9 @@ export const getItemById = (id) => {
       //     console.log('----------aqi--------')
       //     console.log(resProject)
 
-        // })
-        return response.data; 
-      }
-    )
+      // })
+      return response.data;
+    })
     .catch((error) => {
       console.error(error);
       throw error;
