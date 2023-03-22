@@ -71,4 +71,12 @@ class RubricController extends Controller
         $rubric->delete();
         return response()->json("¡La rúbrica se ha eliminado con éxito!", 200);
     }
+
+    public function filterRubricByProject(Project $project){
+        $idProject = Project::find($project);
+        // if ($idProject === $id_rubrica_columna_proye){
+        //     info
+        // }
+        return $idProject;
+    }
 }

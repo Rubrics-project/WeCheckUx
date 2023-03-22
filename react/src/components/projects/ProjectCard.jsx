@@ -7,7 +7,7 @@ export default function ProjectCard({
   project_name,
   project_url,
   project_description,
-  _id,
+  id,
   // totalRubrics,
   // totalEvaluations,
 }) {
@@ -25,7 +25,7 @@ export default function ProjectCard({
             </p>
           </div>
         </div>
-        <Link className="flex align-middle mr-3" to={`${_id}`}>
+        <Link className="flex align-middle mr-3" to={`/proyectos/${id}`}>
           <img src={eye} alt="Icono de ojo" />
         </Link>
       </div>

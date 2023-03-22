@@ -9,16 +9,18 @@ import { userAuthContext } from "../context/AuthProvider";
 
 export default function Signup() {
   const { userToken } = userAuthContext();
-  const [validCaptcha, setValidCaptcha] = useState(null);
-  const [isUser, setIsUser] = useState(false);
-  const captcha = useRef(null);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+  const [validUser, setValidUser] = useState(false);
+
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+
+  const [validCaptcha, setValidCaptcha] = useState(null);
+  const captcha = useRef(null);
 
   if (userToken) {
     return <Navigate to="/" />;
@@ -26,7 +28,6 @@ export default function Signup() {
 
   const onChange = () => {
     if (captcha.current.getValue()) {
-      console.log("El usuario no es un robot");
       setValidCaptcha(true);
     }
   };
@@ -42,18 +43,31 @@ export default function Signup() {
     };
     try {
       const response = await createItem(formData);
-      setSuccess(true);
-      setIsUser(true);
-      setValidCaptcha(true);
-      window.location.href = "/acceso";
+      localStorage.setItem("token", response.data.access_token);
+      if (captcha.current.getValue()) {
+        console.log("El usuario no es un robot");
+        setValidCaptcha(true);
+        setValidUser(true);
+
+        window.location.href = "/acceso";
+      } else {
+        console.log("Acepta el captcha para continuar.");
+        setValidCaptcha(false);
+        setValidUser(false);
+      }
     } catch (err) {
       setError(JSON.parse(err.request.response).msg);
+      if (!captcha.current.getValue()) {
+        console.log("Acepta el captcha para continuar.");
+        setValidUser(false);
+        setValidCaptcha(false);
+      }
     }
   };
 
   return (
     <>
-      {!isUser && (
+      {!validUser && (
         <>
           <Title title={"Registrarse"} />
 
@@ -151,7 +165,11 @@ export default function Signup() {
                 />
               </div>
             </div>
-
+            {validCaptcha === false && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                Por favor acepta el captcha.
+              </div>
+            )}
             <div className="flex flex-col justify-center items-center">
               <ReCAPTCHA
                 className="max-w-3/4 mx-auto"
@@ -160,11 +178,6 @@ export default function Signup() {
                 onChange={onChange}
               />
             </div>
-            {validCaptcha === false && (
-              <div className="flex justify-center text-red-500 font-bold">
-                Por favor acepta el captcha.
-              </div>
-            )}
 
             <div className="w-full grid grid-cols-2 gap-7">
               <ButtonPrimary text={"Registrame"} />
@@ -190,7 +203,7 @@ export default function Signup() {
           </p>
         </>
       )}
-      {isUser && success && (
+      {validUser && (
         <div className="bg-color-blue-p rounded py-2 px-3 text-white">
           ¡Registro exitoso!
         </div>
