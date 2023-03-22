@@ -19,15 +19,23 @@ export default function Home() {
       </h1>
 
       <p className="font-opencustom text-sm">
-        Mejorar la <b>experiencia de usuario</b> (UX) es fundamental para
-        asegurar la satisfacción de cada visitante.
+        Esto es una plataforma de usuarios para{" "}
+        <b>evaluar distintas plataformas digitales mediante rúbricas</b>. Las
+        rúbricas son instrumentos de análisis cualitativo que nos permiten
+        revisar las propiedades, los puntos fuertes y flojos de una interfaz.
+        Este proyecto nace con la intención y el deseo de motivar e incentivar
+        el pensamiento crítico entorno al impacto que tienen las interfaces
+        gráficas de usuario en nuestro modo de relacionarnos como sociedad.
       </p>
 
       <p className="font-opencustom text-sm py-10">
-        En WeCheck puedes <b>evaluar mediante rúbricas</b> creadas por
-        diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además,
-        tienes la posibilidad de crear tus propias rúbricas. Por eso, tu
-        contribución es muy valiosa.
+        En WeCheck puedes evaluar, mediante rúbricas creadas por diferentes
+        autores y autoras, la interfaz de cualquier espacio. Además, tienes la
+        posibilidad de <b>crear tus propias rúbricas</b> para ponerlas a
+        disposición de otros/as usuarios/as que quieran evaluar con sus puntos
+        de vista personales, sus conocimientos situados y que quieran compartir
+        y sumar su punto de vista con la comunidad. Por eso,{" "}
+        <b>tu contribución es muy valiosa</b>.
       </p>
 
       <p className="font-opencustom text-sm">
@@ -44,8 +52,8 @@ export default function Home() {
       </p>
 
       <p className="font-opencustom text-sm font-bold py-12">
-        ¡Exprésate libremente y contribuye a la mejora y evaluación del UX en la
-        web!
+        ¡Exprésate libremente y contribuye a la mejora y evaluación de las
+        interfaces gráficas!
       </p>
       {!isAuthenticated ? (
         <div className="w-full grid grid-cols-2 gap-7 mb-20 ">

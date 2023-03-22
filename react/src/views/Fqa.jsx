@@ -8,40 +8,28 @@ export default function Fqa() {
       <Title title={"Preguntas Frecuentes"} />
       <div className="mt-8 space-y-4">
         <Accordion
-          title="1. ¿Qué es la UX?"
-          content="Diseño UX hace referencia a la experiencia de usuario, es decir,  a dar forma a una interfaz para mejorar nuestras experiencias y relaciones como usuario cuando estamos navegando en ella."
+          title="1. ¿Qué és una interfaz gráfica de usuario?"
+          content="Una interfaz gráfica de usuario son las capas interactivas a las que accede una persona para comunicarse con un sistema interactivo. Esto implica botones, metáforas, composición y diseño. Una interfaz gráfica de usuario puede ser el espacio diseñado de una web para conseguir efectuar tareas con sistemas informáticos."
         />
         <Accordion
-          title="2. ¿Para qué sirve el UX?"
-          content="Sirve para ayudar y fidelizar al usuario ya que, si la página es sencilla y rápida, el usuario permanecerá en ella por más tiempo."
+          title="2. ¿Qué es la WeCheck?"
+          content="Se trata de una aplicación web para crear, usar y ver rúbricas para evaluar interfaces gráficas de usuario. El nombre hace referencia al potencial que da la plataforma permitiendo a múltiples usuarios evaluar una misma interfaz o crear nuevas rúbricas. Este hecho permite la creación de evaluaciones libres, abiertas y colaborativas que nos puede ayudar, como sociedad, a ponderar y valorar los puntos buenos y los no tan buenos de cada interfaz."
         />
         <Accordion
-          title="3. ¿Qué son rúbricas en UX?"
-          content="Las rúbricas son herramientas que ayudan a evaluar la  interfaz de  una web y nos permiten crear críticas constructivas."
+          title="3. ¿Qué ocurre si publico una rúbrica con mi autoría?"
+          content="Desde “Mis rúbricas” tendrás el control: podrás evaluar y eliminar."
         />
         <Accordion
-          title="4. ¿Puedo replicar rúbricas?"
-          content="Sí, ya seas usuario registrado como usuario anónimo."
+          title="4. ¿Puedo ver mis rúbricas siendo autor?"
+          content="Sí, desde el listado general de proyectos y desde dentro de tu perfil en “Mis rúbricas”."
         />
         <Accordion
-          title="5. ¿Puedo aportar como anónimo?"
-          content="Sí, pero ten en cuenta que, una vez publicadas tus rúbricas, emprenden su camino en libertad y ya no podrás modificarlas o eliminarlas, tampoco podrás llevar el control de tus aportes o estadísticas."
-        />
-        <Accordion
-          title="6. ¿Puedo ver mi rúbrica siendo anónimo?"
-          content="Sí, desde el listado general de rúbricas pero, recuerda, no tendrás un registro propio de tus aportes."
-        />
-        <Accordion
-          title="7. ¿Qué ocurre si publico una rúbrica con mi autoría?"
-          content="Desde tu dashboard tendrás el control: podrás evaluar, modificar, eliminar, ver estadísticas."
-        />
-        <Accordion
-          title="8. ¿Puedo ver mis rúbricas siendo autor?"
-          content="Sí, desde el listado general de rúbricas y desde dentro de tu perfil."
-        />
-        <Accordion
-          title="9. ¿Qué debo tener en cuenta al crear una rúbrica?"
+          title="5. ¿Qué debo tener en cuenta al crear una rúbrica?"
           content="Recuerda crearlas con un vocabulario respetuoso y de manera concisa."
+        />
+        <Accordion
+          title="6. ¿Puedo aportar como anónimo?"
+          content="SDe momento no, pero es una función que se tiene previsto desarrollar en un futuro."
         />
       </div>
     </>
