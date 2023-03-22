@@ -31,6 +31,7 @@ export default function MisRubricas() {
       {rubrics.map((rubric, index) => (
         <RubricUser
           key={index}
+          rubric_id={rubric.id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
           project_title={rubric.project_id} //falta llamar al nombre del proyecto asociado a esta rúbrica

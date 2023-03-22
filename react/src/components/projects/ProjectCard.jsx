@@ -13,8 +13,8 @@ export default function ProjectCard({
 }) {
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
-      <div className="flex justify-between align-middle bg-color-grey-bg p-2">
-        <div className="flex mb-2">
+      <div className="grid grid-cols-9 gap-4 align-middle bg-color-grey-bg p-2">
+        <div className="col-span-8 flex mb-2">
           <img className=" mx-2" src={icon} alt="Icono de doble check" />
           <div>
             <h2 className="font-latocustom font-bold text-lg mb-0">
@@ -25,7 +25,10 @@ export default function ProjectCard({
             </p>
           </div>
         </div>
-        <Link className="flex align-middle mr-3" to={`/proyectos/${id}`}>
+        <Link
+          className="col-span-1 flex align-middle mr-3"
+          to={`/proyectos/${id}`}
+        >
           <img src={eye} alt="Icono de ojo" />
         </Link>
       </div>

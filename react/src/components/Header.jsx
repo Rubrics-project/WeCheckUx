@@ -15,7 +15,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="flex  justify-between p-2 bg-color-grey-bg">
+    <div className="flex justify-between py-2 pr-5 pl-3 bg-color-grey-bg">
       <Nav />
       <a href="/" className="flex content-center">
         <img src={logo} alt="Icon Create Rubric"></img>

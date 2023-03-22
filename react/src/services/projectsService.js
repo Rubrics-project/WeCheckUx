@@ -22,10 +22,22 @@ export const getAllItems = () => {
 };
 
 export const getItemById = (id) => {
+  let resProject;
   return axiosInstance
     .get(`projects/${id}`)
     .then((response) => {
-      console.log("Response data id projects: ", response.data);
+      // resProject = response.data;
+      // // console.log("Response data id projects:------ ", response.data.project.rubrics[0].user_id);
+
+      // for(let i = 0; i < resProject.project.rubrics.length; i++){
+      //   let user_id = resProject.project.rubrics[i].user_id
+      //   axiosInstance.get(`users/${user_id}`).then((r) =>{
+      //     // console.log(r.data.user.name)
+      //     resProject.project.rubrics[i].user_id = r.data.user.name
+      //     console.log('----------aqi--------')
+      //     console.log(resProject)
+
+      // })
       return response.data;
     })
     .catch((error) => {
