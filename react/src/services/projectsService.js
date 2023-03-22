@@ -21,31 +21,44 @@ export const getAllItems = () => {
     });
 };
 
-export const getItemById = (id) => {
-  let resProject;
-  return axiosInstance
-    .get(`projects/${id}`)
-    .then((response) => {
+export const getItemById = async(id) => {
+  
+  let projects = await axiosInstance.get(`projects/${id}`)
+  console.log(projects.data.project.rubrics)
+  for(let i = 0; i < projects.data.project.rubrics.length; i++){
+    console.log('Aqui andamos papu----')
+    console.log(projects.data.project.rubrics[i].user_id)
+    let user_id = projects.data.project.rubrics[i].user_id;
+    let username = await axiosInstance.get(`users/${user_id}`)
+    projects.data.project.rubrics[i].user_id = username.data.user.name + ' ' + username.data.user.surname
+    user_id = username.data.user.name;
 
-      // resProject = response.data;
-      // // console.log("Response data id projects:------ ", response.data.project.rubrics[0].user_id);
-      
-      // for(let i = 0; i < resProject.project.rubrics.length; i++){
-      //   let user_id = resProject.project.rubrics[i].user_id
-      //   axiosInstance.get(`users/${user_id}`).then((r) =>{
-      //     // console.log(r.data.user.name)
-      //     resProject.project.rubrics[i].user_id = r.data.user.name
-      //     console.log('----------aqi--------')
-      //     console.log(resProject)
+    // let name = username.data.user.name;
+    // let surname = username.data.user.surname;
+    // user_id = username.data.user.name;
+    // console.log("---------"+user_id)
+    // console.log(projects.data.project.rubrics[i].user_id)
 
-        // })
-        return response.data; 
-      }
-    )
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+  }
+
+  console.log(projects.data)
+  return projects.data;
+
+
+  // let resProject;
+  
+  
+  
+  // return axiosInstance
+  //   .get(`projects/${id}`)
+  //   .then((response) => {
+  //       return response.data; 
+  //     }
+  //   )
+  //   .catch((error) => {
+  //     console.error(error);
+  //     throw error;
+  //   });
 };
 
 export const createItem = (data) => {

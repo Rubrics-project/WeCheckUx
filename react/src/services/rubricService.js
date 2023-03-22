@@ -24,7 +24,8 @@ export const getItemById = (id) => {
   return axiosInstance
     .get(`rubrics/${id}`)
     .then((response) => {
-      console.log("Response data id rubrics: ", response.data);
+      
+      // console.log("Response data id rubrics: ", response.data);
       return response.data;
     })
     .catch((error) => {

@@ -59,7 +59,7 @@ class RubricController extends Controller
         $evaluations = $rubric->evaluations;
         $user = $rubric->user;
         $project = $rubric->project;
-
+        return $rubric;
         return response()->json([
             'rubric' => $rubric,
             // 'user' =>$user
