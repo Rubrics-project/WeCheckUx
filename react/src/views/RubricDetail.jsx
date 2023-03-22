@@ -13,10 +13,11 @@ export default function RubricDetail() {
   useEffect(() => {
     getItemById(params.id)
       .then((response) => {
-        setRubric(response.rubric);
-        setUser(response.rubric.user);
-        setProject(response.rubric.project);
-        setDate(response.rubric.created_at.slice(0, 10));
+        console.log("aquuu   ----",response)
+        setRubric(response);
+        setUser(response.user);
+        setProject(response.project);
+        setDate(response.created_at.slice(0, 10));
         console.log("setRubrics rubric detail: ", response.rubric);
       })
       .catch((error) => {

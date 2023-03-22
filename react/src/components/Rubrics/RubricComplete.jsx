@@ -19,11 +19,11 @@ export default function Rubric({
   useEffect(() => {
     getItemById(params.id)
       .then((response) => {
-        setEvaluations(response.rubric.evaluations);
+        setEvaluations(response.evaluations);
 
         console.log(
           "setRubrics rubric detail evaluations: ",
-          response.rubric.evaluations
+          response
         );
       })
       .catch((error) => {

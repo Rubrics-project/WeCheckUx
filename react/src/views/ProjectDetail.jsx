@@ -26,9 +26,9 @@ export default function ProjectDetail() {
     getItemById(params.id)
       .then((response) => {
         // console.log(response.project);
-        setProject(response.project);
+        setProject(response);
 
-        setRubrics(response.project.rubrics);
+        setRubrics(response.rubrics);
         console.log("setRubrics project detail:", response.project.rubrics);
         if (userToken) {
           setIsAuthenticated(true);
