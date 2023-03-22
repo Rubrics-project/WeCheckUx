@@ -24,7 +24,7 @@ export default function Home() {
       </p>
 
       <p className="font-opencustom text-sm py-10">
-        En WeCheck puedes <b>evaluar, mediante rúbricas</b> creadas por
+        En WeCheck puedes <b>evaluar mediante rúbricas</b> creadas por
         diferentes autores y autoras, la UX de <b>cualquier espacio</b>. Además,
         tienes la posibilidad de crear tus propias rúbricas. Por eso, tu
         contribución es muy valiosa.
@@ -63,7 +63,14 @@ export default function Home() {
           </Link>
         </div>
       ) : (
-        <div></div>
+        <div>
+          <Link
+            to="/crear"
+            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md mb-20 "
+          >
+            Crear rúbrica
+          </Link>
+        </div>
       )}
     </>
   );

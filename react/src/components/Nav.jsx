@@ -50,7 +50,7 @@ export default function Nav() {
               <a href="/acceso" className='flex py-3 px-6 border-t border-t-gray-300 text-color-grey-title font-semibold font-opencustom'><img src={accessIcon} alt="Icon Registro" className='mr-5'/>Acceder / Registro</a>
             </>
           )}
-          <a href="https://github.com/Rubrics-project/WeCheckUx" className='flex py-5 px-6 border-t border-t-gray-300 text-color-grey-title font-light font-opencustom'><img src={gitHubIcon} alt="Icon de logout" className='mr-5'/>Contribuye al proyecto</a>
+          <a href="https://github.com/Rubrics-project/WeCheckUx" className='flex py-5 px-6 border-t border-t-gray-300 text-color-grey-title font-light font-opencustom'><img src={gitHubIcon} alt="Icon de logout" className='mr-5'/>Colabora en el código</a>
       </div>
 
 

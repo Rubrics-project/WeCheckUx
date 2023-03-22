@@ -19,9 +19,10 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'surname'=>'required',
+            'surname'=>'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
+            // 'confirmed' => 'required|string|min:8',
         ]);
 
         if ($validator->fails()) {
@@ -44,6 +45,7 @@ class UserController extends Controller
             $user->surname =  $request->surname;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
+            // $user->createToken("auth_token")->plainTextToken;
 
             $user->save();
             return response()->json([
@@ -56,7 +58,7 @@ class UserController extends Controller
     public function login(Request $request){
          $request->validate([
             'email'=>'required|string|email|max:255',
-            'password'=>'required'
+            'password'=>'required|string|min:8'
         ]);
 
         $user = User::where("email", "=", $request->email)->first();

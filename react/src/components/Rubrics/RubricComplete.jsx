@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
 import icon from "../../assets/doubleCheck.svg";
-import Dimensión from "./Dimension";
-import { getAllItems } from "../../services/evaluationService";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getItemById } from "../../services/rubricService";
+import Dimension from "../Rubrics/Dimension";
 
 export default function Rubric({
   rubric_title,
@@ -12,18 +13,23 @@ export default function Rubric({
   project_url,
   project_description,
 }) {
+  const params = useParams();
   const [evaluations, setEvaluations] = useState([]);
 
   useEffect(() => {
-    getAllItems()
+    getItemById(params.id)
       .then((response) => {
-        setEvaluations(response);
+        setEvaluations(response.rubric.evaluations);
+
+        console.log(
+          "setRubrics rubric detail evaluations: ",
+          response.rubric.evaluations
+        );
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
       <div className="flex bg-color-grey-bg p-2">
@@ -75,7 +81,7 @@ export default function Rubric({
         <p className="font-opencustom text-xs">{project_description}</p>
       </div>
       {evaluations.map((evaluation, index) => (
-        <Dimensión
+        <Dimension
           key={index}
           dimension_title={evaluation.title}
           dimension_description={evaluation.description}
