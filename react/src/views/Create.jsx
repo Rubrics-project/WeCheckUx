@@ -75,7 +75,7 @@ export default function Create() {
         />
         <hr class="border-1 color-grey-bg"></hr>
 
-        <div className="bg-color-blue-light text-color-blue-s">
+        <div className="flex bg-color-blue-light text-color-blue-s">
           {
             <InformationBox
             text={"Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
