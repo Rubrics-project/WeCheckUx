@@ -49,10 +49,15 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
+
         $rubrics = $project->rubrics;
+
+        // $user = $rubrics->user;
+        // $user = $project->user;
 
         return response()->json([
             'project' => $project,
+            // 'user' =>$user
         ]);
     }
 

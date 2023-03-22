@@ -13,6 +13,7 @@ class Project extends Model
     public function rubrics()
     {
         return $this->hasMany(Rubric::class);
+        // return $this->hasMany(Product::class);
     }
 
     protected $fillable = [
