@@ -6,12 +6,18 @@ import { getItemById } from "../services/rubricService";
 export default function RubricDetail() {
   const params = useParams();
   const [rubric, setRubric] = useState([]);
+  const [user, setUser] = useState([]);
+  const [project, setProject] = useState([]);
+  const [date, setDate] = useState([]);
 
   useEffect(() => {
     getItemById(params.id)
       .then((response) => {
-        setRubric(response.rubric);
-
+        console.log("aquuu   ----",response)
+        setRubric(response);
+        setUser(response.user);
+        setProject(response.project);
+        setDate(response.created_at.slice(0, 10));
         console.log("setRubrics rubric detail: ", response.rubric);
       })
       .catch((error) => {
@@ -24,11 +30,11 @@ export default function RubricDetail() {
       <RubricComplete
         rubric_title={rubric.title}
         rubric_description={rubric.description}
-        rubric_author={rubric.user_id}
-        rubric_date={rubric.created_at}
-        project_title={rubric.project_id}
-        project_url={rubric.project_id}
-        project_description={rubric.project_id}
+        rubric_author={user.name + " " + user.surname}
+        rubric_date={date}
+        project_title={project.name}
+        project_url={project.url}
+        project_description={project.description}
       />
     </>
   );

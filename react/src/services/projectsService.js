@@ -21,47 +21,31 @@ export const getAllItems = () => {
     });
 };
 
+
 export const getItemById = async(id) => {
-  
-  let projects = await axiosInstance.get(`projects/${id}`)
-  console.log(projects.data.project.rubrics)
-  for(let i = 0; i < projects.data.project.rubrics.length; i++){
-    console.log('Aqui andamos papu----')
-    console.log(projects.data.project.rubrics[i].user_id)
-    let user_id = projects.data.project.rubrics[i].user_id;
-    let username = await axiosInstance.get(`users/${user_id}`)
-    projects.data.project.rubrics[i].user_id = username.data.user.name + ' ' + username.data.user.surname
-    user_id = username.data.user.name;
+  try {
+    const { data: { project } } = await axiosInstance.get(`projects/${id}`);
 
-    // let name = username.data.user.name;
-    // let surname = username.data.user.surname;
-    // user_id = username.data.user.name;
-    // console.log("---------"+user_id)
-    // console.log(projects.data.project.rubrics[i].user_id)
+    const userPromises = project.rubrics.map((rubric) => axiosInstance.get(`users/${rubric.user_id}`));
+    const userResponses = await Promise.all(userPromises);
+    const users = userResponses.map((response) => `${response.data.user.name} ${response.data.user.surname}`);
 
+    const updatedRubrics = project.rubrics.map((rubric, index) => {
+      return {
+        ...rubric,
+        user_id: users[index],
+      };
+    });
+
+    return { ...project, rubrics: updatedRubrics };
+  } catch (error) {
+    console.error(error);
+    
   }
-
-  console.log(projects.data)
-  return projects.data;
-
-
-  // let resProject;
-  
-  
-  
-  // return axiosInstance
-  //   .get(`projects/${id}`)
-  //   .then((response) => {
-  //       return response.data; 
-  //     }
-  //   )
-  //   .catch((error) => {
-  //     console.error(error);
-  //     throw error;
-  //   });
 };
 
-export const createItem = (data) => {
+
+export const createItem = async(data) => {
   return axiosInstance
     .post("projects", data)
     .then((response) => {

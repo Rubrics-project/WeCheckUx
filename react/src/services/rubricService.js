@@ -7,17 +7,25 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItems = () => {
-  return axiosInstance
-    .get("rubrics")
-    .then((response) => {
-      console.log("Response data all rubrics: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const getAllItems = async() => {
+  try {
+    const { data: rubrics } = await axiosInstance.get("rubrics");
+
+    const updatedRubrics = await Promise.all(rubrics.map(async (rubric) => {
+      const { data: { project: { name: projectName } } } = await axiosInstance.get(`projects/${rubric.project_id}`);
+      return { ...rubric, project_id: projectName };
+    }));
+
+    const sortedRubrics = updatedRubrics.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    // console.log(sortedRubrics);
+
+    return sortedRubrics;
+
+  } catch (error) {
+    console.error(error);
+    // manejo de errores aquí
+  }
+
 };
 
 export const getItemById = (id) => {
@@ -25,7 +33,7 @@ export const getItemById = (id) => {
     .get(`rubrics/${id}`)
     .then((response) => {
       
-      // console.log("Response data id rubrics: ", response.data);
+      // console.log("Response data id rubrics: ", response);
       return response.data;
     })
     .catch((error) => {

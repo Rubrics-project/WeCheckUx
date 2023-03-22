@@ -10,14 +10,21 @@ export default function MisRubricas() {
   const { userToken } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
 
+
   if (!userToken) {
     return <Navigate to="/acceso" />;
   }
 
   useEffect(() => {
+
     getAllItems()
+
       .then((response) => {
+        console.log(response);
         setRubrics(response);
+
+        
+
       })
       .catch((error) => {
         console.error(error);
@@ -31,10 +38,11 @@ export default function MisRubricas() {
       {rubrics.map((rubric, index) => (
         <RubricUser
           key={index}
+          rubric_id={rubric.id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
-          project_title={rubric.project_id} //falta llamar al nombre del proyecto asociado a esta rúbrica
-          rubric_date={rubric.created_at.slice(0, 10)}
+          project_title={rubric.project_id} 
+          rubric_date={rubric.created_at.slice(0,10)}
         />
       ))}
     </>

@@ -30,15 +30,15 @@ export default function RubricProject({
         />
       </div>
       <div className="border rounded border-color-blue-p my-5 overflow-hidden">
-        <div className="flex justify-between bg-color-grey-bg p-2">
-          <div className="flex align-middle">
+        <div className="grid grid-cols-9 gap-4 justify-between bg-color-grey-bg p-2">
+          <div className="col-span-8 flex align-middle">
             <img className=" mx-2" src={icon} alt="Icono de doble check" />
             <h2 className="font-latocustom font-bold text-lg ml-1">
               {rubric_title}
             </h2>
           </div>
           <Link
-            className="flex align-middle mr-3"
+            className="col-span-1 flex align-middle mr-3"
             to={`/proyectos/${project_id}/rubricas/${rubric_id}`}
           >
             <img src={eye} alt="Icono de ojo" />
