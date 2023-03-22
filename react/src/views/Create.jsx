@@ -30,13 +30,13 @@ export default function Create() {
         />
 
         <InformationBox
-          text={"Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
+          text={"Crea una rúbrica para que tú u otras personas la podáis usar para evaluar la experiencia de usuario de una web.”."
           }
         />
 
         <div className="border rounded border-color-blue-p p-1.5">
           <label for="title" className="font-opencustom text-base font-bold">
-            <h1 className="font-latocustom font-bold text-ml mt-3">Título:</h1>
+            <h1 className="font-latocustom font-bold text-sm mt-3">Título:</h1>
           </label>
           <input
             type="text"
@@ -46,18 +46,18 @@ export default function Create() {
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <label for="description" className="font-opencustom text-sm mt-3">
+          <label for="description" className="font-opencustom text-xs mt-3">
             Descripción de la rúbrica:
           </label>
           <textarea
             type="text"
             id="description"
             name="description"
-            placeholder="Descripción de la rúbrica."
+            placeholder="Descripción de la rúbrica"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <label for="dimension" className="font-opencustom text-sm font-bold">
+          <label for="dimension" className="font-opencustom text-xs font-bold">
             Dimensión:
           </label>
           <input
@@ -68,7 +68,7 @@ export default function Create() {
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
 
-          <label for="description" className="font-opencustom text-sm">
+          <label for="description" className="font-opencustom text-xs">
             Descripción de la dimensión:
           </label>
           <input
@@ -76,18 +76,6 @@ export default function Create() {
             id="description"
             name="description"
             placeholder="Descripción"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
-          />
-
-          <lable for="evaluation" className="font-opencustom text-xs">
-            {" "}
-            Criterio a evaluar:
-          </lable>
-          <input
-            type="text"
-            id="evaluation"
-            name="evaluation"
-            placeholder="Criterio que ha de ser evaluado"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
           />
           <CreateDropdown />

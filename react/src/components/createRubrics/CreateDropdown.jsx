@@ -20,14 +20,19 @@ export default function CreateDropdown({
   return (
     <>
 
-      <hr className=" border-color-grey-bg border-2" />
 
-      <hr className=" border-color-grey-bg border-2" />
-      <div className="space-y-1 py-3">
-        <h4 className="pl-3 font-opencustom text-xs text-color-grey-title ">
-          Niveles de evaluación:
+      <h4 className="font-opencustom text-xs text-color-grey-title ">
+          Criterio a evaluar:
         </h4>
-        <div className="flex bg-color-grey-bg p-3">
+      <div className="space-y-1 py-3">
+        <div className="flex bg-color-grey-bg p-2">
+        <input
+            type="text"
+            id="evaluation"
+            name="evaluation"
+            placeholder="Criterio que ha de ser evaluado"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2"
+          />
           <p className="font-opencustom text-xs">{criteria_description}</p>
         </div>
         <div
