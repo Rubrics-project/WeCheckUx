@@ -9,6 +9,8 @@ import {  getItemById } from "../services/userService";
 export default function MisRubricas() {
   const { userToken, currentUser } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
+  const [table, setTable] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
 
 
 
@@ -23,6 +25,7 @@ export default function MisRubricas() {
       try {
         const response = await getItemById(currentUser);
         console.log("-----",response.data.user.rubrics);
+        setTable(response.data.user.rubrics);
         setRubrics(response.data.user.rubrics);
       } catch (error) {
         console.error(error);
@@ -32,9 +35,23 @@ export default function MisRubricas() {
     fetchData();
   }, []);
 
+  const handleChange = (e) => {
+    filter(e.target.value);
+    setBusqueda(e.target.value);
+    // console.log("busqueda:"+ e.target.value)
+  };
+  const filter = (termsearch) => {
+    let result = table.filter((elemento) => {
+      if (elemento.title.toString().toLowerCase().includes(termsearch)) {
+        return elemento;
+      }
+    });
+    setRubrics(result);
+  };
+
   return (
     <>
-      <Browser />
+      <Browser busqueda={busqueda} handleChange={handleChange} />
       <Title title={"Mis rúbricas"} />
       {rubrics.map((rubric, index) => (
         <RubricUser
