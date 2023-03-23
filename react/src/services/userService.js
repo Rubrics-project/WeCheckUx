@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItemsU = () => {
+export const getAllItems = () => {
   return axiosInstance.get("users");
 };
 
