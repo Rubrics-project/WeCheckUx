@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import Title from "../components/Title";
 import ReCAPTCHA from "react-google-recaptcha";
-import { createItem } from "../services/userService";
+import { createItem, postLogin } from "../services/userService";
 import { Navigate } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
 
@@ -41,6 +41,10 @@ export default function Signup() {
       password,
       password_confirmation: passwordConfirmation,
     };
+      const formDataL = {
+      email,
+      password,
+    };
     try {
       const response = await createItem(formData);
       localStorage.setItem("token", response.data.access_token);
@@ -48,8 +52,9 @@ export default function Signup() {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
         setValidUser(true);
+        await postLogin(formDataL);
 
-        window.location.href = "/acceso";
+        window.location.href = "/mis-rubricas";
       } else {
         console.log("Acepta el captcha para continuar.");
         setValidCaptcha(false);
@@ -77,11 +82,6 @@ export default function Signup() {
             action="#"
             method="POST"
           >
-            {error && (
-              <div className="bg-red-500 rounded py-2 px-3 text-white">
-                {error}
-              </div>
-            )}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
@@ -165,6 +165,11 @@ export default function Signup() {
                 />
               </div>
             </div>
+            {error && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                {error}
+              </div>
+            )}
             {validCaptcha === false && (
               <div className="bg-red-500 rounded py-2 px-3 text-white">
                 Por favor acepta el captcha.
@@ -206,6 +211,7 @@ export default function Signup() {
       {validUser && (
         <div className="bg-color-blue-p rounded py-2 px-3 text-white">
           ¡Registro exitoso!
+          Has accedido a tu perfil.
         </div>
       )}
     </>

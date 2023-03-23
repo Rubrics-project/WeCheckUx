@@ -77,14 +77,14 @@ class UserController extends Controller
                 return response()->json([
                     "status"=> 0,
                     "msg"=>"¡Usuario y/o Contraseña incorrectos!"
-                ], 404);
+                ], 422);
             }
         }
         else{
             return response()->json([
                 "status"=> 0,
                 "msg"=>"¡Usuario y/o Contraseña incorrectos!"
-            ], 404);
+            ], 422);
         }
 
     }
