@@ -39,6 +39,7 @@ export default function Login() {
     try {
       const response = await postLogin(formData);
       localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("user_id", response.data.user_id);
       if (captcha.current.getValue()) {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
@@ -147,7 +148,7 @@ export default function Login() {
               {" "}
               <Link
                 to="/registro"
-                className="font-opencustom text-sm font-bold text-color-blue-p underline hover:text-color-blue-light"
+                className="font-opencustom text-sm font-normal hover:font-bold underline text-color-blue-p  "
               >
                 Registrarse
               </Link>

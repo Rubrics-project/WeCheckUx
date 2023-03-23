@@ -22,7 +22,6 @@ class UserController extends Controller
             'surname'=>'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
-            // 'confirmed' => 'required|string|min:8',
         ]);
 
         if ($validator->fails()) {
@@ -45,7 +44,6 @@ class UserController extends Controller
             $user->surname =  $request->surname;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            // $user->createToken("auth_token")->plainTextToken;
 
             $user->save();
             return response()->json([
@@ -56,35 +54,44 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-         $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'email'=>'required|string|email|max:255',
             'password'=>'required|string|min:8'
         ]);
+
+        if($validator->fails() ){
+
+            return  response()->json([
+                "status"=> 0,
+                "msg"=>"Introduce una contraseña con mínimo 8 carácteres"
+            ], 404);
+        }
 
         $user = User::where("email", "=", $request->email)->first();
 
         if(isset($user->id)){
             if(Hash::check($request->password, $user->password)){
-                //crear token
                 $token = $user->createToken("auth_token")->plainTextToken;
                 return response()->json([
                     "status"=> 1,
-                    "msg"=>"Usuario logeado con exito!",
-                    "access_token"=>$token
+                    "msg"=>"¡Usuario logeado con exito!",
+                    "access_token"=>$token,
+                    "user_id"=>$user->id
                 ]);
             }
             else{
                 return response()->json([
                     "status"=> 0,
                     "msg"=>"¡Usuario y/o Contraseña incorrectos!"
-                ], 422);
+                ], 404);
             }
         }
         else{
             return response()->json([
                 "status"=> 0,
                 "msg"=>"¡Usuario y/o Contraseña incorrectos!"
-            ], 422);
+            ], 404);
         }
 
     }
@@ -92,7 +99,7 @@ class UserController extends Controller
     public function userProfile(){
         return response()->json([
             "status"=> 0,
-            "msg"=>"Perfil del Usuario!",
+            "msg"=>"¡Perfil del Usuario!",
             "data"=>auth()->user(),
         ]);
     }
@@ -101,7 +108,7 @@ class UserController extends Controller
         auth()->user()->tokens()->delete();
         return response()->json([
             "status"=> 1,
-            "msg"=>"Cierre de sesión!"
+            "msg"=>"¡Cierre de sesión!"
         ]);
     }
 
@@ -114,8 +121,6 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
-
-
 
     public function update(Request $request, User $user)
     {
@@ -134,9 +139,10 @@ class UserController extends Controller
        $user->update();
        return response()->json([
         "status"=> 1,
-        "msg"=>"Usuario acrializado!"
+        "msg"=>"¡Usuario actualizado!"
     ]);
     }
+
     public function destroy($id)
     {
         $user = User::find($id);
@@ -146,11 +152,5 @@ class UserController extends Controller
         $user->delete();
         return response()->json("Usuario Eliminado", 200);
     }
-
-
-
-
-
-
 
 }

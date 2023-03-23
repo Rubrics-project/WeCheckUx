@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import Browser from "../components/Browser";
+import { BrowserRouter, useParams } from "react-router-dom";
+import Browser from "../components/Browser";
 import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
 import InformationBox from "../components/InformationBox";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
@@ -16,9 +16,8 @@ export default function ProjectDetail() {
   // console.log(params.id);
   const [project, setProject] = useState([]);
   const [rubrics, setRubrics] = useState([]);
-  // const [searchRubrics, setSearchRubrics] = useState([]);
-  // const [table, setTable] = useState([]);
-  // const [busqueda, setBusqueda] = useState("");
+  const [table, setTable] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { userToken } = userAuthContext();
 
@@ -26,6 +25,8 @@ export default function ProjectDetail() {
     const fetchData = async () => {
       try {
         const response = await getItemById(params.id);
+        setTable(response.rubrics);
+
         setProject(response);
         setRubrics(response.rubrics);
         console.log("setRubrics project detail:", response.rubrics);
@@ -41,22 +42,23 @@ export default function ProjectDetail() {
     fetchData();
   }, []);
 
-  // const handleChange = (e) => {
-  //   filter(e.target.value);
-  //   setBusqueda(e.target.value);
-  //   // console.log("busqueda:" + e.target.value);
-  // };
-  // const filter = (termsearch) => {
-  //   let result = table.filter((elemento) => {
-  //     if (elemento.title.toString().toLowerCase().includes(termsearch)) {
-  //       return elemento;
-  //     }
-  //   });
-  //   setSearchRubrics(result);
-  // };
+  const handleChange = (e) => {
+    filter(e.target.value);
+    setBusqueda(e.target.value);
+    // console.log("busqueda:"+ e.target.value)
+  };
+  const filter = (termsearch) => {
+    let result = table.filter((elemento) => {
+      if (elemento.title.toString().toLowerCase().includes(termsearch)) {
+        return elemento;
+      }
+    });
+    setRubrics(result);
+  };
+
   return (
     <>
-      {/* <Browser busqueda={busqueda} handleChange={handleChange} /> */}
+      <Browser busqueda={busqueda} handleChange={handleChange} />
       <Title title={project.name} />
       <ProjectHeaderDetail
         project_url={project.url}
