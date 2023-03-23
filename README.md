@@ -6,12 +6,7 @@ This project was created to evaluate, create, and check the results of different
 ## :iphone: Mobile Graphic reference
 
 
-
-## `WeCheck's logo`
-![Image text](./react/src/assets/Logo.jpeg)
-
-
-## `Home`
+## `Design`
 ![Image text](./react/src/assets/design_for_README.jpeg)
 
 

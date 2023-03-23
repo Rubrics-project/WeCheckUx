@@ -9,10 +9,10 @@ import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import CreateDropdown from "../components/createRubrics/CreateDropdown";
 import addIconGray from "../assets/addIconGray.svg";
 import deleteIcon from "../assets/deleteIcon.svg";
-import logo from "../assets/logo.svg";
+import doubleCheckBig from "../assets/doubleCheckBig.svg";
 import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
 import { useEffect } from "react";
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 
 
@@ -25,21 +25,30 @@ export default function Create() {
 
   const showAlert = () => {
     Swal.fire({
-      imageUrl: logo,
-      imageHeight: 100,
-      imageWidth: 100,
+      imageUrl: doubleCheckBig,
+      imageHeight: 30,
+      imageWidth: 30,
       imageAlt: 'logo',
-      title: "ALERTA",
-      text: "Esta acción eliminará tu rúbrica. <br> ¿Deseas continuar?",
+
+      text: "Esta acción eliminará tu rúbrica. ¿Deseas continuar?",
       showDenyButton: true,
       confirmButtonText: 'Sí',
-      confirmButtonColor: 'green',
+      confirmButtonColor: 'grey',
       denyButtonText: 'No',
       denyButtonColor: 'grey',
       position: "center",
     }).then(response => {
-      if(response.isConfirmed){
-        Swal.fire('La rúbrica ha sido eliminada.');
+      if (response.isConfirmed) {
+        Swal.fire({
+          imageUrl: doubleCheckBig,
+          imageHeight: 30,
+          imageWidth: 30,
+          imageAlt: 'logo',
+          text: "La rúbrica ha sido eliminada.",
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: 'grey',
+          position: "center",
+        });
       }
     })
   }
