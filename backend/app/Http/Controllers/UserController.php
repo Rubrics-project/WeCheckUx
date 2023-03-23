@@ -22,7 +22,6 @@ class UserController extends Controller
             'surname'=>'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8|confirmed',
-            // 'confirmed' => 'required|string|min:8',
         ]);
 
         if ($validator->fails()) {
@@ -45,7 +44,6 @@ class UserController extends Controller
             $user->surname =  $request->surname;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            // $user->createToken("auth_token")->plainTextToken;
 
             $user->save();
             return response()->json([
@@ -56,10 +54,6 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-        //  $request->validate([
-        //     'email'=>'required|string|email|max:255',
-        //     'password'=>'required|string|min:8'
-        // ]);
 
         $validator = Validator::make($request->all(), [
             'email'=>'required|string|email|max:255',
@@ -74,13 +68,10 @@ class UserController extends Controller
             ], 404);
         }
 
-
         $user = User::where("email", "=", $request->email)->first();
-
 
         if(isset($user->id)){
             if(Hash::check($request->password, $user->password)){
-                //crear token
                 $token = $user->createToken("auth_token")->plainTextToken;
                 return response()->json([
                     "status"=> 1,
@@ -131,8 +122,6 @@ class UserController extends Controller
         ]);
     }
 
-
-
     public function update(Request $request, User $user)
     {
         $request->validate([
@@ -153,6 +142,7 @@ class UserController extends Controller
         "msg"=>"¡Usuario actualizado!"
     ]);
     }
+
     public function destroy($id)
     {
         $user = User::find($id);
@@ -162,11 +152,5 @@ class UserController extends Controller
         $user->delete();
         return response()->json("Usuario Eliminado", 200);
     }
-
-
-
-
-
-
 
 }
