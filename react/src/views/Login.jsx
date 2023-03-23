@@ -51,6 +51,7 @@ export default function Login() {
         setValidUser(false);
       }
     } catch (err) {
+      console.log(error);
       setError(JSON.parse(err.request.response).msg);
 
       if (!captcha.current.getValue()) {
@@ -72,11 +73,6 @@ export default function Login() {
             action="#"
             method="POST"
           >
-            {error && (
-              <div className="bg-red-500 rounded py-2 px-3 text-white">
-                {error}
-              </div>
-            )}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
@@ -115,6 +111,11 @@ export default function Login() {
                 />
               </div>
             </div>
+            {error && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                {error}
+              </div>
+            )}
             {validCaptcha === false && (
               <div className="bg-red-500 rounded py-2 px-3 text-white">
                 Por favor acepta el captcha.
