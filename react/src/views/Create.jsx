@@ -9,10 +9,41 @@ import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import CreateDropdown from "../components/createRubrics/CreateDropdown";
 import addIconGray from "../assets/addIconGray.svg";
 import deleteIcon from "../assets/deleteIcon.svg";
+import logo from "../assets/logo.svg";
 import ButtonSecondaryIconData from "../components/Buttons/ButtonSecondaryIconData";
+import { useEffect } from "react";
+import swal from 'sweetalert2';
+
+
 
 
 export default function Create() {
+
+  useEffect(() => {
+    showAlert();
+  }, []);
+
+  const showAlert = () => {
+    Swal.fire({
+      imageUrl: logo,
+      imageHeight: 100,
+      imageWidth: 100,
+      imageAlt: 'logo',
+      title: "ALERTA",
+      text: "Esta acción eliminará tu rúbrica. <br> ¿Deseas continuar?",
+      showDenyButton: true,
+      confirmButtonText: 'Sí',
+      confirmButtonColor: 'green',
+      denyButtonText: 'No',
+      denyButtonColor: 'grey',
+      position: "center",
+    }).then(response => {
+      if(response.isConfirmed){
+        Swal.fire('La rúbrica ha sido eliminada.');
+      }
+    })
+  }
+
   const { userToken } = userAuthContext();
   if (!userToken) {
     return <Navigate to="/acceso" />;
@@ -93,10 +124,10 @@ export default function Create() {
           </div>
         </div>
         <div>
-        <div className="mt-7 grid w-full grid-cols-2 gap-7">
-          <ButtonPrimary text={"Guardar"} />
-          <ButtonSecondary text={"Cancelar"} />
-        </div>
+          <div className="mt-7 grid w-full grid-cols-2 gap-7">
+            <ButtonPrimary text={"Guardar"} />
+            <ButtonSecondary text={"Cancelar"} />
+          </div>
         </div>
       </form>
     </>
