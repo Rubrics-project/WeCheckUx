@@ -4,31 +4,32 @@ import { userAuthContext } from "../context/AuthProvider";
 import Browser from "../components/Browser";
 import RubricUser from "../components/Rubrics/RubricUser";
 import Title from "../components/Title";
-import { getAllItems } from "../services/rubricService";
+import {  getItemById } from "../services/userService";
 
 export default function MisRubricas() {
-  const { userToken } = userAuthContext();
+  const { userToken, currentUser } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
+
 
 
   if (!userToken) {
     return <Navigate to="/acceso" />;
   }
+ 
+ 
 
   useEffect(() => {
-
-    getAllItems()
-
-      .then((response) => {
-        console.log(response);
-        setRubrics(response);
-
-        
-
-      })
-      .catch((error) => {
+    const fetchData = async () => {
+      try {
+        const response = await getItemById(currentUser);
+        console.log("-----",response.data.user.rubrics);
+        setRubrics(response.data.user.rubrics);
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+  
+    fetchData();
   }, []);
 
   return (
