@@ -6,6 +6,7 @@ use App\Models\Rubric;
 use App\Models\Evaluation;
 use App\Models\User;
 use App\Models\Project;
+use DB;
 
 use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
@@ -16,8 +17,14 @@ class RubricController extends Controller
     public function index()
     {
 
-
-        return Rubric::all();
+        $prueba =  DB::table('rubrics')
+        ->join('evaluations', 'evaluations.rubric_id', '=', 'rubrics.id')
+        ->join('users', 'users.id', '=', 'rubrics.user_id')
+        ->join('projects', 'projects.id', '=', 'rubrics.project_id')
+        ->where('rubrics.project_id', '=', 'project_id')
+        ->get(['rubrics.*', 'projects.name', 'users.name as usename', 'users.surname', 'evaluations.title as titulo_eva', 'evaluations.id as id_eva']);
+        return $prueba;
+        // return Rubric::all();
     }
 
     public function store(Request $request)
