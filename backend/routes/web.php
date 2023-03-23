@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/rubrics', 'RubricController@index');
+Route::post('/rubrics', 'RubricController@store');
+Route::get('/rubrics/{id}', 'RubricController@show');
+Route::put('/rubrics/{id}', 'RubricController@update');
+Route::delete('/rubrics/{id}', 'RubricController@destroy');
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

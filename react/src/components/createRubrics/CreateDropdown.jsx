@@ -31,7 +31,7 @@ export default function CreateDropdown({
             id="evaluation"
             name="evaluation"
             placeholder="Criterio que ha de ser evaluado"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2"
           />
           <p className="font-opencustom text-xs">{criteria_description}</p>
         </div>
@@ -52,7 +52,7 @@ export default function CreateDropdown({
                 id="negative"
                 name="negative"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 pt-1 pb-3 font-opencustom text-xs">
                 {negative_description}
@@ -68,7 +68,7 @@ export default function CreateDropdown({
                 id="regular"
                 name="regular"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {regular_description}
@@ -84,7 +84,7 @@ export default function CreateDropdown({
                 id="suficiente"
                 name="suficiente"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {suficient_description}
@@ -100,7 +100,7 @@ export default function CreateDropdown({
                 id="suficiente"
                 name="good"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {bien_description}
@@ -116,7 +116,7 @@ export default function CreateDropdown({
                 id="excelent"
                 name="excelent"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {excelent_description}
