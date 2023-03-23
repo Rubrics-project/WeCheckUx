@@ -11,15 +11,17 @@ export default function Projects() {
   const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
-    getAllItems()
-      .then((response) => {
-        // console.log(response)
+    const fetchData = async () => {
+      try {
+        const response = await getAllItems();
         setTable(response);
         setProjects(response);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleChange = (e) => {

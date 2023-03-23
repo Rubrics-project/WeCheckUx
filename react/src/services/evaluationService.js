@@ -7,68 +7,57 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItems = () => {
-  // console.log("Fetching all items...");
-  return axiosInstance
-    .get("evaluations")
-    .then((response) => {
-      // console.log("Response data evaluations: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const getAllItems = async () => {
+  try {
+    const response = await axiosInstance.get("evaluations");
+    // console.log("Response data evaluations: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const getItemById = (id) => {
-  return axiosInstance
-    .get(`evaluations/${id}`)
-    .then((response) => {
-      // console.log("Response data evaluations: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const getItemById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`evaluations/${id}`);
+    // console.log("Response data evaluations: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const createItem = (data) => {
-  return axiosInstance
-    .post("evaluations", data)
-    .then((response) => {
-      // console.log("Response data evaluations: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const createItem = async (data) => {
+  try {
+    const response = await axiosInstance.post("evaluations", data);
+    // console.log("Response data evaluations: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const updateItem = (id, data) => {
-  return axiosInstance
-    .put(`evaluations/${id}`, data)
-    .then((response) => {
-      // console.log("Response data evaluations: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const updateItem = async (id, data) => {
+  try {
+    const response = await axiosInstance.put(`evaluations/${id}`, data);
+    // console.log("Response data evaluations: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const deleteItem = (id) => {
-  return axiosInstance
-    .delete(`evaluations/${id}`)
-    .then((response) => {
-      // console.log("Response data evaluations: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const deleteItem = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`evaluations/${id}`);
+    // console.log("Response data evaluations: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
