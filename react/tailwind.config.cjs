@@ -7,7 +7,7 @@ module.exports = {
         "color-bck": "#000000",
         "color-blue-p": "#0645AD",
         "color-blue-s": "#3366BB",
-        "color-blue-light": "#A7D7F9",
+        "color-blue-light": "rgba(167,215,249, 0.15)",
         "color-grey-bg": "#F6F6F6",
         "color-grey-title": "#72777D",
         "color-grey-border": "#C8CCD1",

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rubric;
 use App\Models\Evaluation;
-
+use App\Models\User;
 use App\Models\Project;
 
 use App\Http\Controllers\ProjectController;
@@ -15,6 +15,8 @@ class RubricController extends Controller
 
     public function index()
     {
+
+
         return Rubric::all();
     }
 
@@ -55,9 +57,14 @@ class RubricController extends Controller
     public function show(Rubric $rubric)
     {
         $evaluations = $rubric->evaluations;
-
+        $user = $rubric->user;
+        $project = $rubric->project;
+        return $rubric;
         return response()->json([
             'rubric' => $rubric,
+            // 'user' =>$user
+            // 'project' =>$project
+
         ]);
     }
 
