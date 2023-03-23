@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheckBig.svg";
 import eye from "../../assets/eyeIconBlue.svg";
+import { getItemById } from "../../services/projectsService";
 
 export default function ProjectCard({
   project_name,
   project_url,
   project_description,
   id,
-  // totalRubrics,
   // totalEvaluations,
 }) {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getItemById(id);
+        setProjects(response.rubrics.length);
+        console.log(
+          "project by id dentro de ProjectCard",
+          response.rubrics.length
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="border rounded border-color-blue-p my-14 overflow-hidden">
       <div className="grid grid-cols-9 gap-4 align-middle bg-color-grey-bg p-2">
@@ -44,7 +63,7 @@ export default function ProjectCard({
           <h3 className="font-opencustom font-bold text-color-grey-title">
             Rúbricas:{" "}
             <span className="font-opencustom font-bold text-color-grey-title">
-              0{/* {totalRubrics} */}
+              {projects}
             </span>
           </h3>
         </div>
