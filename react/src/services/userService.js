@@ -7,27 +7,62 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItems = () => {
-  return axiosInstance.get("users");
+export const getAllItems = async () => {
+  try {
+    const response = await axiosInstance.get("users");
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const getItemById = (id) => {
-  return axiosInstance.get(`users/${id}`);
+export const getItemById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-
-export const postLogin = (data) => {
-  return axiosInstance.post("login", data)
+export const postLogin = async (data) => {
+  try {
+    const response = await axiosInstance.post("login", data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const createItem = (data) => {
-  return axiosInstance.post("register", data);
+export const createItem = async (data) => {
+  try {
+    const response = await axiosInstance.post("register", data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const updateItem = (id, data) => {
-  return axiosInstance.put(`users/${id}`, data);
+export const updateItem = async (id, data) => {
+  try {
+    const response = await axiosInstance.put(`users/${id}`, data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const deleteItem = (id) => {
-  return axiosInstance.delete(`users/${id}`);
+export const deleteItem = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
