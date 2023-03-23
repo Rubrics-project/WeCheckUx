@@ -25,23 +25,28 @@ export default function Nav() {
     };
   }, []);
 
-  const handleClickOutside = (e) => {
-    if (navRef.current && !navRef.current.contains(e.target)) {
-      setIsNavOpen(false);
-    }
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     window.location.href = "/";
   };
 
+  const handleClickOutside = (e) => {
+    if (navRef.current && !navRef.current.contains(e.target)) {
+      setIsNavOpen(false);
+    }
+  };
+
   return (
     <div ref={navRef}>
-      <div onClick={() => setIsNavOpen((prev) => !prev)}>
-        <Hamburger color="#72777D" size={25} />
-      </div>
+      <Hamburger
+        toggled={isNavOpen}
+        toggle={setIsNavOpen}
+        color="#72777D"
+        size={25}
+        rounded
+        label="Mostrar menú"
+      />
       <div
         className={
           isNavOpen
