@@ -41,7 +41,7 @@ export default function Signup() {
       password,
       password_confirmation: passwordConfirmation,
     };
-      const formDataL = {
+    const formDataL = {
       email,
       password,
     };
@@ -200,7 +200,7 @@ export default function Signup() {
               {" "}
               <Link
                 to="/acceso"
-                className="font-opencustom text-sm font-bold text-color-blue-p underline hover:text-color-blue-light"
+                className="font-opencustom text-sm font-normal hover:font-bold underline text-color-blue-p"
               >
                 Acceder
               </Link>
@@ -210,8 +210,7 @@ export default function Signup() {
       )}
       {validUser && (
         <div className="bg-color-blue-p rounded py-2 px-3 text-white">
-          ¡Registro exitoso!
-          Has accedido a tu perfil.
+          ¡Registro exitoso! Has accedido a tu perfil.
         </div>
       )}
     </>

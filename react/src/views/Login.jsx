@@ -148,7 +148,7 @@ export default function Login() {
               {" "}
               <Link
                 to="/registro"
-                className="font-opencustom text-sm font-bold text-color-blue-p underline hover:text-color-blue-light"
+                className="font-opencustom text-sm font-normal hover:font-bold underline text-color-blue-p  "
               >
                 Registrarse
               </Link>
