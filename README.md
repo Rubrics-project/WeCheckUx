@@ -5,13 +5,7 @@ This project was created to evaluate, create, and check the results of different
 
 ## :iphone: Mobile Graphic reference
 
-
-
-## `WeCheck's logo`
-![Image text](./react/src/assets/Logo.jpeg)
-
-
-## `Home`
+## `Design`
 ![Image text](./react/src/assets/design_for_README.jpeg)
 
 
@@ -22,12 +16,15 @@ This project was created to evaluate, create, and check the results of different
 * **HTML** - used to create the website's basic structure
 * **CSS** - used to style the user interface
 * **React** - used for web page development
+* **JavaScript** - used web for page development
 * **Laravel** - used for backend
 
 
 ## Technology stack :gear:
 * **Bootstrap 5.2.3** - used to ease the web development process of responsive, mobile-first [Official website](https://getbootstrap.com/)
 * **phpMyAdmin** - used for data base
+* **Tailwind CSS** - used to edit the Front-end
+* **SweetAlert2** - user for alerts
 
 ## Installation :mechanic:
 * Create a directory on your computer to store the project
