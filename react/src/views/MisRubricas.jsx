@@ -60,7 +60,7 @@ export default function MisRubricas() {
           rubric_title={rubric.title}
           rubric_description={rubric.description}
           project_title={rubric.project_id} 
-          rubric_date={rubric.created_at.slice(0,10)}
+          rubric_date={rubric.created_at}
         />
       ))}
     </>
