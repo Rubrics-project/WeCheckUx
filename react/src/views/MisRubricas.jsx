@@ -4,40 +4,35 @@ import { userAuthContext } from "../context/AuthProvider";
 import Browser from "../components/Browser";
 import RubricUser from "../components/Rubrics/RubricUser";
 import Title from "../components/Title";
-import {  getItemById } from "../services/userService";
+import { getItemById } from "../services/userService";
 
 export default function MisRubricas() {
   const { userToken, currentUser } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
-
-
+  const [search, setSearch] = useState("");
 
   if (!userToken) {
     return <Navigate to="/acceso" />;
   }
- 
- 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getItemById(currentUser);
-        console.log("-----",response.data.user.rubrics);
         setTable(response.data.user.rubrics);
         setRubrics(response.data.user.rubrics);
       } catch (error) {
         console.error(error);
       }
     };
-  
+
     fetchData();
   }, []);
 
   const handleChange = (e) => {
     filter(e.target.value);
-    setBusqueda(e.target.value);
+    setSearch(e.target.value);
     // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
@@ -51,7 +46,7 @@ export default function MisRubricas() {
 
   return (
     <>
-      <Browser busqueda={busqueda} handleChange={handleChange} />
+      <Browser search={search} handleChange={handleChange} />
       <Title title={"Mis rúbricas"} />
       {rubrics.map((rubric, index) => (
         <RubricUser
@@ -59,7 +54,7 @@ export default function MisRubricas() {
           rubric_id={rubric.id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
-          project_title={rubric.project_id} 
+          project_title={rubric.project_id}
           rubric_date={rubric.created_at}
         />
       ))}

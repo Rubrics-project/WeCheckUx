@@ -17,7 +17,7 @@ export default function ProjectDetail() {
   const [project, setProject] = useState([]);
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
+  const [search, setSearch] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { userToken } = userAuthContext();
 
@@ -44,7 +44,7 @@ export default function ProjectDetail() {
 
   const handleChange = (e) => {
     filter(e.target.value);
-    setBusqueda(e.target.value);
+    setSearch(e.target.value);
     // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
@@ -58,7 +58,7 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <Browser busqueda={busqueda} handleChange={handleChange} />
+      <Browser search={search} handleChange={handleChange} />
       <Title title={project.name} />
       <ProjectHeaderDetail
         project_url={project.url}

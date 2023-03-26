@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheck.svg";
 import eye from "../../assets/eyeIconBlue.svg";
@@ -6,6 +6,8 @@ import edit from "../../assets/edit.svg";
 import erase from "../../assets/deleteIcon.svg";
 import ButtonSecondaryIconBlue from "../Buttons/ButtonSecondaryIconBlue";
 import ButtonSecondaryIconData from "../Buttons/ButtonSecondaryIconData";
+import { deleteItem } from "../../services/rubricService";
+import Swal from "sweetalert2";
 
 export default function RubricUser({
   rubric_title,
@@ -14,6 +16,19 @@ export default function RubricUser({
   rubric_date,
   rubric_id,
 }) {
+  const deleteRubricFunction = useCallback(async () => {
+    try {
+      const response = await deleteItem(rubric_id);
+      console.log("rubric data id delete:", response.data.rubrics.rubric_id);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [rubric_id]);
+
+  const handleDeleteRubric = useCallback(() => {
+    deleteRubricFunction();
+  }, [deleteRubricFunction]);
+
   return (
     <>
       <div className="flex justify-center gap-4 mt-9 ">
@@ -26,6 +41,7 @@ export default function RubricUser({
           text={"Borrar"}
           src={erase}
           alt={"Icono de ojo"}
+          onClick={handleDeleteRubric}
         />
       </div>
       <Link to={`/mis-rubricas/${rubric_id}`}>
