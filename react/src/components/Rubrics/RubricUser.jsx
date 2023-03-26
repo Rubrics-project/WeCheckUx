@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheck.svg";
 import checkBig from "../../assets/doubleCheckBig.svg";
@@ -17,16 +17,40 @@ export default function RubricUser({
   rubric_date,
   rubric_id,
 }) {
-  const deleteRubricFunction = useCallback(async () => {
+  const [deleted, setDeleted] = useState(false);
+
+  useEffect(() => {
+    async function handleDelete() {
+      try {
+        const response = await deleteItem(rubric_id);
+        console.log("rubric data id delete:", response.data.rubrics.rubric_id);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (deleted) {
+      handleDelete();
+    }
+  }, [deleted, rubric_id]);
+
+  const handleDeleteRubric = useCallback(async () => {
     try {
-      const response = await deleteItem(rubric_id);
-      console.log("rubric data id delete:", response.data.rubrics.rubric_id);
+      setDeleted(true);
+      await Swal.fire({
+        title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
+        text: "La rúbrica ha sido eliminada.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      window.location.reload();
     } catch (error) {
       console.error(error);
+      Swal.fire("¡Error!", "No se pudo eliminar la rúbrica.", "error");
     }
-  }, [rubric_id]);
+  }, []);
 
-  const handleDeleteRubric = useCallback(() => {
+  const handleConfirmDelete = () => {
     Swal.fire({
       title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
       text: "Esta acción eliminará tu rúbrica. ¿Deseas continuar?",
@@ -37,23 +61,12 @@ export default function RubricUser({
         "<span style='color: #545454;font-weight: 400;'>Sí</span>",
       cancelButtonText:
         "<span style='color: #545454;font-weight: 400;'>No</span>",
-    }).then(async (result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        try {
-          await deleteRubricFunction();
-          Swal.fire({
-            title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
-            text: "La rúbrica ha sido eliminada.",
-            showConfirmButton: false,
-            timer: 1000,
-          });
-        } catch (error) {
-          console.error(error);
-          Swal.fire("¡Error!", "No se pudo eliminar la rúbrica.", "error");
-        }
+        handleDeleteRubric();
       }
     });
-  }, [deleteRubricFunction]);
+  };
 
   return (
     <>
@@ -67,7 +80,8 @@ export default function RubricUser({
           text={"Borrar"}
           src={erase}
           alt={"Icono de ojo"}
-          onClick={handleDeleteRubric}
+          // onClick={handleDeleteRubric}
+          onClick={handleConfirmDelete}
         />
       </div>
       <Link to={`/mis-rubricas/${rubric_id}`}>
