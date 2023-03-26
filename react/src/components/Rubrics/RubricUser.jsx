@@ -23,7 +23,6 @@ export default function RubricUser({
     async function handleDelete() {
       try {
         const response = await deleteItem(rubric_id);
-        console.log("rubric data id delete:", response.data.rubrics.rubric_id);
       } catch (error) {
         console.error(error);
       }
@@ -80,7 +79,6 @@ export default function RubricUser({
           text={"Borrar"}
           src={erase}
           alt={"Icono de ojo"}
-          // onClick={handleDeleteRubric}
           onClick={handleConfirmDelete}
         />
       </div>
