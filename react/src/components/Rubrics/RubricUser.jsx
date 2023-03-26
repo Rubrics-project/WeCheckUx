@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheck.svg";
+import checkBig from "../../assets/doubleCheckBig.svg";
 import eye from "../../assets/eyeIconBlue.svg";
 import edit from "../../assets/edit.svg";
 import erase from "../../assets/deleteIcon.svg";
@@ -27,19 +28,25 @@ export default function RubricUser({
 
   const handleDeleteRubric = useCallback(() => {
     Swal.fire({
-      title: "¿Está seguro de que desea eliminar esta rúbrica?",
-      text: "¡No podrás revertir esto!",
-      icon: "warning",
+      title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
+      text: "Esta acción eliminará tu rúbrica. ¿Deseas continuar?",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "¡Sí, elimínalo!",
-      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#F6F6F6",
+      cancelButtonColor: "#F6F6F6",
+      confirmButtonText:
+        "<span style='color: #545454;font-weight: 400;'>Sí</span>",
+      cancelButtonText:
+        "<span style='color: #545454;font-weight: 400;'>No</span>",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           await deleteRubricFunction();
-          Swal.fire("¡Eliminado!", "La rúbrica ha sido eliminada.", "success");
+          Swal.fire({
+            title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
+            text: "La rúbrica ha sido eliminada.",
+            showConfirmButton: false,
+            timer: 1000,
+          });
         } catch (error) {
           console.error(error);
           Swal.fire("¡Error!", "No se pudo eliminar la rúbrica.", "error");
@@ -72,12 +79,12 @@ export default function RubricUser({
                 {rubric_title}
               </h2>
             </div>
-            <Link
+            <div
               className="col-span-1 flex align-middle mr-3"
               to={`/mis-rubricas/${rubric_id}`}
             >
               <img src={eye} alt="Icono de ojo" />
-            </Link>
+            </div>
           </div>
           <div className="px-3 space-y-1 py-3">
             <h4 className="font-opencustom text-xs text-color-grey-title ">
