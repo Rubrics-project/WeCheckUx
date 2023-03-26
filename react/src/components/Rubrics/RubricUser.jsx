@@ -26,7 +26,26 @@ export default function RubricUser({
   }, [rubric_id]);
 
   const handleDeleteRubric = useCallback(() => {
-    deleteRubricFunction();
+    Swal.fire({
+      title: "¿Está seguro de que desea eliminar esta rúbrica?",
+      text: "¡No podrás revertir esto!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "¡Sí, elimínalo!",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await deleteRubricFunction();
+          Swal.fire("¡Eliminado!", "La rúbrica ha sido eliminada.", "success");
+        } catch (error) {
+          console.error(error);
+          Swal.fire("¡Error!", "No se pudo eliminar la rúbrica.", "error");
+        }
+      }
+    });
   }, [deleteRubricFunction]);
 
   return (
