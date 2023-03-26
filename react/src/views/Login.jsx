@@ -44,6 +44,7 @@ export default function Login() {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
         setValidUser(true);
+        
 
         window.location.href = "/acceso";
       } else {

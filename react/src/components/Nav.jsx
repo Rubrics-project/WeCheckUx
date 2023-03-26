@@ -26,8 +26,10 @@ export default function Nav() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
     setIsAuthenticated(false);
+    localStorage.removeItem("token");
+    console.log("token")
+    localStorage.removeItem("user_id");
     window.location.href = "/";
   };
 
