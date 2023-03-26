@@ -54,7 +54,7 @@ export default function Signup() {
         setValidUser(true);
         await postLogin(formDataL);
 
-        window.location.href = "/mis-rubricas";
+        window.location.href = "/home";
       } else {
         console.log("Acepta el captcha para continuar.");
         setValidCaptcha(false);
