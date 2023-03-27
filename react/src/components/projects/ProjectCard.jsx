@@ -45,12 +45,12 @@ export default function ProjectCard({
               </p>
             </div>
           </div>
-          <Link
+          <div
             className="col-span-1 flex align-middle mr-3"
             to={`/proyectos/${id}`}
           >
             <img src={eye} alt="Icono de ojo" />
-          </Link>
+          </div>
         </div>
         <div className="px-3 space-y-1 py-3">
           <h4 className="font-opencustom text-xs text-color-grey-title ">

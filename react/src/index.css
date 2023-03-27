@@ -8,3 +8,11 @@
   min-height: 100vh;
 }
 
+.swal2-title {
+  background-color: #f6f6f6;
+}
+.swal2-styled {
+  padding: 0.625em 4.1em !important;
+  border: 0.405281px solid #a2a9b1 !important;
+  border-radius: 5px !important;
+}
