@@ -58,7 +58,7 @@ export default function Signup() {
         setValidCaptcha(true);
         setValidUser(true);
         
-        window.location.href = "/home";
+        window.location.href = "/mis-rubricas";
       } else {
         console.log("Acepta el captcha para continuar.");
         setValidCaptcha(false);
