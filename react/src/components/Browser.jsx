@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import browserIcon from "../assets/browserIcon.svg";
 
 export default function Browser(props) {
