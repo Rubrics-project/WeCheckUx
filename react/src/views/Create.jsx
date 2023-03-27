@@ -14,13 +14,13 @@ export default function Create() {
   // Pasar currentUser en autor
   const { userToken, currentUser } = userAuthContext();
   // console.log(typeof parseInt(currentUser, 10));
-  const userId = parseInt(currentUser, 10);
+  const user_id = parseInt(currentUser, 10);
   const params = useParams();
   // console.log(params.id);
   const [project, setProject] = useState({});
-  const [rubricTitle, setRubricTitle] = useState("");
-  const [rubricDescription, setRubricDescription] = useState("");
-  const [projectId, setProjectId] = useState(0);
+  const [title, setRubricTitle] = useState("");
+  const [description, setRubricDescription] = useState("");
+  const [project_id, setProjectId] = useState(0);
 
   if (!userToken) {
     return <Navigate to="/acceso" />;
@@ -54,10 +54,10 @@ export default function Create() {
     e.preventDefault();
 
     const formData = {
-      rubricTitle,
-      rubricDescription,
-      projectId,
-      userId,
+      title,
+      description,
+      project_id,
+      user_id,
     };
     try {
       const responseCreate = await createItem(formData);
@@ -87,14 +87,14 @@ export default function Create() {
             className="hidden"
             type="number"
             name="project_id"
-            value={projectId}
+            value={project_id}
             readOnly
           />
           <input
             className="hidden"
             type="number"
             name="user_id"
-            value={userId}
+            value={user_id}
             readOnly
           />
           <label
@@ -107,7 +107,7 @@ export default function Create() {
             id="title"
             name="title"
             type="text"
-            value={rubricTitle}
+            value={title}
             required
             onChange={handleTitleChange}
             placeholder="Título"
@@ -122,7 +122,7 @@ export default function Create() {
             name="description"
             type="text"
             required
-            value={rubricDescription}
+            value={description}
             onChange={handleDescriptionChange}
             placeholder="Descripción de la rúbrica"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom  text-xs mt-2 mb-6"
