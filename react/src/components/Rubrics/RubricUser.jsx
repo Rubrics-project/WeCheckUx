@@ -40,7 +40,7 @@ export default function RubricUser({
         title: `<div className="flex flex-row justify-center bg-color-grey-bg pb-10" style="display: flex;justify-content: center;padding-bottom: 20px;"><img className="flex" src="${checkBig}" alt="Icono doble check" /><h3 className="flex font-opencustom text-xl font-bold text-color-bck">ALERTA</h3></div>`,
         text: "La rúbrica ha sido eliminada.",
         showConfirmButton: false,
-        timer: 1000,
+        timer: 100000,
       });
       window.location.reload();
     } catch (error) {
