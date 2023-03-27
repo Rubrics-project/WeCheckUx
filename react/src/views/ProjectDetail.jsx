@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Browser from "../components/Browser";
 import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
 import InformationBox from "../components/InformationBox";
@@ -85,7 +85,7 @@ export default function ProjectDetail() {
           src={plusIcon}
           alt={"Icono de añadir"}
           text={"Crear mi rúbrica"}
-          to={!isAuthenticated ? "/acceso" : "/crear"}
+          to={!isAuthenticated ? "/acceso" : `/crear/${project.id}`}
         />
       </div>
     </>

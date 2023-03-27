@@ -3,8 +3,6 @@ import { useState } from "react";
 import arrow from "../../assets/arrowIcon.svg";
 
 export default function CreateDropdown({
-  dimension_title,
-  dimension_description,
   criteria_description,
   negative_description,
   regular_description,
@@ -19,14 +17,12 @@ export default function CreateDropdown({
   };
   return (
     <>
-
-
       <h4 className="font-opencustom text-xs text-color-grey-title ">
-          Criterio a evaluar:
-        </h4>
+        Criterio a evaluar:
+      </h4>
       <div className="space-y-1 py-3">
         <div className="flex bg-color-grey-bg p-2">
-        <input
+          <input
             type="text"
             id="evaluation"
             name="evaluation"
@@ -44,9 +40,9 @@ export default function CreateDropdown({
         {isOpen && (
           <div>
             <div className=" space-y-1 mt-2">
-              <lable for="negative" className="font-opencustom text-xs">
+              <label htmlFor="negative" className="font-opencustom text-xs">
                 Negativo:
-              </lable>
+              </label>
               <input
                 type="taxt"
                 id="negative"
@@ -57,12 +53,12 @@ export default function CreateDropdown({
               <p className="px-3 pt-1 pb-3 font-opencustom text-xs">
                 {negative_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="regular" className="font-opencustom text-xs">
+              <label htmlFor="regular" className="font-opencustom text-xs">
                 Regular:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="regular"
@@ -73,12 +69,12 @@ export default function CreateDropdown({
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {regular_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="suficient" className="font-opencustom text-xs">
+              <label htmlFor="suficient" className="font-opencustom text-xs">
                 Suficiente:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="suficiente"
@@ -89,12 +85,12 @@ export default function CreateDropdown({
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {suficient_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="good" className="font-opencustom text-xs">
+              <label htmlFor="good" className="font-opencustom text-xs">
                 Bien:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="suficiente"
@@ -105,12 +101,12 @@ export default function CreateDropdown({
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {bien_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="excelent" className="font-opencustom text-xs">
+              <label htmlFor="excelent" className="font-opencustom text-xs">
                 Excelente:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="excelent"
@@ -121,7 +117,7 @@ export default function CreateDropdown({
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {excelent_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
           </div>
         )}
