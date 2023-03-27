@@ -34,6 +34,7 @@ export default function Signup() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const formData = {
       name,
       surname,
@@ -47,14 +48,17 @@ export default function Signup() {
     };
     try {
       const response = await createItem(formData);
-      localStorage.setItem("token", response.data.access_token);
+      const response2 = await postLogin(formDataL);
+      localStorage.setItem("token", response2.data.access_token);
+      localStorage.setItem("user_id", response2.data.user_id);
+
       if (captcha.current.getValue()) {
         console.log("El usuario no es un robot");
+
         setValidCaptcha(true);
         setValidUser(true);
-        await postLogin(formDataL);
-
-        window.location.href = "/home";
+        
+        window.location.href = "/mis-rubricas";
       } else {
         console.log("Acepta el captcha para continuar.");
         setValidCaptcha(false);
