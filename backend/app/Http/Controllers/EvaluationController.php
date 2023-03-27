@@ -29,7 +29,7 @@ class EvaluationController extends Controller
     ]);
 
     if ($validator->fails()) {
-        return response()->json(['errors' => $validator->errors()], 422);
+        return response()->json(['La solicitud no puede procesarse debido a errores en los datos enviados' => $validator->errors()], 422);
     }
 
     $evaluation = new Evaluation();
