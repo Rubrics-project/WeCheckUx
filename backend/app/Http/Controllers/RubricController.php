@@ -16,16 +16,15 @@ class RubricController extends Controller
     public function index()
     {
 
-
         return Rubric::all();
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required',
-            'description'=>'required',
-            'user_id'=> 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'user_id' => 'required',
             'project_id' => 'required'
         ]);
         $rubric = new Rubric();
