@@ -11,18 +11,20 @@ export default function RubricDetail() {
   const [date, setDate] = useState([]);
 
   useEffect(() => {
-    getItemById(params.id)
-      .then((response) => {
-        console.log("aquuu   ----",response)
+    const fetchData = async () => {
+      try {
+        const response = await getItemById(params.id);
+        console.log("aquuu   ----", response);
         setRubric(response);
         setUser(response.user);
         setProject(response.project);
         setDate(response.created_at.slice(0, 10));
         console.log("setRubrics rubric detail: ", response.rubric);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+    fetchData();
   }, []);
 
   return (

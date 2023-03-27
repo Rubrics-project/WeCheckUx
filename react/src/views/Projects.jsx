@@ -8,23 +8,25 @@ import { getAllItems } from "../services/projectsService";
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [table, setTable] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getAllItems()
-      .then((response) => {
-        // console.log(response)
+    const fetchData = async () => {
+      try {
+        const response = await getAllItems();
         setTable(response);
         setProjects(response);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleChange = (e) => {
     filter(e.target.value);
-    setBusqueda(e.target.value);
+    setSearch(e.target.value);
     // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
@@ -38,7 +40,7 @@ export default function Projects() {
 
   return (
     <>
-      <Browser busqueda={busqueda} handleChange={handleChange} />
+      <Browser search={search} handleChange={handleChange} />
       <Title title={"Proyectos"} />
 
       {projects.map((project, index) => (
@@ -48,9 +50,6 @@ export default function Projects() {
           project_name={project.name}
           project_url={project.url}
           project_description={project.description}
-          //falta llamar a esta info
-          // totalRubrics={project.totalRubrics}
-          // totalEvaluations={project.totalEvaluations}
         />
       ))}
     </>

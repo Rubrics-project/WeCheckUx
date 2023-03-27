@@ -1,62 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../../assets/doubleCheckBig.svg";
 import eye from "../../assets/eyeIconBlue.svg";
+import { getItemById } from "../../services/projectsService";
 
 export default function ProjectCard({
   project_name,
   project_url,
   project_description,
   id,
-  // totalRubrics,
   // totalEvaluations,
 }) {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getItemById(id);
+        setProjects(response.rubrics.length);
+        console.log(
+          "project by id dentro de ProjectCard",
+          response.rubrics.length
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="border rounded border-color-blue-p my-14 overflow-hidden">
-      <div className="grid grid-cols-9 gap-4 align-middle bg-color-grey-bg p-2">
-        <div className="col-span-8 flex mb-2">
-          <img className=" mx-2" src={icon} alt="Icono de doble check" />
-          <div>
-            <h2 className="font-latocustom font-bold text-lg mb-0">
-              {project_name}
-            </h2>
-            <p className="font-opencustom text-xs text-color-blue-p mt-0">
-              {project_url}
-            </p>
+    <Link to={`/proyectos/${id}`}>
+      <div className="border rounded border-color-blue-p my-14 overflow-hidden">
+        <div className="grid grid-cols-7 gap-4 align-middle bg-color-grey-bg p-2">
+          <div className="col-span-6 flex mb-2">
+            <img className=" mx-2" src={icon} alt="Icono de doble check" />
+            <div>
+              <h2 className="font-latocustom font-bold text-lg mb-0">
+                {project_name}
+              </h2>
+              <p className="font-opencustom text-xs text-color-blue-p mt-0">
+                {project_url}
+              </p>
+            </div>
+          </div>
+          <div
+            className="col-span-1 flex align-middle mr-3"
+            to={`/proyectos/${id}`}
+          >
+            <img src={eye} alt="Icono de ojo" />
           </div>
         </div>
-        <Link
-          className="col-span-1 flex align-middle mr-3"
-          to={`/proyectos/${id}`}
-        >
-          <img src={eye} alt="Icono de ojo" />
-        </Link>
-      </div>
-      <div className="px-3 space-y-1 py-3">
-        <h4 className="font-opencustom text-xs text-color-grey-title ">
-          Descripción:
-        </h4>
-        <p className="font-opencustom text-xs">{project_description}</p>
-      </div>
-      <hr className=" border-color-grey-bg border-2" />
-      <div className="grid grid-cols-2">
-        <div className="py-4 flex justify-center align-middle border-solid border-r-4 border-color-grey-bg">
-          <h3 className="font-opencustom font-bold text-color-grey-title">
-            Rúbricas:{" "}
-            <span className="font-opencustom font-bold text-color-grey-title">
-              0{/* {totalRubrics} */}
-            </span>
-          </h3>
+        <div className="px-3 space-y-1 py-3">
+          <h4 className="font-opencustom text-xs text-color-grey-title ">
+            Descripción:
+          </h4>
+          <p className="font-opencustom text-xs">{project_description}</p>
         </div>
-        <div className="py-4 flex justify-center align-middle">
-          <h3 className="font-opencustom font-bold text-color-blue-p ">
-            Evaluaciones:{" "}
-            <span className="font-opencustom font-bold text-color-blue-p">
-              0{/* {totalEvaluations} */}
-            </span>
-          </h3>
+        <hr className=" border-color-grey-bg border-2" />
+        <div className="grid grid-cols-2">
+          <div className="py-4 flex justify-center align-middle border-solid border-r-4 border-color-grey-bg">
+            <h3 className="font-opencustom font-bold text-color-grey-title">
+              Rúbricas:{" "}
+              <span className="font-opencustom font-bold text-color-grey-title">
+                {projects}
+              </span>
+            </h3>
+          </div>
+          <div className="py-4 flex justify-center align-middle">
+            <h3 className="font-opencustom font-bold text-color-blue-p ">
+              Evaluaciones:{" "}
+              <span className="font-opencustom font-bold text-color-blue-p">
+                0{/* {totalEvaluations} */}
+              </span>
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

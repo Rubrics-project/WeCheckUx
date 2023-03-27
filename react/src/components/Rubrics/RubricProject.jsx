@@ -29,42 +29,44 @@ export default function RubricProject({
           alt={"Icono de ojo"}
         />
       </div>
-      <div className="border rounded border-color-blue-p my-5 overflow-hidden">
-        <div className="grid grid-cols-9 gap-4 justify-between bg-color-grey-bg p-2">
-          <div className="col-span-8 flex align-middle">
-            <img className=" mx-2" src={icon} alt="Icono de doble check" />
-            <h2 className="font-latocustom font-bold text-lg ml-1">
-              {rubric_title}
-            </h2>
+      <Link to={`/proyectos/${project_id}/rubricas/${rubric_id}`}>
+        <div className="border rounded border-color-blue-p my-5 overflow-hidden">
+          <div className="grid grid-cols-7 gap-4 justify-between bg-color-grey-bg p-2">
+            <div className="col-span-6 flex align-middle">
+              <img className=" mx-2" src={icon} alt="Icono de doble check" />
+              <h2 className="font-latocustom font-bold text-lg ml-1">
+                {rubric_title}
+              </h2>
+            </div>
+            <div
+              className="col-span-1 flex align-middle mr-3"
+              to={`/proyectos/${project_id}/rubricas/${rubric_id}`}
+            >
+              <img src={eye} alt="Icono de ojo" />
+            </div>
           </div>
-          <Link
-            className="col-span-1 flex align-middle mr-3"
-            to={`/proyectos/${project_id}/rubricas/${rubric_id}`}
-          >
-            <img src={eye} alt="Icono de ojo" />
-          </Link>
+          <div className="px-3 space-y-1 py-3">
+            <h4 className="font-opencustom text-xs text-color-grey-title ">
+              Descripción:
+            </h4>
+            <p className="font-opencustom text-xs">{rubric_description}</p>
+          </div>
+          <hr className=" border-color-grey-bg border-2" />
+          <div className="px-3 space-y-1 py-3">
+            <h4 className="font-opencustom text-xs text-color-grey-title ">
+              Autor/a:
+            </h4>
+            <p className="font-opencustom text-xs">{rubric_author}</p>
+          </div>
+          <hr className=" border-color-grey-bg border-2" />
+          <div className="px-3 space-y-1 py-3">
+            <h4 className="font-opencustom text-xs text-color-grey-title ">
+              Fecha de creación:
+            </h4>
+            <p className="font-opencustom text-xs">{rubric_date}</p>
+          </div>
         </div>
-        <div className="px-3 space-y-1 py-3">
-          <h4 className="font-opencustom text-xs text-color-grey-title ">
-            Descripción:
-          </h4>
-          <p className="font-opencustom text-xs">{rubric_description}</p>
-        </div>
-        <hr className=" border-color-grey-bg border-2" />
-        <div className="px-3 space-y-1 py-3">
-          <h4 className="font-opencustom text-xs text-color-grey-title ">
-            Autor/a:
-          </h4>
-          <p className="font-opencustom text-xs">{rubric_author}</p>
-        </div>
-        <hr className=" border-color-grey-bg border-2" />
-        <div className="px-3 space-y-1 py-3">
-          <h4 className="font-opencustom text-xs text-color-grey-title ">
-            Fecha de creación:
-          </h4>
-          <p className="font-opencustom text-xs">{rubric_date}</p>
-        </div>
-      </div>
+      </Link>
     </>
   );
 }

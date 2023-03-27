@@ -7,28 +7,30 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItems = () => {
-  // console.log("Fetching all items...");
-  return axiosInstance
-    .get("projects")
-    .then((response) => {
-      console.log("Response data all projects: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const getAllItems = async () => {
+  try {
+    const response = await axiosInstance.get("projects");
+    console.log("Response data all projects: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-
-export const getItemById = async(id) => {
+export const getItemById = async (id) => {
   try {
-    const { data: { project } } = await axiosInstance.get(`projects/${id}`);
+    const {
+      data: { project },
+    } = await axiosInstance.get(`projects/${id}`);
 
-    const userPromises = project.rubrics.map((rubric) => axiosInstance.get(`users/${rubric.user_id}`));
+    const userPromises = project.rubrics.map((rubric) =>
+      axiosInstance.get(`users/${rubric.user_id}`)
+    );
     const userResponses = await Promise.all(userPromises);
-    const users = userResponses.map((response) => `${response.data.user.name} ${response.data.user.surname}`);
+    const users = userResponses.map(
+      (response) => `${response.data.user.name} ${response.data.user.surname}`
+    );
 
     const updatedRubrics = project.rubrics.map((rubric, index) => {
       return {
@@ -40,12 +42,10 @@ export const getItemById = async(id) => {
     return { ...project, rubrics: updatedRubrics };
   } catch (error) {
     console.error(error);
-    
   }
 };
 
-
-export const createItem = async(data) => {
+export const createItem = async (data) => {
   return axiosInstance
     .post("projects", data)
     .then((response) => {
@@ -57,26 +57,22 @@ export const createItem = async(data) => {
     });
 };
 
-export const updateItem = (id, data) => {
-  return axiosInstance
-    .put(`projects/${id}`, data)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const updateItem = async (id, data) => {
+  try {
+    const response = await axiosInstance.put(`projects/${id}`, data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const deleteItem = (id) => {
-  return axiosInstance
-    .delete(`projects/${id}`)
-    .then((response) => {
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const deleteItem = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`projects/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };

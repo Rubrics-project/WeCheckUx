@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Browser from "../components/Browser";
 import { Link } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
 
@@ -13,7 +12,6 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Browser />
       <h1 className="font-latocustom  font-semibold text-2xl pt-11 pb-14">
         ¡Te damos la bienvenida a WeCheck!
       </h1>

@@ -7,76 +7,73 @@ const axiosInstance = axios.create({
   // headers: {'Authorization': 'Bearer ' + localStorage.getItem('authToken')}
 });
 
-export const getAllItems = async() => {
+export const getAllItems = async () => {
   try {
     const { data: rubrics } = await axiosInstance.get("rubrics");
 
-    const updatedRubrics = await Promise.all(rubrics.map(async (rubric) => {
-      const { data: { project: { name: projectName } } } = await axiosInstance.get(`projects/${rubric.project_id}`);
-      return { ...rubric, project_id: projectName };
-    }));
+    const updatedRubrics = await Promise.all(
+      rubrics.map(async (rubric) => {
+        const {
+          data: {
+            project: { name: projectName },
+          },
+        } = await axiosInstance.get(`projects/${rubric.project_id}`);
+        return { ...rubric, project_id: projectName };
+      })
+    );
 
-    const sortedRubrics = updatedRubrics.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    const sortedRubrics = updatedRubrics.sort(
+      (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    );
     // console.log(sortedRubrics);
 
     return sortedRubrics;
-
   } catch (error) {
     console.error(error);
     // manejo de errores aquí
   }
-
 };
 
-export const getItemById = (id) => {
-  return axiosInstance
-    .get(`rubrics/${id}`)
-    .then((response) => {
-      
-      // console.log("Response data id rubrics: ", response);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const getItemById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`rubrics/${id}`);
+    // console.log("Response data id rubrics: ", response);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const createItem = (data) => {
-  return axiosInstance
-    .post("rubrics", data)
-    .then((response) => {
-      // console.log("Response data: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const createItem = async (data) => {
+  try {
+    const response = await axiosInstance.post("rubrics", data);
+    // console.log("Response data: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const updateItem = (id, data) => {
-  return axiosInstance
-    .put(`rubrics/${id}`, data)
-    .then((response) => {
-      // console.log("Response data: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const updateItem = async (id, data) => {
+  try {
+    const response = await axiosInstance.put(`rubrics/${id}`, data);
+    // console.log("Response data: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const deleteItem = (id) => {
-  return axiosInstance
-    .delete(`rubrics/${id}`)
-    .then((response) => {
-      // console.log("Response data: ", response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      throw error;
-    });
+export const deleteItem = async (id) => {
+  try {
+    const response = await axiosInstance.delete(`rubrics/${id}`);
+    console.log("service delete Item by id: ", response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };

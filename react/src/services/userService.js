@@ -15,9 +15,8 @@ export const getItemById = (id) => {
   return axiosInstance.get(`users/${id}`);
 };
 
-
 export const postLogin = (data) => {
-  return axiosInstance.post("login", data)
+  return axiosInstance.post("login", data);
 };
 
 export const createItem = (data) => {

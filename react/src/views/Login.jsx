@@ -20,7 +20,7 @@ export default function Login() {
   const captcha = useRef(null);
 
   if (userToken) {
-    return <Navigate to="/" />;
+    return <Navigate to="/mis-rubricas" />;
   }
 
   const onChange = () => {
@@ -39,10 +39,12 @@ export default function Login() {
     try {
       const response = await postLogin(formData);
       localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("user_id", response.data.user_id);
       if (captcha.current.getValue()) {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
         setValidUser(true);
+        
 
         window.location.href = "/acceso";
       } else {
@@ -51,6 +53,7 @@ export default function Login() {
         setValidUser(false);
       }
     } catch (err) {
+      console.log(error);
       setError(JSON.parse(err.request.response).msg);
 
       if (!captcha.current.getValue()) {
@@ -72,11 +75,6 @@ export default function Login() {
             action="#"
             method="POST"
           >
-            {error && (
-              <div className="bg-red-500 rounded py-2 px-3 text-white">
-                {error}
-              </div>
-            )}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
@@ -115,6 +113,11 @@ export default function Login() {
                 />
               </div>
             </div>
+            {error && (
+              <div className="bg-red-500 rounded py-2 px-3 text-white">
+                {error}
+              </div>
+            )}
             {validCaptcha === false && (
               <div className="bg-red-500 rounded py-2 px-3 text-white">
                 Por favor acepta el captcha.
@@ -146,7 +149,7 @@ export default function Login() {
               {" "}
               <Link
                 to="/registro"
-                className="font-opencustom text-sm font-bold text-color-blue-p underline hover:text-color-blue-light"
+                className="font-opencustom text-sm font-normal hover:font-bold underline text-color-blue-p  "
               >
                 Registrarse
               </Link>
