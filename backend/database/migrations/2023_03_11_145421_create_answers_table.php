@@ -14,10 +14,8 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->integer('evaluation_value');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('evaluation_id');
-            $table->foreign('evaluation_id')->references('id')->on('evaluations');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('evaluation_id')->constrained('evaluations');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
