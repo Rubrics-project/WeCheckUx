@@ -8,13 +8,19 @@ import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import DimensionForm from "../components/createRubrics/DimensionForm";
 import { getItemById } from "../services/projectsService";
+import { createItem } from "../services/rubricService";
 
 export default function Create() {
   // Pasar currentUser en autor
   const { userToken, currentUser } = userAuthContext();
+  // console.log(typeof parseInt(currentUser, 10));
+  const userId = parseInt(currentUser, 10);
   const params = useParams();
   // console.log(params.id);
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState({});
+  const [rubricTitle, setRubricTitle] = useState("");
+  const [rubricDescription, setRubricDescription] = useState("");
+  const [projectId, setProjectId] = useState(0);
 
   if (!userToken) {
     return <Navigate to="/acceso" />;
@@ -25,7 +31,9 @@ export default function Create() {
       try {
         const response = await getItemById(params.id);
         setProject(response);
-        // console.log(response);
+        setProjectId(response.id);
+
+        console.log("id project:", typeof response.id);
       } catch (error) {
         console.error(error);
       }
@@ -33,6 +41,31 @@ export default function Create() {
 
     fetchData();
   }, []);
+
+  const handleTitleChange = (e) => {
+    setRubricTitle(e.target.value);
+  };
+
+  const handleDescriptionChange = (e) => {
+    setRubricDescription(e.target.value);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      rubricTitle,
+      rubricDescription,
+      projectId,
+      userId,
+    };
+    try {
+      const responseCreate = await createItem(formData);
+      console.log(responseCreate);
+    } catch (err) {
+      console.log(JSON.parse(err.request.response).msg);
+    }
+  };
   return (
     <>
       <Title title={project.name} />
@@ -48,8 +81,22 @@ export default function Create() {
           }
         />
       </div>
-      <form action="#" method="post" id="create" className="space-y-1">
+      <form onSubmit={onSubmit} action="#" method="POST" className="space-y-1">
         <div className="border rounded border-color-blue-p p-2">
+          <input
+            className="hidden"
+            type="number"
+            name="project_id"
+            value={projectId}
+            readOnly
+          />
+          <input
+            className="hidden"
+            type="number"
+            name="user_id"
+            value={userId}
+            readOnly
+          />
           <label
             htmlFor="title"
             className="font-latocustom text-base font-bold"
@@ -57,9 +104,12 @@ export default function Create() {
             <h1 className="font-latocustom font-bold text-sm mt-3">Título:</h1>
           </label>
           <input
-            type="text"
             id="title"
             name="title"
+            type="text"
+            value={rubricTitle}
+            required
+            onChange={handleTitleChange}
             placeholder="Título"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs my-4"
           />
@@ -68,20 +118,22 @@ export default function Create() {
             Descripción de la rúbrica:
           </label>
           <textarea
-            type="text"
             id="description"
             name="description"
+            type="text"
+            required
+            value={rubricDescription}
+            onChange={handleDescriptionChange}
             placeholder="Descripción de la rúbrica"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom  text-xs mt-2 mb-6"
           />
           <DimensionForm />
         </div>
+        <div className="mt-7 grid w-full grid-cols-2 gap-7">
+          <ButtonPrimary text={"Guardar"} />
+          <ButtonSecondary text={"Cancelar"} />
+        </div>
       </form>
-
-      <div className="mt-7 grid w-full grid-cols-2 gap-7">
-        <ButtonPrimary text={"Guardar"} />
-        <ButtonSecondary text={"Cancelar"} />
-      </div>
     </>
   );
 }
