@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('suficient');
             $table->text('good');
             $table->text('excelent');
-            $table->foreignId('rubric_id')->constrained('rubrics');
+            $table->foreignId('rubric_id')->constrained('rubrics')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
