@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Browser from "../components/Browser";
 import ButtonPrimaryIconBig from "../components/Buttons/ButtonPrimaryIconBig";
 import InformationBox from "../components/InformationBox";
@@ -17,7 +17,7 @@ export default function ProjectDetail() {
   const [project, setProject] = useState([]);
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
-  const [busqueda, setBusqueda] = useState("");
+  const [search, setSearch] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { userToken } = userAuthContext();
 
@@ -44,7 +44,7 @@ export default function ProjectDetail() {
 
   const handleChange = (e) => {
     filter(e.target.value);
-    setBusqueda(e.target.value);
+    setSearch(e.target.value);
     // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
@@ -58,7 +58,7 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <Browser busqueda={busqueda} handleChange={handleChange} />
+      <Browser search={search} handleChange={handleChange} />
       <Title title={project.name} />
       <ProjectHeaderDetail
         project_url={project.url}
@@ -85,7 +85,7 @@ export default function ProjectDetail() {
           src={plusIcon}
           alt={"Icono de añadir"}
           text={"Crear mi rúbrica"}
-          to={!isAuthenticated ? "/acceso" : "/crear"}
+          to={!isAuthenticated ? "/acceso" : `/crear/${project.id}`}
         />
       </div>
     </>

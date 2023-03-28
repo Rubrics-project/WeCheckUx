@@ -20,7 +20,7 @@ export default function Login() {
   const captcha = useRef(null);
 
   if (userToken) {
-    return <Navigate to="/" />;
+    return <Navigate to="/mis-rubricas" />;
   }
 
   const onChange = () => {
@@ -44,6 +44,7 @@ export default function Login() {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
         setValidUser(true);
+        
 
         window.location.href = "/acceso";
       } else {

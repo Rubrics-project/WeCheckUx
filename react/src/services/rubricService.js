@@ -70,7 +70,7 @@ export const updateItem = async (id, data) => {
 export const deleteItem = async (id) => {
   try {
     const response = await axiosInstance.delete(`rubrics/${id}`);
-    // console.log("Response data: ", response.data);
+    console.log("service delete Item by id: ", response.data);
     return response.data;
   } catch (error) {
     console.error(error);

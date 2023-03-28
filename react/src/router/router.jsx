@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <RubricDetail />,
       },
       {
-        path: "/crear",
+        path: "/crear/:id",
         element: <Create />,
       },
       {
@@ -73,10 +73,10 @@ const router = createBrowserRouter([
         path: "/mis-rubricas/:id",
         element: <RubricDetail />,
       },
-      {
-        path: "/crear",
-        element: <Create />,
-      },
+      // {
+      //   path: "/crear",
+      //   element: <Create />,
+      // },
       {
         path: "/editar",
         element: <Edit />,

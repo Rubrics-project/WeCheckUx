@@ -23,8 +23,8 @@ class Rubric extends Model
 
     public function project()
     {
-        // return $this->belongsTo(Project::class, 'project_id');
         return $this->belongsTo(Project::class, 'project_id');
+        // return $this->belongsTo(Project::class);
         // return $this->belongsTo(Category::class);
     }
 

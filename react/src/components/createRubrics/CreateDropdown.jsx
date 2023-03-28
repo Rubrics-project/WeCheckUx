@@ -3,8 +3,6 @@ import { useState } from "react";
 import arrow from "../../assets/arrowIcon.svg";
 
 export default function CreateDropdown({
-  dimension_title,
-  dimension_description,
   criteria_description,
   negative_description,
   regular_description,
@@ -19,19 +17,17 @@ export default function CreateDropdown({
   };
   return (
     <>
-
-
       <h4 className="font-opencustom text-xs text-color-grey-title ">
-          Criterio a evaluar:
-        </h4>
+        Criterio a evaluar:
+      </h4>
       <div className="space-y-1 py-3">
         <div className="flex bg-color-grey-bg p-2">
-        <input
+          <input
             type="text"
             id="evaluation"
             name="evaluation"
             placeholder="Criterio que ha de ser evaluado"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2"
           />
           <p className="font-opencustom text-xs">{criteria_description}</p>
         </div>
@@ -44,84 +40,84 @@ export default function CreateDropdown({
         {isOpen && (
           <div>
             <div className=" space-y-1 mt-2">
-              <lable for="negative" className="font-opencustom text-xs">
+              <label htmlFor="negative" className="font-opencustom text-xs">
                 Negativo:
-              </lable>
+              </label>
               <input
                 type="taxt"
                 id="negative"
                 name="negative"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 pt-1 pb-3 font-opencustom text-xs">
                 {negative_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="regular" className="font-opencustom text-xs">
+              <label htmlFor="regular" className="font-opencustom text-xs">
                 Regular:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="regular"
                 name="regular"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {regular_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="suficient" className="font-opencustom text-xs">
+              <label htmlFor="suficient" className="font-opencustom text-xs">
                 Suficiente:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="suficiente"
                 name="suficiente"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {suficient_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="good" className="font-opencustom text-xs">
+              <label htmlFor="good" className="font-opencustom text-xs">
                 Bien:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="suficiente"
                 name="good"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {bien_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
             <div className="space-y-1 mt-2">
-              <lable for="excelent" className="font-opencustom text-xs">
+              <label htmlFor="excelent" className="font-opencustom text-xs">
                 Excelente:
-              </lable>
+              </label>
               <input
                 type="text"
                 id="excelent"
                 name="excelent"
                 placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base text-xs mt-2 mb-6"
+                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
               />
               <p className="px-3 py-1 pb-3 font-opencustom text-xs">
                 {excelent_description}
               </p>
-              <hr className="border-color-grey-bg border-2"/>
+              <hr className="border-color-grey-bg border-2" />
             </div>
           </div>
         )}
