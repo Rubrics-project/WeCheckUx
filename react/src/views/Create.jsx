@@ -33,7 +33,6 @@ export default function Create() {
   const [suficient, setSuficient] = useState("");
   const [good, setGood] = useState("");
   const [excelent, setExcelent] = useState("");
-  const [idRubric, setidRubric] = useState();
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
