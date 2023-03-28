@@ -16,12 +16,22 @@ import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDim
 export default function Create() {
   const { currentUser } = userAuthContext();
   const user_id = parseInt(currentUser, 10);
+  console.log("id user:", typeof user_id, user_id);
   const params = useParams();
   // console.log(params.id);
   const [project, setProject] = useState({});
+  const [project_id, setProjectId] = useState(0);
   const [title, setRubricTitle] = useState("");
   const [description, setRubricDescription] = useState("");
-  const [project_id, setProjectId] = useState(0);
+  const [dimensionTitle, setEvaluationDimensionTitle] = useState("");
+  const [dimensionDescription, setEvaluationDimensionDescription] =
+    useState("");
+  const [evaluation_text, setEvaluationText] = useState("");
+  const [negative, setNegative] = useState("");
+  const [regular, setRegular] = useState("");
+  const [suficient, setSuficient] = useState("");
+  const [good, setGood] = useState("");
+  const [excelent, setExcelent] = useState("");
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
@@ -34,7 +44,7 @@ export default function Create() {
         setProject(response);
         setProjectId(response.id);
 
-        console.log("id project:", typeof response.id);
+        console.log("id project:", typeof response.id, response.id);
       } catch (error) {
         console.error(error);
       }
@@ -43,31 +53,55 @@ export default function Create() {
     fetchData();
   }, []);
 
-  const handleTitleChange = (e) => {
-    e.preventDefault();
+  const handleRubricTitleChange = (e) => {
     setRubricTitle(e.target.value);
   };
-
-  const handleDescriptionChange = (e) => {
-    e.preventDefault();
+  const handleRubricDescriptionChange = (e) => {
     setRubricDescription(e.target.value);
   };
+
+  const handleDimensionTitleChange = (e) => {
+    setEvaluationDimensionTitle(e.target.value);
+  };
+  const handleDimensionDescriptionChange = (e) => {
+    setEvaluationDimensionDescription(e.target.value);
+  };
+
+  const handleEvaluationTextChange = (e) => {
+    setEvaluationText(e.target.value);
+  };
+  const handleNegativeChange = (e) => {
+    setNegative(e.target.value);
+  };
+  const handleRegularChange = (e) => {
+    setRegular(e.target.value);
+  };
+  const handleSuficientChange = (e) => {
+    setSuficient(e.target.value);
+  };
+  const handleGoodChange = (e) => {
+    setGood(e.target.value);
+  };
+  const handleExcelentChange = (e) => {
+    setExcelent(e.target.value);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const onSubmitRubric = async (e) => {
-      const formData = {
-        title,
-        description,
-        project_id,
-        user_id,
-      };
-      try {
-        const responseCreate = await createItem(formData);
-        console.log(responseCreate);
-      } catch (err) {
-        console.log(JSON.parse(err.request.response).msg);
-      }
+    // const onSubmitRubric = async (e) => {
+    const formDataRubric = {
+      title,
+      description,
+      project_id,
+      user_id,
     };
+    try {
+      const responseCreate = await createItem(formDataRubric);
+      console.log(responseCreate);
+    } catch (err) {
+      console.log(JSON.parse(err.request.response).msg);
+    }
+    // };
   };
   return (
     <>
@@ -85,7 +119,7 @@ export default function Create() {
         />
       </div>
       <form onSubmit={onSubmit} action="#" method="POST" className="space-y-1">
-        <div className="border rounded border-color-blue-p p-2 mb-7">
+        <div className="border rounded border-color-blue-p mb-7">
           <input
             className="hidden"
             type="number"
@@ -102,19 +136,37 @@ export default function Create() {
           />
           <CreateRubricForm
             title_value={title}
-            title_onChange={handleTitleChange}
+            title_onChange={handleRubricTitleChange}
             description_value={description}
-            description_onChange={handleDescriptionChange}
+            description_onChange={handleRubricDescriptionChange}
           />
-          <DimensionForm />
-          <CreateDropdown />
+          <DimensionForm
+            title_value={dimensionTitle}
+            title_onChange={handleDimensionTitleChange}
+            description_value={dimensionDescription}
+            description_onChange={handleDimensionDescriptionChange}
+          />
+          <CreateDropdown
+            evaluation_text_value={evaluation_text}
+            evaluation_text_onChange={handleEvaluationTextChange}
+            negative_value={negative}
+            negative_onChange={handleNegativeChange}
+            regular_value={regular}
+            regular_onChange={handleRegularChange}
+            suficient_value={suficient}
+            suficient_onChange={handleSuficientChange}
+            good_value={good}
+            good_onChange={handleGoodChange}
+            excelent_value={excelent}
+            excelent_onChange={handleExcelentChange}
+          />
           <CreateButtonsDimension
             onClickAddDimension={"funcion para añadir dimension"}
             onClickDeleteDimension={"funcion para eliminar dimesion"}
           />
         </div>
         <div className="grid w-full grid-cols-2 gap-7">
-          {/* es de type=submit */}
+          {/* boton de type="submit" luego tiene que llevarte a mis-rubricas */}
           <ButtonPrimary text={"Guardar"} />
           <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>

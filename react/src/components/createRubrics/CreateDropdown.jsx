@@ -3,12 +3,18 @@ import { useState } from "react";
 import arrow from "../../assets/arrowIcon.svg";
 
 export default function CreateDropdown({
-  criteria_description,
-  negative_description,
-  regular_description,
-  suficient_description,
-  bien_description,
-  excelent_description,
+  evaluation_text_value,
+  evaluation_text_onChange,
+  negative_value,
+  negative_onChange,
+  regular_value,
+  regular_onChange,
+  suficient_value,
+  suficient_onChange,
+  good_value,
+  good_onChange,
+  excelent_value,
+  excelent_onChange,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,19 +23,23 @@ export default function CreateDropdown({
   };
   return (
     <>
-      <h4 className="font-opencustom text-xs text-color-grey-title ">
-        Criterio a evaluar:
-      </h4>
       <div className="space-y-1 py-3">
-        <div className="flex bg-color-grey-bg p-2">
-          <input
+        <label
+          htmlFor="evaluation_text"
+          className="font-opencustom text-xs text-color-grey-title ml-3"
+        >
+          Criterio a evaluar:
+        </label>
+        <div className="flex bg-color-grey-bg p-3">
+          <textarea
             type="text"
-            id="evaluation"
-            name="evaluation"
+            id="evaluation_text"
+            name="evaluation_text"
+            value={evaluation_text_value}
+            onChange={evaluation_text_onChange}
             placeholder="Criterio que ha de ser evaluado"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2"
+            className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
           />
-          <p className="font-opencustom text-xs">{criteria_description}</p>
         </div>
         <div
           className="flex bg-color-grey-bg p-3 justify-center cursor-pointer"
@@ -39,86 +49,119 @@ export default function CreateDropdown({
         </div>
         {isOpen && (
           <div>
-            <div className=" space-y-1 mt-2">
-              <label htmlFor="negative" className="font-opencustom text-xs">
-                Negativo:
-              </label>
-              <input
-                type="taxt"
-                id="negative"
-                name="negative"
-                placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
-              />
-              <p className="px-3 pt-1 pb-3 font-opencustom text-xs">
-                {negative_description}
-              </p>
-              <hr className="border-color-grey-bg border-2" />
+            <div className="space-y-3 mt-6">
+              <div>
+                <hr className="border-color-grey-border border-0.5 " />
+                <label
+                  htmlFor="negative"
+                  className="font-opencustom text-xs mx-3"
+                >
+                  Negativo:
+                </label>
+                <hr className="border-color-grey-bg border-2" />
+              </div>
+              <div className="px-3">
+                <input
+                  type="taxt"
+                  id="negative"
+                  name="negative"
+                  value={negative_value}
+                  onChange={negative_onChange}
+                  placeholder="Descripción del nivel"
+                  className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
+                />
+              </div>
             </div>
-            <div className="space-y-1 mt-2">
-              <label htmlFor="regular" className="font-opencustom text-xs">
-                Regular:
-              </label>
-              <input
-                type="text"
-                id="regular"
-                name="regular"
-                placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
-              />
-              <p className="px-3 py-1 pb-3 font-opencustom text-xs">
-                {regular_description}
-              </p>
-              <hr className="border-color-grey-bg border-2" />
+            <div className="space-y-3 mt-6">
+              <div>
+                <hr className="border-color-grey-border border-0.5 " />
+                <label
+                  htmlFor="regular"
+                  className="font-opencustom text-xs mx-3"
+                >
+                  Regular:
+                </label>
+                <hr className="border-color-grey-bg border-2" />
+              </div>
+              <div className="px-3">
+                <input
+                  type="text"
+                  id="regular"
+                  name="regular"
+                  value={regular_value}
+                  onChange={regular_onChange}
+                  placeholder="Descripción del nivel"
+                  className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
+                />
+              </div>
             </div>
-            <div className="space-y-1 mt-2">
-              <label htmlFor="suficient" className="font-opencustom text-xs">
-                Suficiente:
-              </label>
-              <input
-                type="text"
-                id="suficiente"
-                name="suficiente"
-                placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
-              />
-              <p className="px-3 py-1 pb-3 font-opencustom text-xs">
-                {suficient_description}
-              </p>
-              <hr className="border-color-grey-bg border-2" />
+            <div className="space-y-3 mt-6">
+              <div>
+                <hr className="border-color-grey-border border-0.5 " />
+                <label
+                  htmlFor="suficient"
+                  className="font-opencustom text-xs mx-3"
+                >
+                  Suficiente:
+                </label>
+                <hr className="border-color-grey-bg border-2" />
+              </div>
+              <div className="px-3">
+                <input
+                  type="text"
+                  id="suficient"
+                  name="suficient"
+                  value={suficient_value}
+                  onChange={suficient_onChange}
+                  placeholder="Descripción del nivel"
+                  className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
+                />
+              </div>
             </div>
-            <div className="space-y-1 mt-2">
-              <label htmlFor="good" className="font-opencustom text-xs">
-                Bien:
-              </label>
-              <input
-                type="text"
-                id="suficiente"
-                name="good"
-                placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
-              />
-              <p className="px-3 py-1 pb-3 font-opencustom text-xs">
-                {bien_description}
-              </p>
-              <hr className="border-color-grey-bg border-2" />
+            <div className="space-y-3 mt-6">
+              <div>
+                <hr className="border-color-grey-border border-0.5 " />
+                <label htmlFor="good" className="font-opencustom text-xs mx-3">
+                  Bien:
+                </label>
+                <hr className="border-color-grey-bg border-2" />
+              </div>
+              <div className="px-3">
+                <input
+                  type="text"
+                  id="good"
+                  name="good"
+                  value={good_value}
+                  onChange={good_onChange}
+                  placeholder="Descripción del nivel"
+                  className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
+                />
+              </div>
             </div>
-            <div className="space-y-1 mt-2">
-              <label htmlFor="excelent" className="font-opencustom text-xs">
-                Excelente:
-              </label>
-              <input
-                type="text"
-                id="excelent"
-                name="excelent"
-                placeholder="Descripción del nivel"
-                className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs mt-2 mb-6"
-              />
-              <p className="px-3 py-1 pb-3 font-opencustom text-xs">
-                {excelent_description}
-              </p>
-              <hr className="border-color-grey-bg border-2" />
+            <div className="space-y-3 mt-6">
+              <div>
+                <hr className="border-color-grey-border border-0.5" />
+                <label
+                  htmlFor="excelent"
+                  className="font-opencustom text-xs mx-3"
+                >
+                  Excelente:
+                </label>
+                <hr className="border-color-grey-bg border-2" />
+              </div>
+              <div className="px-3">
+                <input
+                  type="text"
+                  id="excelent"
+                  name="excelent"
+                  value={excelent_value}
+                  onChange={excelent_onChange}
+                  placeholder="Descripción del nivel"
+                  className="w-full rounded border border-color-grey-border-btn px-3 py-3 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs"
+                />
+              </div>
             </div>
+            <hr className="border-color-grey-border border-0.5 mt-5 " />
           </div>
         )}
       </div>

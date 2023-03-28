@@ -8,7 +8,7 @@ export default function CreateButtonsDimension({
   onClickDeleteDimension,
 }) {
   return (
-    <div className="grid w-full grid-cols-2 gap-7 mb-7 mt-5">
+    <div className="grid w-full grid-cols-2 gap-5 mb-7 mt-3 px-3">
       <ButtonSecondaryIconData
         text={"Añadir dimensión"}
         src={addIconGray}
