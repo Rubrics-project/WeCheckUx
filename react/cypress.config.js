@@ -1,10 +1,15 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  component: {
-    devServer: {
-      framework: "react",
-      bundler: "vite",
-    },
+  testFiles: "**/*.{spec,test}.js",
+  integrationFolder: "cypress/components",
+  devServer: {
+    command: "npm run start",
+    port: 3000,
+    host: "localhost",
   },
-});
+
+  e2e: {
+    specPattern: 'cypress/components/**/*.spec.{js,ts,jsx,tsx}'
+  },
+  });
