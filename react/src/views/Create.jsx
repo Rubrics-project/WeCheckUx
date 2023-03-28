@@ -8,19 +8,32 @@ import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import DimensionForm from "../components/createRubrics/DimensionForm";
 import { getItemById } from "../services/projectsService";
-import { createItem } from "../services/rubricService";
+import { createItemRubric } from "../services/rubricService";
+import { createItemEvaluation } from "../services/evaluationService";
+import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
+import CreateDropdown from "../components/createRubrics/CreateDropdown";
+import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDimension";
 
 export default function Create() {
-  // Pasar currentUser en autor
   const { currentUser } = userAuthContext();
-  // console.log(typeof parseInt(currentUser, 10));
   const user_id = parseInt(currentUser, 10);
+  console.log("id user:", typeof user_id, user_id);
   const params = useParams();
   // console.log(params.id);
   const [project, setProject] = useState({});
+  const [project_id, setProjectId] = useState(0);
   const [title, setRubricTitle] = useState("");
   const [description, setRubricDescription] = useState("");
-  const [project_id, setProjectId] = useState(0);
+  const [evaluationDimensionTitle, setEvaluationDimensionTitle] = useState("");
+  const [evaluationDimensionDescription, setEvaluationDimensionDescription] =
+    useState("");
+  const [evaluation_text, setEvaluationText] = useState("");
+  const [negative, setNegative] = useState("");
+  const [regular, setRegular] = useState("");
+  const [suficient, setSuficient] = useState("");
+  const [good, setGood] = useState("");
+  const [excelent, setExcelent] = useState("");
+  const [idRubric, setidRubric] = useState();
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
@@ -33,7 +46,7 @@ export default function Create() {
         setProject(response);
         setProjectId(response.id);
 
-        console.log("id project:", typeof response.id);
+        console.log("id project:", typeof response.id, response.id);
       } catch (error) {
         console.error(error);
       }
@@ -42,26 +55,68 @@ export default function Create() {
     fetchData();
   }, []);
 
-  const handleTitleChange = (e) => {
+  const handleRubricTitleChange = (e) => {
     setRubricTitle(e.target.value);
   };
-
-  const handleDescriptionChange = (e) => {
+  const handleRubricDescriptionChange = (e) => {
     setRubricDescription(e.target.value);
+  };
+
+  const handleDimensionTitleChange = (e) => {
+    setEvaluationDimensionTitle(e.target.value);
+  };
+  const handleDimensionDescriptionChange = (e) => {
+    setEvaluationDimensionDescription(e.target.value);
+  };
+
+  const handleEvaluationTextChange = (e) => {
+    setEvaluationText(e.target.value);
+  };
+  const handleNegativeChange = (e) => {
+    setNegative(e.target.value);
+  };
+  const handleRegularChange = (e) => {
+    setRegular(e.target.value);
+  };
+  const handleSuficientChange = (e) => {
+    setSuficient(e.target.value);
+  };
+  const handleGoodChange = (e) => {
+    setGood(e.target.value);
+  };
+  const handleExcelentChange = (e) => {
+    setExcelent(e.target.value);
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = {
+    const formDataRubric = {
       title,
       description,
       project_id,
       user_id,
     };
+    const formDataEvaluation = {
+      title: evaluationDimensionTitle,
+      description: evaluationDimensionDescription,
+      evaluation_text,
+      negative,
+      regular,
+      suficient,
+      good,
+      excelent,
+      rubric_id: null,
+    };
     try {
-      const responseCreate = await createItem(formData);
-      console.log(responseCreate);
+      const responseCreateRubric = await createItemRubric(formDataRubric);
+      console.log(responseCreateRubric);
+      const idRubric = responseCreateRubric.id;
+      formDataEvaluation.rubric_id = idRubric;
+      const responseCreateEvaluation = await createItemEvaluation(
+        formDataEvaluation
+      );
+      console.log(responseCreateEvaluation);
+      window.location.href = "/mis-rubricas";
     } catch (err) {
       console.log(JSON.parse(err.request.response).msg);
     }
@@ -82,7 +137,7 @@ export default function Create() {
         />
       </div>
       <form onSubmit={onSubmit} action="#" method="POST" className="space-y-1">
-        <div className="border rounded border-color-blue-p p-2">
+        <div className="border rounded border-color-blue-p mb-7 overflow-hidden">
           <input
             className="hidden"
             type="number"
@@ -97,40 +152,41 @@ export default function Create() {
             value={user_id}
             readOnly
           />
-          <label
-            htmlFor="title"
-            className="font-latocustom text-base font-bold"
-          >
-            <h1 className="font-latocustom font-bold text-sm mt-3">Título:</h1>
-          </label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            value={title}
-            
-            onChange={handleTitleChange}
-            placeholder="Título"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs my-4"
+          <CreateRubricForm
+            title_value={title}
+            title_onChange={handleRubricTitleChange}
+            description_value={description}
+            description_onChange={handleRubricDescriptionChange}
           />
-
-          <label htmlFor="description" className="font-opencustom text-xs">
-            Descripción de la rúbrica:
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            type="text"
-            value={description}
-            onChange={handleDescriptionChange}
-            placeholder="Descripción de la rúbrica"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom  text-xs mt-2 mb-6"
+          <DimensionForm
+            title_value={evaluationDimensionTitle}
+            title_onChange={handleDimensionTitleChange}
+            description_value={evaluationDimensionDescription}
+            description_onChange={handleDimensionDescriptionChange}
           />
-          <DimensionForm />
+          <CreateDropdown
+            evaluation_text_value={evaluation_text}
+            evaluation_text_onChange={handleEvaluationTextChange}
+            negative_value={negative}
+            negative_onChange={handleNegativeChange}
+            regular_value={regular}
+            regular_onChange={handleRegularChange}
+            suficient_value={suficient}
+            suficient_onChange={handleSuficientChange}
+            good_value={good}
+            good_onChange={handleGoodChange}
+            excelent_value={excelent}
+            excelent_onChange={handleExcelentChange}
+          />
+          <CreateButtonsDimension
+            onClickAddDimension={"TODO: funcion para añadir dimension"}
+            onClickDeleteDimension={"TODO: funcion para eliminar dimesion"}
+          />
         </div>
-        <div className="mt-7 grid w-full grid-cols-2 gap-7">
+        <div className="grid w-full grid-cols-2 gap-7">
+          {/*TODO: boton de type="submit" luego tiene que llevarte a mis-rubricas */}
           <ButtonPrimary text={"Guardar"} />
-          <ButtonSecondary text={"Cancelar"} />
+          <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>
       </form>
     </>
