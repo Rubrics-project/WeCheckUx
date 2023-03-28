@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -9,6 +10,7 @@ return new class extends Migration
 
     public function up(): void
     {
+        DB::beginTransaction();
         Schema::disableForeignKeyConstraints();
 
         Schema::create('evaluations', function (Blueprint $table) {
@@ -21,8 +23,7 @@ return new class extends Migration
             $table->text('suficient');
             $table->text('good');
             $table->text('excelent');
-            $table->unsignedBigInteger('rubric_id');
-            $table->foreign('rubric_id')->references('id')->on('rubrics');
+            $table->foreignId('rubric_id')->constrained('rubrics')->onDelete('cascade');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
