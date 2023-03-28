@@ -22,6 +22,7 @@ export default function MisRubricas() {
         const response = await getItemById(currentUser);
         setTable(response.data.user.rubrics);
         setRubrics(response.data.user.rubrics);
+        console.log(response)
       } catch (error) {
         console.error(error);
       }
@@ -54,7 +55,7 @@ export default function MisRubricas() {
           rubric_id={rubric.id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
-          project_title={rubric.project_id}
+          project_title={rubric.project}
           rubric_date={rubric.created_at}
         />
       ))}

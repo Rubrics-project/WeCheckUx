@@ -12,7 +12,7 @@ import { createItem } from "../services/rubricService";
 
 export default function Create() {
   // Pasar currentUser en autor
-  const { userToken, currentUser } = userAuthContext();
+  const { currentUser } = userAuthContext();
   // console.log(typeof parseInt(currentUser, 10));
   const user_id = parseInt(currentUser, 10);
   const params = useParams();
@@ -22,7 +22,7 @@ export default function Create() {
   const [description, setRubricDescription] = useState("");
   const [project_id, setProjectId] = useState(0);
 
-  if (!userToken) {
+  if (!currentUser) {
     return <Navigate to="/acceso" />;
   }
 
@@ -108,7 +108,7 @@ export default function Create() {
             name="title"
             type="text"
             value={title}
-            required
+            
             onChange={handleTitleChange}
             placeholder="Título"
             className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs my-4"
@@ -121,7 +121,6 @@ export default function Create() {
             id="description"
             name="description"
             type="text"
-            required
             value={description}
             onChange={handleDescriptionChange}
             placeholder="Descripción de la rúbrica"
