@@ -11,7 +11,6 @@ import { getItemById } from "../services/projectsService";
 import { createItemRubric } from "../services/rubricService";
 import { createItemEvaluation } from "../services/evaluationService";
 import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
-import CreateDropdown from "../components/createRubrics/CreateDropdown";
 import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDimension";
 
 export default function Create() {
@@ -162,8 +161,6 @@ export default function Create() {
             title_onChange={handleDimensionTitleChange}
             description_value={evaluationDimensionDescription}
             description_onChange={handleDimensionDescriptionChange}
-          />
-          <CreateDropdown
             evaluation_text_value={evaluation_text}
             evaluation_text_onChange={handleEvaluationTextChange}
             negative_value={negative}
@@ -183,7 +180,7 @@ export default function Create() {
           />
         </div>
         <div className="grid w-full grid-cols-2 gap-7">
-          {/*TODO: boton de type="submit" luego tiene que llevarte a mis-rubricas */}
+          {/*TODO: boton de type="submit" luego tiene que saltar al alerta */}
           <ButtonPrimary text={"Guardar"} />
           <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>
