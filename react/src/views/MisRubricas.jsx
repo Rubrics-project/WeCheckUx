@@ -20,9 +20,8 @@ export default function MisRubricas() {
     const fetchData = async () => {
       try {
         const response = await getItemById(currentUser);
-        setTable(response.data.user.rubrics);
-        setRubrics(response.data.user.rubrics);
-        console.log(response)
+        setTable(response.rubrics);
+        setRubrics(response.rubrics);
       } catch (error) {
         console.error(error);
       }
@@ -34,12 +33,15 @@ export default function MisRubricas() {
   const handleChange = (e) => {
     filter(e.target.value);
     setSearch(e.target.value);
-    // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
-    let result = table.filter((elemento) => {
-      if (elemento.title.toString().toLowerCase().includes(termsearch)) {
-        return elemento;
+    let result = table.filter((element) => {
+       const removeDiacritics = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+      const propertiesToSearch = ['title', 'description'];
+      if (propertiesToSearch.some(prop => removeDiacritics(element[prop].toString().toLowerCase()).includes(removeDiacritics(termsearch.toLowerCase())))) {
+        return element;
       }
     });
     setRubrics(result);
@@ -55,8 +57,8 @@ export default function MisRubricas() {
           rubric_id={rubric.id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
-          project_title={rubric.project}
-          rubric_date={rubric.created_at}
+          project_title={rubric.project_name.name}
+          rubric_date={rubric.created_at.slice(0,10)}
         />
       ))}
     </>

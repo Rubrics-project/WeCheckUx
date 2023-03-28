@@ -7,13 +7,11 @@ import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import RubricProject from "../components/Rubrics/RubricProject";
 import Title from "../components/Title";
 import { getItemById } from "../services/projectsService";
-// import { getAllItems } from "../services/rubricService";
 import plusIcon from "../assets/addIcon.svg";
 import { userAuthContext } from "../context/AuthProvider";
 
 export default function ProjectDetail() {
   const params = useParams();
-  // console.log(params.id);
   const [project, setProject] = useState([]);
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
@@ -29,7 +27,6 @@ export default function ProjectDetail() {
 
         setProject(response);
         setRubrics(response.rubrics);
-        console.log("setRubrics project detail:", response.rubrics);
 
         if (userToken) {
           setIsAuthenticated(true);
@@ -45,12 +42,15 @@ export default function ProjectDetail() {
   const handleChange = (e) => {
     filter(e.target.value);
     setSearch(e.target.value);
-    // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
-    let result = table.filter((elemento) => {
-      if (elemento.title.toString().toLowerCase().includes(termsearch)) {
-        return elemento;
+    let result = table.filter((element) => {
+      const removeDiacritics = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+      const propertiesToSearch = ['title', 'description', 'user_name'];
+      if (propertiesToSearch.some(prop => removeDiacritics(element[prop].toString().toLowerCase()).includes(removeDiacritics(termsearch.toLowerCase())))) {
+        return element;
       }
     });
     setRubrics(result);

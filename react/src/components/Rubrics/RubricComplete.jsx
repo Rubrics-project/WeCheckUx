@@ -20,11 +20,6 @@ export default function Rubric({
     getItemById(params.id)
       .then((response) => {
         setEvaluations(response.evaluations);
-
-        console.log(
-          "setRubrics rubric detail evaluations: ",
-          response
-        );
       })
       .catch((error) => {
         console.error(error);

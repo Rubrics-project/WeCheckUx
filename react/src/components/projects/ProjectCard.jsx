@@ -9,7 +9,6 @@ export default function ProjectCard({
   project_url,
   project_description,
   id,
-  // totalEvaluations,
 }) {
   const [projects, setProjects] = useState([]);
 
@@ -18,10 +17,6 @@ export default function ProjectCard({
       try {
         const response = await getItemById(id);
         setProjects(response.rubrics.length);
-        console.log(
-          "project by id dentro de ProjectCard",
-          response.rubrics.length
-        );
       } catch (error) {
         console.error(error);
       }
