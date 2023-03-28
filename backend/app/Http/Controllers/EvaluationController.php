@@ -26,6 +26,7 @@ class EvaluationController extends Controller
         'suficient'=>'required',
         'good'=>'required',
         'excelent'=>'required',
+            'rubric_id'=>'required'
     ]);
 
     if ($validator->fails()) {
@@ -41,6 +42,7 @@ class EvaluationController extends Controller
     $evaluation->suficient = $request->suficient;
     $evaluation->good = $request->good;
     $evaluation->excelent = $request->excelent;
+        $evaluation->rubric_id = $request->rubric_id;
 
     $evaluation->save();
     return $evaluation;

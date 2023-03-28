@@ -76,7 +76,7 @@ export default function ProjectDetail() {
           project_id={rubric.project_id}
           rubric_title={rubric.title}
           rubric_description={rubric.description}
-          rubric_author={rubric.user_id}
+          rubric_author={rubric.user_name}
           rubric_date={rubric.created_at.slice(0, 10)}
         />
       ))}

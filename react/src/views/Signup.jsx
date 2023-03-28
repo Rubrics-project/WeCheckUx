@@ -57,7 +57,7 @@ export default function Signup() {
 
         setValidCaptcha(true);
         setValidUser(true);
-        
+
         window.location.href = "/mis-rubricas";
       } else {
         console.log("Acepta el captcha para continuar.");
@@ -89,84 +89,90 @@ export default function Signup() {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="font-opencustom text-sm">
-                  Nombre:
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                  placeholder="Nombre"
-                />
-              </div>
-              <div>
-                <label htmlFor="surname" className="font-opencustom text-sm">
-                  Apellidos:
-                </label>
-                <input
-                  id="surname"
-                  name="surname"
-                  type="text"
-                  required
-                  value={surname}
-                  onChange={(e) => setSurname(e.target.value)}
-                  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                  placeholder="Apellidos"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email-address"
-                  className="font-opencustom text-sm"
-                >
-                  Email:
-                </label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                  placeholder="ejemplo@email.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="font-opencustom text-sm">
-                  Contraseña:
-                </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                  placeholder="********"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="font-opencustom text-sm">
-                  Confirmar contraseña:
-                </label>
-                <input
-                  id="password-confrimation"
-                  name="password_confirmation"
-                  type="password"
-                  required
-                  value={passwordConfirmation}
-                  onChange={(e) => setPasswordConfirmation(e.target.value)}
-                  className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                  placeholder="********"
-                />
+                <div>
+                  <label htmlFor="name" className="font-opencustom text-sm">
+                    Nombre:
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="Nombre"
+                  />
+                </div>
+                <div className="flex flex-row">
+                  <div className="flex flex-col">
+                    <label htmlFor="surname" className="font-opencustom text-sm">
+                      Apellidos:
+                    </label>
+                    <input
+                      id="surname"
+                      name="surname"
+                      type="text"
+                      required
+                      value={surname}
+                      onChange={(e) => setSurname(e.target.value)}
+                      className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                      placeholder="Apellidos"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                <div>
+                  <label
+                    htmlFor="email-address"
+                    className="font-opencustom text-sm"
+                  >
+                    Email:
+                  </label>
+                  <input
+                    id="email-address"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="ejemplo@email.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="font-opencustom text-sm">
+                    Contraseña:
+                  </label>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="********"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="font-opencustom text-sm">
+                    Confirmar contraseña:
+                  </label>
+                  <input
+                    id="password-confrimation"
+                    name="password_confirmation"
+                    type="password"
+                    required
+                    value={passwordConfirmation}
+                    onChange={(e) => setPasswordConfirmation(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="********"
+                  />
+                </div>
+                </div>
               </div>
             </div>
             {error && (

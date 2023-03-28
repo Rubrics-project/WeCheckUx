@@ -44,7 +44,7 @@ export default function Login() {
         console.log("El usuario no es un robot");
         setValidCaptcha(true);
         setValidUser(true);
-        
+
 
         window.location.href = "/acceso";
       } else {
@@ -76,12 +76,11 @@ export default function Login() {
             method="POST"
           >
             <input type="hidden" name="remember" defaultValue="true" />
-            <div className="space-y-4">
+            <div className="space-y-4 flex flex-col md:mx-72">
               <div>
                 <label
                   htmlFor="email-address"
-                  className="font-opencustom text-sm"
-                >
+                  className="font-opencustom text-sm">
                   Email:
                 </label>
                 <input
@@ -97,7 +96,8 @@ export default function Login() {
                 />
               </div>
               <div>
-                <label htmlFor="password" className="font-opencustom text-sm">
+                <label 
+                htmlFor="password" className="font-opencustom text-sm">
                   Contraseña:
                 </label>
                 <input
@@ -131,19 +131,20 @@ export default function Login() {
                 onChange={onChange}
               />
             </div>
-
-            <div className="w-full grid grid-cols-2 gap-7">
-              <ButtonPrimary text={"Aceptar"} />
-              <Link
-                to="/"
-                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
-              >
-                Cancelar
-              </Link>
+            <div className="w-full flex flex-row gap-7 justify-center">
+              <div className="w-full grid grid-cols-2 gap-7 md:w-1/4">
+                <ButtonPrimary text={"Aceptar"} />
+                <Link
+                  to="/"
+                  className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
+                >
+                  Cancelar
+                </Link>
+              </div>
             </div>
           </form>
 
-          <p className="mt-10 font-opencustom text-sm font-normal mb-10">
+          <p className="mt-10 font-opencustom text-sm font-normal mb-10 md:flex flex-col items-center">
             ¿No tienes cuenta? Crea una nueva cuenta en{" "}
             <span>
               {" "}
