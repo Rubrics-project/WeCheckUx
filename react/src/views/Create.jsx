@@ -33,6 +33,7 @@ export default function Create() {
   const [suficient, setSuficient] = useState("");
   const [good, setGood] = useState("");
   const [excelent, setExcelent] = useState("");
+  const [idRubric, setidRubric] = useState();
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
@@ -104,11 +105,13 @@ export default function Create() {
       suficient,
       good,
       excelent,
-      rubric_id: 1,
+      rubric_id: null,
     };
     try {
       const responseCreateRubric = await createItemRubric(formDataRubric);
       console.log(responseCreateRubric);
+      const idRubric = responseCreateRubric.id;
+      formDataEvaluation.rubric_id = idRubric;
       const responseCreateEvaluation = await createItemEvaluation(
         formDataEvaluation
       );
@@ -175,12 +178,12 @@ export default function Create() {
             excelent_onChange={handleExcelentChange}
           />
           <CreateButtonsDimension
-            onClickAddDimension={"funcion para añadir dimension"}
-            onClickDeleteDimension={"funcion para eliminar dimesion"}
+            onClickAddDimension={"TODO: funcion para añadir dimension"}
+            onClickDeleteDimension={"TODO: funcion para eliminar dimesion"}
           />
         </div>
         <div className="grid w-full grid-cols-2 gap-7">
-          {/* boton de type="submit" luego tiene que llevarte a mis-rubricas */}
+          {/*TODO: boton de type="submit" luego tiene que llevarte a mis-rubricas */}
           <ButtonPrimary text={"Guardar"} />
           <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>

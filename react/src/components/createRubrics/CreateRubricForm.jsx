@@ -13,6 +13,7 @@ export default function CreateRubricForm({
           <h1 className="font-latocustom font-bold text-sm mt-3">Título:</h1>
         </label>
         <input
+          required
           id="title"
           name="title"
           type="text"
@@ -26,6 +27,7 @@ export default function CreateRubricForm({
           Descripción de la rúbrica:
         </label>
         <textarea
+          required
           id="description"
           name="description"
           type="text"

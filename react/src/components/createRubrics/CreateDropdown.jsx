@@ -32,6 +32,7 @@ export default function CreateDropdown({
         </label>
         <div className="flex bg-color-grey-bg p-3">
           <textarea
+            required
             type="text"
             id="evaluation_text"
             name="evaluation_text"
@@ -49,12 +50,11 @@ export default function CreateDropdown({
         </div>
         {isOpen && (
           <div>
-            <div className="space-y-3 mt-6">
+            <div className="space-y-3">
               <div>
-                <hr className="border-color-grey-border border-0.5 " />
                 <label
                   htmlFor="negative"
-                  className="font-opencustom text-xs mx-3"
+                  className="font-opencustom font-light text-xs mx-3"
                 >
                   Negativo:
                 </label>
@@ -62,6 +62,7 @@ export default function CreateDropdown({
               </div>
               <div className="px-3">
                 <input
+                  required
                   type="taxt"
                   id="negative"
                   name="negative"
@@ -77,7 +78,7 @@ export default function CreateDropdown({
                 <hr className="border-color-grey-border border-0.5 " />
                 <label
                   htmlFor="regular"
-                  className="font-opencustom text-xs mx-3"
+                  className="font-opencustom text-xs font-light mx-3"
                 >
                   Regular:
                 </label>
@@ -85,6 +86,7 @@ export default function CreateDropdown({
               </div>
               <div className="px-3">
                 <input
+                  required
                   type="text"
                   id="regular"
                   name="regular"
@@ -100,7 +102,7 @@ export default function CreateDropdown({
                 <hr className="border-color-grey-border border-0.5 " />
                 <label
                   htmlFor="suficient"
-                  className="font-opencustom text-xs mx-3"
+                  className="font-opencustom text-xs font-light mx-3"
                 >
                   Suficiente:
                 </label>
@@ -108,6 +110,7 @@ export default function CreateDropdown({
               </div>
               <div className="px-3">
                 <input
+                  required
                   type="text"
                   id="suficient"
                   name="suficient"
@@ -121,13 +124,17 @@ export default function CreateDropdown({
             <div className="space-y-3 mt-6">
               <div>
                 <hr className="border-color-grey-border border-0.5 " />
-                <label htmlFor="good" className="font-opencustom text-xs mx-3">
+                <label
+                  htmlFor="good"
+                  className="font-opencustom text-xs font-light mx-3"
+                >
                   Bien:
                 </label>
                 <hr className="border-color-grey-bg border-2" />
               </div>
               <div className="px-3">
                 <input
+                  required
                   type="text"
                   id="good"
                   name="good"
@@ -143,7 +150,7 @@ export default function CreateDropdown({
                 <hr className="border-color-grey-border border-0.5" />
                 <label
                   htmlFor="excelent"
-                  className="font-opencustom text-xs mx-3"
+                  className="font-opencustom text-xs font-light mx-3"
                 >
                   Excelente:
                 </label>
@@ -151,6 +158,7 @@ export default function CreateDropdown({
               </div>
               <div className="px-3">
                 <input
+                  required
                   type="text"
                   id="excelent"
                   name="excelent"

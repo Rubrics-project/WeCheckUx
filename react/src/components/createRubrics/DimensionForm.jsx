@@ -15,6 +15,7 @@ export default function DimensionForm({
           Dimensión:
         </label>
         <input
+          required
           type="text"
           id="dimension"
           name="dimension"
@@ -29,6 +30,7 @@ export default function DimensionForm({
         </label>
 
         <textarea
+          required
           type="text"
           id="description"
           name="description"
