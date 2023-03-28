@@ -36,7 +36,7 @@ export default function MisRubricas() {
   };
   const filter = (termsearch) => {
     let result = table.filter((element) => {
-       const removeDiacritics = (str) => {
+      const removeDiacritics = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       }
       const propertiesToSearch = ['title', 'description'];
@@ -51,16 +51,17 @@ export default function MisRubricas() {
     <>
       <Browser search={search} handleChange={handleChange} />
       <Title title={"Mis rúbricas"} />
-      {rubrics.map((rubric, index) => (
-        <RubricUser
-          key={index}
-          rubric_id={rubric.id}
-          rubric_title={rubric.title}
-          rubric_description={rubric.description}
-          project_title={rubric.project_name.name}
-          rubric_date={rubric.created_at.slice(0,10)}
-        />
-      ))}
+      {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+        .map((rubric, index) => (
+          <RubricUser
+            key={index}
+            rubric_id={rubric.id}
+            rubric_title={rubric.title}
+            rubric_description={rubric.description}
+            project_title={rubric.project_name.name}
+            rubric_date={rubric.created_at.slice(0, 10)}
+          />
+        ))}
     </>
   );
 }

@@ -69,17 +69,18 @@ export default function ProjectDetail() {
           "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
         }
       />
-      {rubrics.map((rubric, index) => (
-        <RubricProject
-          key={index}
-          rubric_id={rubric.id}
-          project_id={rubric.project_id}
-          rubric_title={rubric.title}
-          rubric_description={rubric.description}
-          rubric_author={rubric.user_name}
-          rubric_date={rubric.created_at.slice(0, 10)}
-        />
-      ))}
+      {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+        .map((rubric, index) => (
+          <RubricProject
+            key={index}
+            rubric_id={rubric.id}
+            project_id={rubric.project_id}
+            rubric_title={rubric.title}
+            rubric_description={rubric.description}
+            rubric_author={rubric.user_name}
+            rubric_date={rubric.created_at.slice(0, 10)}
+          />
+        ))}
       <div className="flex justify-center mt-14">
         <ButtonPrimaryIconBig
           src={plusIcon}
