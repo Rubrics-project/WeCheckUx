@@ -8,7 +8,8 @@ import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import DimensionForm from "../components/createRubrics/DimensionForm";
 import { getItemById } from "../services/projectsService";
-import { createItem } from "../services/rubricService";
+import { createItemRubric } from "../services/rubricService";
+import { createItemEvaluation } from "../services/evaluationService";
 import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
 import CreateDropdown from "../components/createRubrics/CreateDropdown";
 import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDimension";
@@ -23,8 +24,8 @@ export default function Create() {
   const [project_id, setProjectId] = useState(0);
   const [title, setRubricTitle] = useState("");
   const [description, setRubricDescription] = useState("");
-  const [dimensionTitle, setEvaluationDimensionTitle] = useState("");
-  const [dimensionDescription, setEvaluationDimensionDescription] =
+  const [evaluationDimensionTitle, setEvaluationDimensionTitle] = useState("");
+  const [evaluationDimensionDescription, setEvaluationDimensionDescription] =
     useState("");
   const [evaluation_text, setEvaluationText] = useState("");
   const [negative, setNegative] = useState("");
@@ -88,20 +89,33 @@ export default function Create() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    // const onSubmitRubric = async (e) => {
     const formDataRubric = {
       title,
       description,
       project_id,
       user_id,
     };
+    const formDataEvaluation = {
+      title: evaluationDimensionTitle,
+      description: evaluationDimensionDescription,
+      evaluation_text,
+      negative,
+      regular,
+      suficient,
+      good,
+      excelent,
+      rubric_id: 1,
+    };
     try {
-      const responseCreate = await createItem(formDataRubric);
-      console.log(responseCreate);
+      const responseCreateRubric = await createItemRubric(formDataRubric);
+      console.log(responseCreateRubric);
+      const responseCreateEvaluation = await createItemEvaluation(
+        formDataEvaluation
+      );
+      console.log(responseCreateEvaluation);
     } catch (err) {
       console.log(JSON.parse(err.request.response).msg);
     }
-    // };
   };
   return (
     <>
@@ -119,7 +133,7 @@ export default function Create() {
         />
       </div>
       <form onSubmit={onSubmit} action="#" method="POST" className="space-y-1">
-        <div className="border rounded border-color-blue-p mb-7">
+        <div className="border rounded border-color-blue-p mb-7 overflow-hidden">
           <input
             className="hidden"
             type="number"
@@ -141,9 +155,9 @@ export default function Create() {
             description_onChange={handleRubricDescriptionChange}
           />
           <DimensionForm
-            title_value={dimensionTitle}
+            title_value={evaluationDimensionTitle}
             title_onChange={handleDimensionTitleChange}
-            description_value={dimensionDescription}
+            description_value={evaluationDimensionDescription}
             description_onChange={handleDimensionDescriptionChange}
           />
           <CreateDropdown

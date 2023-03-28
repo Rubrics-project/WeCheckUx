@@ -45,7 +45,7 @@ export const getItemById = async (id) => {
   }
 };
 
-export const createItem = async (data) => {
+export const createItemRubric = async (data) => {
   try {
     const response = await axiosInstance.post("rubrics", data);
     // console.log("Response data: ", response.data);
