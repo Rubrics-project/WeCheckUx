@@ -56,16 +56,16 @@ export default function Home() {
         </p>
       </div>
       {!isAuthenticated ? (
-        <div className="w-full grid grid-cols-2 gap-7 mb-5  md:w-1/3 md:ml-72     ">
+        <div className="w-full flex flex-row gap-7  justify-center">
           <Link
             to="/acceso"
-            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
+            className="flex w-full md:w-1/4 justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "
           >
             Acceder
           </Link>
           <Link
             to="/registro"
-            className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
+            className="flex w-full md:w-1/4 justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
           >
             Registrarme
           </Link>
@@ -74,7 +74,7 @@ export default function Home() {
         <div>
           <Link
             to="/crear"
-            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md mb-5 "
+            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md mb-5"
           >
             Crear rúbrica
           </Link>
