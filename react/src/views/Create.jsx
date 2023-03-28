@@ -116,6 +116,7 @@ export default function Create() {
         formDataEvaluation
       );
       console.log(responseCreateEvaluation);
+      window.location.href = "/mis-rubricas";
     } catch (err) {
       console.log(JSON.parse(err.request.response).msg);
     }
