@@ -9,11 +9,12 @@ import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import DimensionForm from "../components/createRubrics/DimensionForm";
 import { getItemById } from "../services/projectsService";
 import { createItem } from "../services/rubricService";
+import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
+import CreateDropdown from "../components/createRubrics/CreateDropdown";
+import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDimension";
 
 export default function Create() {
-  // Pasar currentUser en autor
   const { currentUser } = userAuthContext();
-  // console.log(typeof parseInt(currentUser, 10));
   const user_id = parseInt(currentUser, 10);
   const params = useParams();
   // console.log(params.id);
@@ -43,28 +44,30 @@ export default function Create() {
   }, []);
 
   const handleTitleChange = (e) => {
+    e.preventDefault();
     setRubricTitle(e.target.value);
   };
 
   const handleDescriptionChange = (e) => {
+    e.preventDefault();
     setRubricDescription(e.target.value);
   };
-
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = {
-      title,
-      description,
-      project_id,
-      user_id,
+    const onSubmitRubric = async (e) => {
+      const formData = {
+        title,
+        description,
+        project_id,
+        user_id,
+      };
+      try {
+        const responseCreate = await createItem(formData);
+        console.log(responseCreate);
+      } catch (err) {
+        console.log(JSON.parse(err.request.response).msg);
+      }
     };
-    try {
-      const responseCreate = await createItem(formData);
-      console.log(responseCreate);
-    } catch (err) {
-      console.log(JSON.parse(err.request.response).msg);
-    }
   };
   return (
     <>
@@ -82,7 +85,7 @@ export default function Create() {
         />
       </div>
       <form onSubmit={onSubmit} action="#" method="POST" className="space-y-1">
-        <div className="border rounded border-color-blue-p p-2">
+        <div className="border rounded border-color-blue-p p-2 mb-7">
           <input
             className="hidden"
             type="number"
@@ -97,40 +100,23 @@ export default function Create() {
             value={user_id}
             readOnly
           />
-          <label
-            htmlFor="title"
-            className="font-latocustom text-base font-bold"
-          >
-            <h1 className="font-latocustom font-bold text-sm mt-3">Título:</h1>
-          </label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            value={title}
-            
-            onChange={handleTitleChange}
-            placeholder="Título"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-xs my-4"
-          />
-
-          <label htmlFor="description" className="font-opencustom text-xs">
-            Descripción de la rúbrica:
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            type="text"
-            value={description}
-            onChange={handleDescriptionChange}
-            placeholder="Descripción de la rúbrica"
-            className="w-full rounded border border-color-grey-border-btn px-3 py-4 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom  text-xs mt-2 mb-6"
+          <CreateRubricForm
+            title_value={title}
+            title_onChange={handleTitleChange}
+            description_value={description}
+            description_onChange={handleDescriptionChange}
           />
           <DimensionForm />
+          <CreateDropdown />
+          <CreateButtonsDimension
+            onClickAddDimension={"funcion para añadir dimension"}
+            onClickDeleteDimension={"funcion para eliminar dimesion"}
+          />
         </div>
-        <div className="mt-7 grid w-full grid-cols-2 gap-7">
+        <div className="grid w-full grid-cols-2 gap-7">
+          {/* es de type=submit */}
           <ButtonPrimary text={"Guardar"} />
-          <ButtonSecondary text={"Cancelar"} />
+          <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>
       </form>
     </>
