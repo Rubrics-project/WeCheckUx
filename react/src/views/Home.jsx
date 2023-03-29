@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { userAuthContext } from "../context/AuthProvider";
 
 export default function Home() {
@@ -56,7 +57,7 @@ export default function Home() {
         </p>
       </div>
       {!isAuthenticated ? (
-        <div className="w-full flex flex-row gap-7  justify-center">
+        <div className="w-full flex flex-row gap-7 justify-center">
           <Link
             to="/acceso"
             className="flex w-full md:w-1/4 justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md "

@@ -29,7 +29,7 @@ export const getItemById = async (id) => {
   }
 };
 
-export const createItem = async (data) => {
+export const createItemEvaluation = async (data) => {
   try {
     const response = await axiosInstance.post("evaluations", data);
     // console.log("Response data evaluations: ", response.data);
