@@ -1,16 +1,18 @@
 describe("Test E2E Project", () => {
-  beforeEach(() => {
+  
+    it("test navigation hamburguer menu select Project menu", () => {
     cy.visit("http://localhost:3000");
-  });
-    it("test navigation hamburguer menu", () => {
+    cy.wait(500);
     cy.get(".hamburger-react").click();
-    cy.location('pathname').should('include', '/proyectos')
-    cy.get('#open-menu').rightclick('bottomLeft', { force: true })
-    
-    cy.visit("http://localhost:3000/proyectos");
+    cy.wait(500);
+    cy.get('[href="/proyectos"]').should('contain','Proyectos').click();
+       
+        
   });
-  it("search project element ", () => {
-    cy.get("h1").should("contain", "Proyectos").click();
-    cy.url().should("include", "http://localhost:3000/proyectos");
-  });
+    it("search project element ", () => {
+      cy.visit("http://localhost:3000/proyectos");
+      cy.get("h1").should("contain", "Proyectos").click();
+      cy.url().should("include", "http://localhost:3000/proyectos");
+   
+    });
 });
