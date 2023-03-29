@@ -21,7 +21,6 @@ export default function DimensionForm({
   excelent_value,
   excelent_onChange,
 }) {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -103,7 +102,7 @@ export default function DimensionForm({
               <div className="px-3">
                 <input
                   required
-                  type="taxt"
+                  type="text"
                   id="negative"
                   name="negative"
                   value={negative_value}

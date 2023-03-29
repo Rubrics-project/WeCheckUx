@@ -5,9 +5,7 @@ import Title from "../components/Title";
 import { Navigate, useParams } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
-import ProjectHeaderDetail from "../components/projects/ProjectHeaderDetail";
 import DimensionForm from "../components/createRubrics/DimensionForm";
-import { getItemById } from "../services/projectsService";
 import { createItemRubric } from "../services/rubricService";
 import { createItemEvaluation } from "../services/evaluationService";
 import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
@@ -15,14 +13,13 @@ import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDim
 import Spinner from "../components/Spinner";
 import Swal from "sweetalert2";
 import checkBig from "../assets/doubleCheckBig.svg";
+import ProjectForm from "../components/createRubrics/ProjectForm";
 
-export default function Create() {
+export default function CreateRubric() {
   const { currentUser } = userAuthContext();
   const user_id = parseInt(currentUser, 10);
   // console.log("id user:", typeof user_id, user_id);
-  const params = useParams();
-  // console.log(params.id);
-  const [project, setProject] = useState({});
+  //   const [project, setProject] = useState({});
   const [project_id, setProjectId] = useState(0);
   const [title, setRubricTitle] = useState("");
   const [description, setRubricDescription] = useState("");
@@ -46,9 +43,9 @@ export default function Create() {
       try {
         setIsLoading(true);
 
-        const response = await getItemById(params.id);
-        setProject(response);
-        setProjectId(response.id);
+        // const response = await getItemById(params.id);
+        // setProject(response);
+        // setProjectId(response.id);
 
         // console.log("id project:", typeof response.id, response.id);
       } catch (error) {
@@ -60,6 +57,10 @@ export default function Create() {
 
     fetchData();
   }, []);
+
+  const handleProjectIdChange = (e) => {
+    setProjectId(e.target.value);
+  };
 
   const handleRubricTitleChange = (e) => {
     setRubricTitle(e.target.value);
@@ -99,7 +100,7 @@ export default function Create() {
     const formDataRubric = {
       title,
       description,
-      project_id,
+      project_id: 1, //TODO: poner el project segun el que el usuario elije en el componente project
       user_id,
     };
     const formDataEvaluation = {
@@ -167,12 +168,8 @@ export default function Create() {
         </div>
       ) : (
         <>
-          <Title title={project.name} />
+          <Title title={"Crear rúbrica"} />
 
-          <ProjectHeaderDetail
-            project_url={project.url}
-            project_description={project.description}
-          />
           <div className="my-5">
             <InformationBox
               text={
@@ -180,20 +177,14 @@ export default function Create() {
               }
             />
           </div>
-          <form
-            onSubmit={onSubmit}
-            action="#"
-            method="POST"
-            className="space-y-1"
-          >
-            <div className="border rounded border-color-blue-p mb-7 overflow-hidden">
-              <input
-                className="hidden"
-                type="number"
-                name="project_id"
-                value={project_id}
-                readOnly
-              />
+
+          <form onSubmit={onSubmit} action="#" method="POST">
+            {/* Componente nuevo */}
+            <ProjectForm
+            //   project_value={project_id}
+            //   project_onChange={handleProjectIdChange}
+            />
+            <div className="border rounded border-color-blue-p mb-7 mt-5 overflow-hidden">
               <input
                 className="hidden"
                 type="number"
