@@ -68,8 +68,8 @@ export default function RubricUser({
   };
 
   return (
-    <div className="flex flex-col sm:flex-row-reverse">
-      <div className="flex justify-center gap-4 mt-9 sm:flex-col-reverse sm:mx-3 sm:flex-wrap sm:justify-end">
+    <div className="flex flex-col sm:flex-row-reverse sm:w-full">
+      <div className="flex justify-center gap-4 mt-9 sm:flex-col-reverse sm:mx-3 sm:mt-4 sm:flex-wrap sm:justify-end">
         <ButtonSecondaryIconBlue
           text={"Editar"}
           src={edit}
@@ -82,44 +82,46 @@ export default function RubricUser({
           onClick={handleConfirmDelete}
         />
       </div>
-      <Link to={`/mis-rubricas/${rubric_id}`}>
-        <div className="border rounded border-color-blue-p my-4 overflow-hidden">
-          <div className="grid grid-cols-7 gap-4 justify-between bg-color-grey-bg p-2">
-            <div className="col-span-6 flex bg-color-grey-bg p-2">
-              <img className="mx-2" src={icon} alt="Icono de doble check" />
-              <h2 className="font-latocustom font-bold text-lg ml-1">
-                {rubric_title}
+      <div className="flex w-full">
+        <Link to={`/mis-rubricas/${rubric_id}`}>
+          <div className="flex flex-col border rounded border-color-blue-p my-4 overflow-hidden sm:w-full">
+            <div className="flex gap-4 justify-between bg-color-grey-bg p-2">
+              <div className="flex bg-color-grey-bg p-2">
+                <img className="mx-2" src={icon} alt="Icono de doble check" />
+                <h2 className="font-latocustom font-bold text-lg ml-1">
+                  {rubric_title}
+                </h2>
+              </div>
+              <div
+                className="col-span-1 flex align-middle mr-3"
+                to={`/mis-rubricas/${rubric_id}`}
+              >
+                <img src={eye} alt="Icono de ojo" className="sm:hidden" />
+              </div>
+            </div>
+            <div className="px-3 space-y-1 py-3">
+              <h4 className="font-opencustom text-xs text-color-grey-title ">
+                Descripción:
+              </h4>
+              <p className="font-opencustom text-xs">{rubric_description}</p>
+            </div>
+            <div className="pt-3 px-3 bg-color-grey-bg">
+              <h4 className="font-opencustom text-xs text-color-grey-title ">
+                Proyecto:
+              </h4>
+              <h2 className="font-latocustom font-bold text-lg pb-3">
+                {project_title}
               </h2>
             </div>
-            <div
-              className="col-span-1 flex align-middle mr-3"
-              to={`/mis-rubricas/${rubric_id}`}
-            >
-              <img src={eye} alt="Icono de ojo" className="sm:hidden"/>
+            <div className="px-3 space-y-1 py-3">
+              <h4 className="font-opencustom text-xs text-color-grey-title ">
+                Fecha de creación:
+              </h4>
+              <p className="font-opencustom text-xs">{rubric_date}</p>
             </div>
           </div>
-          <div className="px-3 space-y-1 py-3">
-            <h4 className="font-opencustom text-xs text-color-grey-title ">
-              Descripción:
-            </h4>
-            <p className="font-opencustom text-xs">{rubric_description}</p>
-          </div>
-          <div className="pt-3 px-3 bg-color-grey-bg">
-            <h4 className="font-opencustom text-xs text-color-grey-title ">
-              Proyecto:
-            </h4>
-            <h2 className="font-latocustom font-bold text-lg pb-3">
-              {project_title}
-            </h2>
-          </div>
-          <div className="px-3 space-y-1 py-3">
-            <h4 className="font-opencustom text-xs text-color-grey-title ">
-              Fecha de creación:
-            </h4>
-            <p className="font-opencustom text-xs">{rubric_date}</p>
-          </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 }
