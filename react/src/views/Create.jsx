@@ -16,7 +16,7 @@ import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDim
 export default function Create() {
   const { currentUser } = userAuthContext();
   const user_id = parseInt(currentUser, 10);
-  console.log("id user:", typeof user_id, user_id);
+  // console.log("id user:", typeof user_id, user_id);
   const params = useParams();
   // console.log(params.id);
   const [project, setProject] = useState({});
@@ -156,7 +156,10 @@ export default function Create() {
             description_value={description}
             description_onChange={handleRubricDescriptionChange}
           />
+          {/* {modelDimension.length ? (
+            modelDimension.map((index) => ( */}
           <DimensionForm
+            // key={index}
             title_value={evaluationDimensionTitle}
             title_onChange={handleDimensionTitleChange}
             description_value={evaluationDimensionDescription}
@@ -174,8 +177,15 @@ export default function Create() {
             excelent_value={excelent}
             excelent_onChange={handleExcelentChange}
           />
+          {/* ))
+          ) : (
+            <div className="text-gray-400 text-center py-4">
+              You don't have any questions created
+            </div>
+          )} */}
+
           <CreateButtonsDimension
-            onClickAddDimension={"TODO: funcion para añadir dimension"}
+            onClickAddDimension={() => addQuestion()}
             onClickDeleteDimension={"TODO: funcion para eliminar dimesion"}
           />
         </div>
