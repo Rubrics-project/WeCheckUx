@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import icon from "../../assets/doubleCheckBig.svg";
 
 export default function ProjectOption({
   project_value,
   project_name,
   project_description,
+  onChange,
 }) {
+
+  const handleInputChange = (event) => {
+    console.log(event.target.value)
+    return event.target.value;
+  ;
+  };
+
+  console.log(project_value)
+
+//   project_value,
+//   project_name,
+//   project_description,
+
+
+  // 
   return (
     <li>
-      <input
-        type="checkbox"
-        id="option"
+       <input
+        type="radio"
+        id={`option-${project_value}`}
+        name="project"
         value={project_value}
         className="hidden"
+        onChange={handleInputChange}
       />
       <label
-        for="option"
+        htmlFor={`option-${project_value}`}
         className="inline-flex items-center justify-between w-full px-3 py-2 text-color-grey-title bg-white border rounded cursor-pointer hover:text-color-blue-p"
       >
         <div className="block">
@@ -24,6 +42,8 @@ export default function ProjectOption({
             {project_name}
           </div>
           <div className="w-full text-xs">{project_description}</div>
+          <div className="w-full text-xs">{project_value}</div>
+
         </div>
       </label>
     </li>

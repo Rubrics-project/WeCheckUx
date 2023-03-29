@@ -60,7 +60,9 @@ export default function CreateRubric() {
 
   const handleProjectIdChange = (e) => {
     setProjectId(e.target.value);
-  };
+    console.log(e.target.value)
+  }; 
+  //REVISAR COMO TOMAR EL VALOR
 
   const handleRubricTitleChange = (e) => {
     setRubricTitle(e.target.value);
@@ -100,7 +102,7 @@ export default function CreateRubric() {
     const formDataRubric = {
       title,
       description,
-      project_id: 1, //TODO: poner el project segun el que el usuario elije en el componente project
+      project_id, //TODO: poner el project segun el que el usuario elije en el componente project
       user_id,
     };
     const formDataEvaluation = {
@@ -182,7 +184,7 @@ export default function CreateRubric() {
             {/* Componente nuevo */}
             <ProjectForm
             //   project_value={project_id}
-            //   project_onChange={handleProjectIdChange}
+            onChange={handleProjectIdChange}
             />
             <div className="border rounded border-color-blue-p mb-7 mt-5 overflow-hidden">
               <input

@@ -6,16 +6,27 @@ import { getAllItems } from "../../services/projectsService";
 export default function ProjectForm({ project_value, project_onChange }) {
   const [projects, setProjects] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState();
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
+
+
+  const handleProjectChange = (project_value) => {
+    // setSelectedProject(project_value);
+    if (project_value !== null) {
+      setSelectedProject(project_value);}
+    
+  };
+  console.log("-------",selectedProject);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getAllItems();
         setProjects(response);
-        console.log(response);
+        
+        // console.log(p)
       } catch (error) {
         console.error(error);
       }
@@ -49,9 +60,11 @@ export default function ProjectForm({ project_value, project_onChange }) {
                 project_value={project.id} //TO DO: cuando selecciona el usuario, pasar id para enviar a db?
                 project_name={project.name}
                 project_description={project.description}
+                onChange={handleProjectChange}
               />
             ))}
           </ul>
+          <div>Selected project: {selectedProject}</div>
         </>
       )}
     </>
