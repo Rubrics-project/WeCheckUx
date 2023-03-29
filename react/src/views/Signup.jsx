@@ -87,8 +87,8 @@ export default function Signup() {
             method="POST"
           >
             <input type="hidden" name="remember" defaultValue="true" />
-            <div className="space-y-4">
-              <div>
+            <div className="space-y-4 flex flex-row">
+              <div className="flex flex-col">
                 <div>
                   <label htmlFor="name" className="font-opencustom text-sm">
                     Nombre:
@@ -104,24 +104,23 @@ export default function Signup() {
                     placeholder="Nombre"
                   />
                 </div>
-                <div className="flex flex-row">
-                  <div className="flex flex-col">
-                    <label htmlFor="surname" className="font-opencustom text-sm">
-                      Apellidos:
-                    </label>
-                    <input
-                      id="surname"
-                      name="surname"
-                      type="text"
-                      required
-                      value={surname}
-                      onChange={(e) => setSurname(e.target.value)}
-                      className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                      placeholder="Apellidos"
-                    />
-                  </div>
+                <div className="md:flex flex-col">
+                  <label htmlFor="surname" className="font-opencustom text-sm">
+                    Apellidos:
+                  </label>
+                  <input
+                    id="surname"
+                    name="surname"
+                    type="text"
+                    required
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="Apellidos"
+                  />
                 </div>
-                <div className="flex flex-col">
+              </div>
+              <div className="flex flex-col">
                 <div>
                   <label
                     htmlFor="email-address"
@@ -172,8 +171,8 @@ export default function Signup() {
                     placeholder="********"
                   />
                 </div>
-                </div>
               </div>
+
             </div>
             {error && (
               <div className="bg-red-500 rounded py-2 px-3 text-white">
@@ -194,7 +193,7 @@ export default function Signup() {
               />
             </div>
 
-            <div className="w-full grid grid-cols-2 gap-7">
+            <div className="w-full flex flex-row gap-7 justify-center">
               <ButtonPrimary text={"Registrame"} />
               <Link
                 to="/"
