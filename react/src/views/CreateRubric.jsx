@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ButtonPrimary from "../components/buttons/ButtonPrimary";
 import InformationBox from "../components/InformationBox";
 import Title from "../components/Title";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
 import ButtonSecondary from "../components/Buttons/ButtonSecondary";
 import DimensionForm from "../components/createRubrics/DimensionForm";
@@ -19,8 +19,6 @@ export default function CreateRubric() {
   const { currentUser } = userAuthContext();
   const user_id = parseInt(currentUser, 10);
   // console.log("id user:", typeof user_id, user_id);
-  //   const [project, setProject] = useState({});
-  const [project_id, setProjectId] = useState(0);
   const [title, setRubricTitle] = useState("");
   const [description, setRubricDescription] = useState("");
   const [evaluationDimensionTitle, setEvaluationDimensionTitle] = useState("");
@@ -33,6 +31,7 @@ export default function CreateRubric() {
   const [good, setGood] = useState("");
   const [excelent, setExcelent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
@@ -42,12 +41,6 @@ export default function CreateRubric() {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-
-        // const response = await getItemById(params.id);
-        // setProject(response);
-        // setProjectId(response.id);
-
-        // console.log("id project:", typeof response.id, response.id);
       } catch (error) {
         console.error(error);
       } finally {
@@ -58,11 +51,10 @@ export default function CreateRubric() {
     fetchData();
   }, []);
 
-  const handleProjectIdChange = (e) => {
-    setProjectId(e.target.value);
-    console.log(e.target.value)
-  }; 
-  //REVISAR COMO TOMAR EL VALOR
+  const handleProjectIdChange = (event) => {
+    return setSelectedProject(event.target.value);
+  };
+  // console.log("Selected project:-------", selectedProject);
 
   const handleRubricTitleChange = (e) => {
     setRubricTitle(e.target.value);
@@ -102,7 +94,7 @@ export default function CreateRubric() {
     const formDataRubric = {
       title,
       description,
-      project_id, //TODO: poner el project segun el que el usuario elije en el componente project
+      project_id: selectedProject,
       user_id,
     };
     const formDataEvaluation = {
@@ -181,11 +173,7 @@ export default function CreateRubric() {
           </div>
 
           <form onSubmit={onSubmit} action="#" method="POST">
-            {/* Componente nuevo */}
-            <ProjectForm
-            //   project_value={project_id}
-            onChange={handleProjectIdChange}
-            />
+            <ProjectForm handleInputChange={handleProjectIdChange} />
             <div className="border rounded border-color-blue-p mb-7 mt-5 overflow-hidden">
               <input
                 className="hidden"
