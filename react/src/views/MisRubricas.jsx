@@ -49,7 +49,9 @@ export default function MisRubricas() {
 
   return (
     <>
-      <Browser search={search} handleChange={handleChange} />
+      <div className="flex justify-center">
+        <Browser search={search} handleChange={handleChange}/>
+      </div>
       <Title title={"Mis rúbricas"} />
       {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
         .map((rubric, index) => (
