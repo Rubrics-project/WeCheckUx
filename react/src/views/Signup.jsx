@@ -105,7 +105,7 @@ export default function Signup() {
                   />
                 </div>
                 <div className="md:flex flex-col">
-                  <label htmlFor="surname" className="font-opencustom text-sm">
+                  <label htmlFor="surname" className="font-opencustom text-sm md:mt-5">
                     Apellidos:
                   </label>
                   <input
@@ -141,7 +141,7 @@ export default function Signup() {
                     placeholder="ejemplo@email.com"
                   />
                 </div>
-                <div>
+                <div className="md:mt-5">
                   <label htmlFor="password" className="font-opencustom text-sm">
                     Contraseña:
                   </label>
@@ -157,7 +157,7 @@ export default function Signup() {
                     placeholder="********"
                   />
                 </div>
-                <div>
+                <div className="md:mt-5">
                   <label htmlFor="password" className="font-opencustom text-sm">
                     Confirmar contraseña:
                   </label>
@@ -194,11 +194,11 @@ export default function Signup() {
               />
             </div>
 
-            <div className="w-full flex flex-row gap-7 justify-center">
+            <div className="w-full flex flex-row gap-7 justify-center items-center">
               <ButtonPrimary text={"Registrame"} />
               <Link
                 to="/"
-                className="font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
+                className="font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border  border border-solid rounded-md md:w-32"
               >
                 Cancelar
               </Link>
