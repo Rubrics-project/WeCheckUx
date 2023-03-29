@@ -87,8 +87,8 @@ export default function Signup() {
             method="POST"
           >
             <input type="hidden" name="remember" defaultValue="true" />
-            <div className="space-y-4 flex flex-row">
-              <div className="flex flex-col">
+            <div className="md:flex flex-row md:justify-center">
+              <div className="flex flex-col mb-10 md:mb-0 md:w-96">
                 <div>
                   <label htmlFor="name" className="font-opencustom text-sm">
                     Nombre:
@@ -120,7 +120,8 @@ export default function Signup() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col">
+              <div className="md:flex md:mx-10"></div>
+              <div className="flex flex-col md:w-96">
                 <div>
                   <label
                     htmlFor="email-address"
@@ -184,7 +185,7 @@ export default function Signup() {
                 Por favor acepta el captcha.
               </div>
             )}
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex justify-center items-center mr-56 md:mr-0">
               <ReCAPTCHA
                 className="max-w-3/4 mx-auto"
                 ref={captcha}
@@ -197,13 +198,13 @@ export default function Signup() {
               <ButtonPrimary text={"Registrame"} />
               <Link
                 to="/"
-                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
+                className="font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
               >
                 Cancelar
               </Link>
             </div>
           </form>
-          <p className="mt-10 font-opencustom text-sm font-normal mb-10">
+          <p className="flex flex-col justify-center items-center mt-10 font-opencustom text-sm font-normal mb-10">
             ¿Ya tienes una cuenta? Accede a tu cuenta en{" "}
             <span>
               {" "}
