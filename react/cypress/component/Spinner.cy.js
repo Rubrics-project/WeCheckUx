@@ -1,6 +1,6 @@
 import Spinner from "../../src/components/Spinner";
 
-describe('Accordion.cy.jsx', () => {
+describe("Accordion.cy.jsx", () => {
     it('displays a spinner when loading', () => {
         cy.visit('/')
     
