@@ -2,7 +2,7 @@ import React from "react";
 import { mount } from "@cypress/react";
 import Header from "../../src/components/Header";
 
-describe('Accordion.cy.jsx', () => {
+describe("Accordion.cy.jsx", () => {
   it("renders correctly", () => {
     mount(<Header />);
     cy.get("img[src='logo.svg']").should("exist"); 

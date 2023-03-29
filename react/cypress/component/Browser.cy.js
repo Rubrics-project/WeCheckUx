@@ -1,6 +1,6 @@
 import Browser from "../../src/components/Browser";
 
-describe('Accordion.cy.jsx', () => {
+describe("Accordion.cy.jsx", () => {
   it("renders correctly", () => {
     cy.mount(<Browser />);
     

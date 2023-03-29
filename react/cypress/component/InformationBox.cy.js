@@ -1,6 +1,6 @@
 import InformationBox from "../../src/components/InformationBox";
 
-describe('Accordion.cy.jsx', () => {
+describe("Accordion.cy.jsx", () => {
     const text = 'This is some information.';
   
     beforeEach(() => {
