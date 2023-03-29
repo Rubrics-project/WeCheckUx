@@ -4,7 +4,7 @@ describe("Accordion.cy.jsx", () => {
     const text = 'This is some information.';
   
     beforeEach(() => {
-      cy.visit('/');
+      cy.visit('http://localhost:3000/proyectos');
     });
   
     it('renders correctly with text', () => {
