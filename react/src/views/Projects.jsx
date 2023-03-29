@@ -27,13 +27,17 @@ export default function Projects() {
   const handleChange = (e) => {
     filter(e.target.value);
     setSearch(e.target.value);
-    // console.log("busqueda:"+ e.target.value)
   };
   const filter = (termsearch) => {
-    let result = table.filter((elemento) => {
-      if (elemento.name.toString().toLowerCase().includes(termsearch)) {
-        return elemento;
+    let result = table.filter((element) => {
+      const removeDiacritics = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       }
+      const propertiesToSearch = ['name', 'description'];
+      if (propertiesToSearch.some(prop => removeDiacritics(element[prop].toString().toLowerCase()).includes(removeDiacritics(termsearch.toLowerCase())))) {
+        return element;
+      }
+      
     });
     setProjects(result);
   };

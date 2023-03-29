@@ -14,12 +14,10 @@ export default function RubricDetail() {
     const fetchData = async () => {
       try {
         const response = await getItemById(params.id);
-        console.log("aquuu   ----", response);
         setRubric(response);
         setUser(response.user);
         setProject(response.project);
         setDate(response.created_at.slice(0, 10));
-        console.log("setRubrics rubric detail: ", response.rubric);
       } catch (error) {
         console.error(error);
       }

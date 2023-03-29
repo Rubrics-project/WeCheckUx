@@ -10,7 +10,6 @@ const axiosInstance = axios.create({
 export const getAllItems = async () => {
   try {
     const response = await axiosInstance.get("projects");
-    console.log("Response data all projects: ", response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -25,15 +24,12 @@ export const getItemById = async (id) => {
     const userIds = project.rubrics.map(rubric => rubric.user_id);
     const userResponses = await axiosInstance.get(`users?ids=${userIds.join(',')}`);
     const users = userResponses.data;
-    
+
     const updatedRubrics = project.rubrics.map(rubric => {
       let fullname = users.find(user => user.id === rubric.user_id)
-      return {...rubric, user_name: fullname.name+' '+fullname.surname}
+      return { ...rubric, user_name: fullname.name + ' ' + fullname.surname }
     })
-    console.log("-----updatedRubrics",updatedRubrics)
-
     return { ...project, rubrics: updatedRubrics };
- 
   } catch (error) {
     console.error(error);
   }
