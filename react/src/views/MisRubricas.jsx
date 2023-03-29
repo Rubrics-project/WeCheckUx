@@ -5,12 +5,15 @@ import Browser from "../components/Browser";
 import RubricUser from "../components/Rubrics/RubricUser";
 import Title from "../components/Title";
 import { getItemById } from "../services/userService";
+import Spinner from "../components/Spinner";
 
 export default function MisRubricas() {
   const { userToken, currentUser } = userAuthContext();
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
   const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
 
   if (!userToken) {
     return <Navigate to="/acceso" />;
@@ -19,11 +22,15 @@ export default function MisRubricas() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
+
         const response = await getItemById(currentUser);
         setTable(response.rubrics);
         setRubrics(response.rubrics);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -49,9 +56,13 @@ export default function MisRubricas() {
 
   return (
     <>
-      <div className="flex justify-center">
-        <Browser search={search} handleChange={handleChange}/>
-      </div>
+    {isLoading ? (
+        <div className="flex justify-center mt-14">
+          <Spinner />
+        </div>
+      ) : (
+        <>
+      <Browser search={search} handleChange={handleChange} />
       <Title title={"Mis rúbricas"} />
       {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
         .map((rubric, index) => (
@@ -64,6 +75,7 @@ export default function MisRubricas() {
             rubric_date={rubric.created_at.slice(0, 10)}
           />
         ))}
+   </>)}
     </>
   );
 }
