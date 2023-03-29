@@ -9,6 +9,7 @@ import Title from "../components/Title";
 import { getItemById } from "../services/projectsService";
 import plusIcon from "../assets/addIcon.svg";
 import { userAuthContext } from "../context/AuthProvider";
+import Spinner from "../components/Spinner";
 
 export default function ProjectDetail() {
   const params = useParams();
@@ -16,23 +17,28 @@ export default function ProjectDetail() {
   const [rubrics, setRubrics] = useState([]);
   const [table, setTable] = useState([]);
   const [search, setSearch] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { userToken } = userAuthContext();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
+
         const response = await getItemById(params.id);
-        setTable(response.rubrics);
-
+        const rubricsResponses = response.rubrics;
         setProject(response);
-        setRubrics(response.rubrics);
+        setRubrics(rubricsResponses);
+        setTable(rubricsResponses);
 
-        if (userToken) {
-          setIsAuthenticated(true);
-        }
+        // if (userToken) {
+        //   setIsAuthenticated(true);
+        // }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -58,12 +64,18 @@ export default function ProjectDetail() {
 
   return (
     <>
-      <Browser search={search} handleChange={handleChange} />
-      <Title title={project.name} />
-      <ProjectHeaderDetail
-        project_url={project.url}
-        project_description={project.description}
-      />
+      {isLoading ? (
+        <div className="flex justify-center mt-14">
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          <Browser search={search} handleChange={handleChange} />
+          <Title title={project.name} />
+          <ProjectHeaderDetail
+            project_url={project.url}
+            project_description={project.description}
+          />
       <InformationBox
         text={
           "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
@@ -86,9 +98,10 @@ export default function ProjectDetail() {
           src={plusIcon}
           alt={"Icono de añadir"}
           text={"Crear mi rúbrica"}
-          to={!isAuthenticated ? "/acceso" : `/crear/${project.id}`}
+          to={!userToken ? "/acceso" : `/crear/${project.id}`}
         />
       </div>
+      </>)}
     </>
   );
 }

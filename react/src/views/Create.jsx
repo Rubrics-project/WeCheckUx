@@ -13,6 +13,7 @@ import { createItemEvaluation } from "../services/evaluationService";
 import CreateRubricForm from "../components/createRubrics/CreateRubricForm";
 import CreateDropdown from "../components/createRubrics/CreateDropdown";
 import CreateButtonsDimension from "../components/createRubrics/CreateButtonsDimension";
+import Spinner from "../components/Spinner";
 
 export default function Create() {
   const { currentUser } = userAuthContext();
@@ -34,6 +35,8 @@ export default function Create() {
   const [good, setGood] = useState("");
   const [excelent, setExcelent] = useState("");
   const [idRubric, setidRubric] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   if (!currentUser) {
     return <Navigate to="/acceso" />;
@@ -42,6 +45,8 @@ export default function Create() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
+
         const response = await getItemById(params.id);
         setProject(response);
         setProjectId(response.id);
@@ -49,6 +54,8 @@ export default function Create() {
         console.log("id project:", typeof response.id, response.id);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -122,7 +129,13 @@ export default function Create() {
     }
   };
   return (
-    <>
+     <>
+      {isLoading ? (
+        <div className="flex justify-center mt-14">
+          <Spinner />
+        </div>
+      ) : (
+        <>
       <Title title={project.name} />
 
       <ProjectHeaderDetail
@@ -189,6 +202,7 @@ export default function Create() {
           <ButtonSecondary text={"Cancelar"} route_to={"/proyectos"} />
         </div>
       </form>
+      </>)}
     </>
   );
 }

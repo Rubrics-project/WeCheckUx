@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { userAuthContext } from "../context/AuthProvider";
 
 export default function Home() {
