@@ -1,6 +1,6 @@
 import Browser from "../../src/components/Browser";
 
-describe("Browser component", () => {
+describe('Accordion.cy.jsx', () => {
   it("renders correctly", () => {
     cy.mount(<Browser />);
     
@@ -10,6 +10,6 @@ describe("Browser component", () => {
 
     cy.get("button").should("be.visible").click();
 
-    cy.get("button img").should("have.attr", "src", "/path/to/browserIcon.svg");
+     cy.get("button img").should("have.attr", "src", "/path/to/browserIcon.svg");
   });
 });
