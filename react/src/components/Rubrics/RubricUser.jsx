@@ -68,7 +68,7 @@ export default function RubricUser({
   };
 
   return (
-    <div className="flex flex-col sm:flex-row-reverse sm:w-full">
+    <div className="flex flex-col sm:flex-row-reverse sm:w-full ">
       <div className="flex justify-center gap-4 mt-9 sm:flex-col-reverse sm:mx-3 sm:mt-4 sm:flex-wrap sm:justify-end">
         <ButtonSecondaryIconBlue
           text={"Editar"}
@@ -82,15 +82,15 @@ export default function RubricUser({
           onClick={handleConfirmDelete}
         />
       </div>
-      <div className="flex w-full">
+      <div className="w-full justify-items-stretch">
         <Link to={`/mis-rubricas/${rubric_id}`}>
           <div className="flex flex-col border rounded border-color-blue-p my-4 overflow-hidden sm:w-full">
             <div className="flex gap-4 justify-between bg-color-grey-bg p-2">
               <div className="flex bg-color-grey-bg p-2">
                 <img className="mx-2" src={icon} alt="Icono de doble check" />
-                <h2 className="font-latocustom font-bold text-lg ml-1">
+                <h4 className="font-latocustom font-bold text-lg ml-1">
                   {rubric_title}
-                </h2>
+                </h4>
               </div>
               <div
                 className="col-span-1 flex align-middle mr-3"
