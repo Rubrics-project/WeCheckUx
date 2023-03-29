@@ -68,8 +68,8 @@ export default function RubricUser({
   };
 
   return (
-    <>
-      <div className="flex justify-center gap-4 mt-9 ">
+    <div className="flex flex-col sm:flex-row-reverse">
+      <div className="flex justify-center gap-4 mt-9 sm:flex-col-reverse sm:mx-3 sm:flex-wrap sm:justify-end">
         <ButtonSecondaryIconBlue
           text={"Editar"}
           src={edit}
@@ -120,6 +120,6 @@ export default function RubricUser({
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
