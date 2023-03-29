@@ -68,8 +68,8 @@ export default function RubricUser({
   };
 
   return (
-    <>
-      <div className="flex justify-center gap-4 mt-9 ">
+    <div className="flex flex-col sm:flex-row-reverse">
+      <div className="flex justify-center gap-4 mt-9 sm:flex-col-reverse sm:mx-3 sm:flex-wrap sm:justify-end">
         <ButtonSecondaryIconBlue
           text={"Editar"}
           src={edit}
@@ -95,7 +95,7 @@ export default function RubricUser({
               className="col-span-1 flex align-middle mr-3"
               to={`/mis-rubricas/${rubric_id}`}
             >
-              <img src={eye} alt="Icono de ojo" />
+              <img src={eye} alt="Icono de ojo" className="sm:hidden"/>
             </div>
           </div>
           <div className="px-3 space-y-1 py-3">
@@ -120,6 +120,6 @@ export default function RubricUser({
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 }

@@ -87,8 +87,8 @@ export default function Signup() {
             method="POST"
           >
             <input type="hidden" name="remember" defaultValue="true" />
-            <div className="space-y-4">
-              <div>
+            <div className="md:flex flex-row md:justify-center">
+              <div className="flex flex-col mb-10 md:mb-0 md:w-96">
                 <div>
                   <label htmlFor="name" className="font-opencustom text-sm">
                     Nombre:
@@ -104,24 +104,24 @@ export default function Signup() {
                     placeholder="Nombre"
                   />
                 </div>
-                <div className="flex flex-row">
-                  <div className="flex flex-col">
-                    <label htmlFor="surname" className="font-opencustom text-sm">
-                      Apellidos:
-                    </label>
-                    <input
-                      id="surname"
-                      name="surname"
-                      type="text"
-                      required
-                      value={surname}
-                      onChange={(e) => setSurname(e.target.value)}
-                      className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
-                      placeholder="Apellidos"
-                    />
-                  </div>
+                <div className="md:flex flex-col">
+                  <label htmlFor="surname" className="font-opencustom text-sm md:mt-5">
+                    Apellidos:
+                  </label>
+                  <input
+                    id="surname"
+                    name="surname"
+                    type="text"
+                    required
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                    className="w-full rounded border border-color-grey-border-btn px-3 py-2 text-color-bck placeholder-color-grey-border-btn focus:z-10 focus:border-color-blue-p focus:outline-none focus:ring-color-blue-p font-opencustom text-base mt-2"
+                    placeholder="Apellidos"
+                  />
                 </div>
-                <div className="flex flex-col">
+              </div>
+              <div className="md:flex md:mx-10"></div>
+              <div className="flex flex-col md:w-96">
                 <div>
                   <label
                     htmlFor="email-address"
@@ -141,7 +141,7 @@ export default function Signup() {
                     placeholder="ejemplo@email.com"
                   />
                 </div>
-                <div>
+                <div className="md:mt-5">
                   <label htmlFor="password" className="font-opencustom text-sm">
                     Contraseña:
                   </label>
@@ -157,7 +157,7 @@ export default function Signup() {
                     placeholder="********"
                   />
                 </div>
-                <div>
+                <div className="md:mt-5">
                   <label htmlFor="password" className="font-opencustom text-sm">
                     Confirmar contraseña:
                   </label>
@@ -172,8 +172,8 @@ export default function Signup() {
                     placeholder="********"
                   />
                 </div>
-                </div>
               </div>
+
             </div>
             {error && (
               <div className="bg-red-500 rounded py-2 px-3 text-white">
@@ -185,7 +185,7 @@ export default function Signup() {
                 Por favor acepta el captcha.
               </div>
             )}
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex justify-center items-center mr-56 md:mr-0">
               <ReCAPTCHA
                 className="max-w-3/4 mx-auto"
                 ref={captcha}
@@ -194,17 +194,17 @@ export default function Signup() {
               />
             </div>
 
-            <div className="w-full grid grid-cols-2 gap-7">
+            <div className="w-full flex flex-row gap-7 justify-center items-center">
               <ButtonPrimary text={"Registrame"} />
               <Link
                 to="/"
-                className="flex justify-center font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md"
+                className="font-opencustom text-color-grey-title font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border  border border-solid rounded-md md:w-32"
               >
                 Cancelar
               </Link>
             </div>
           </form>
-          <p className="mt-10 font-opencustom text-sm font-normal mb-10">
+          <p className="flex flex-col justify-center items-center mt-10 font-opencustom text-sm font-normal mb-10">
             ¿Ya tienes una cuenta? Accede a tu cuenta en{" "}
             <span>
               {" "}

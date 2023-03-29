@@ -5,8 +5,8 @@ export default function Browser(props) {
   const { search, handleChange } = props;
 
   return (
-    <form className="my-5 mb-50 flex justify-center">
-      <div className="flex relative p-0.5 bg-color-grey-border rounded w-full">
+    <form className="my-5 mb-50 flex justify-center w-full">
+      <div className="flex relative p-0.5 bg-color-grey-border rounded w-full sm:max-w-lg">
         <input
           className="flex p-2 w-full"
           type="text"
