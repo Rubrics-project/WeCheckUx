@@ -8,6 +8,7 @@ describe('Test footer go to the github', () => {
       return false
   })
     cy.mount(<Footer />);
+    cy.wait(500);
     cy.get("a").click();
   })
 })
