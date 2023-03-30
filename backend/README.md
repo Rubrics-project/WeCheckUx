@@ -1,4 +1,4 @@
-# WeCheck
+# WeCheck Back-end
 
 WeCheck have an Api Rest that work as a database server for the project.
 
@@ -16,14 +16,16 @@ This folder is the backend part of the WeCheck project, which requires the follo
 -   Mamp or Xamp to starts the development server
 -   PHP Unit for testing
 
-To get started, follow these steps:
+## How to Run
 
-1. Clone the repository.
-2. Run `npm install` to install the required packages.
+1. Clone this repository
+2. Navigate to the front-end directory with `cd backend`
+3. Install dependencies with `npm install`
+4. Run the development server with `php artisan serve`
+5. Run the development server with Xamp or Mamp
 
-## Usage
+## Contributing
 
--   `npm run dev`: Starts the development server and Xamp or Mamp.
--   `npm run build`: Creates a production build of the project.
+Please see our contributing guidelines before making any contributions.
 
 Enjoy WeCheck!

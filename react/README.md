@@ -1,4 +1,6 @@
-# WeCheck Front
+# WeCheck - Front-end
+
+This project was built using React.js and Vite.js. It also utilizes Tailwind CSS for styling.
 
 ## Dependencies
 
@@ -11,7 +13,7 @@ The following dependencies are used in this project:
 - "react-router-dom": "^6.9.0"
 - "sweetalert2": "^11.7.3"
 
-These dependencies are necessary for the application to build and function as intended. In order to install them, run `npm install` in the project root.
+These dependencies are necessary for the application to build and function as intended. In order to install them, run `npm install` in the front-end project root.
 
 ## DevDependencies
 
@@ -27,10 +29,16 @@ In addition to the dependencies, the following devDependencies are used:
 
 These devDependencies are only required for development purposes and will not be included in the final build.
 
-## Scripts
+## How to Run
 
-The project includes several scripts that can be run with the `npm run` command:
+1. Clone this repository
+2. Navigate to the front-end directory with `cd react`
+3. Install dependencies with `npm install`
+4. Run the development server with `npm run dev`
+5. Open a web browser and navigate to `http://localhost:3000`
 
-- `dev`: runs the development server using Vite and starts the application at port 3000.
-- `build`: builds the application for production.
-- `preview`: a preview of the production build.
+## Contributing
+
+Please see our contributing guidelines before making any contributions.
+
+Enjoy WeCheck!
