@@ -4,10 +4,11 @@ describe("Accordion.cy.jsx", () => {
     const text = 'This is some information.';
   
     beforeEach(() => {
-      cy.visit('http://localhost:3000/proyectos');
+      cy.visit('http://localhost:3000/proyectos/');
     });
   
     it('renders correctly with text', () => {
+      cy.mount(<InformationBox/>)
       cy.get('div').should('have.class', 'p-3 flex bg-color-blue-light bg-opacity-20 w-full rounded mt-6')
         .find('img').should('have.attr', 'src', 'infoCircle.svg')
         .next().should('have.text', text)

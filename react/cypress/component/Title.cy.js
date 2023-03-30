@@ -1,4 +1,7 @@
-import Title from "../../src/components/Title"
+import React from 'react';
+import { mount } from '@cypress/react';
+import Title from '../../src/components/Title';
+
 
 describe("Accordion.cy.jsx", () => {
     it('displays the correct title', () => {
