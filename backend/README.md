@@ -1,6 +1,6 @@
 # WeCheck
 
-WeCheck have an Api Rest that work as a database for the project.
+WeCheck have an Api Rest that work as a database server for the project.
 
 ## Database design
 
@@ -8,7 +8,7 @@ WeCheck have an Api Rest that work as a database for the project.
 
 ## Installation
 
-This is the backend part of the WeCheck project, which requires the following packages:
+This folder is the backend part of the WeCheck project, which requires the following packages:
 
 -   Laravel (Composer)
 -   Axios
