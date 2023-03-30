@@ -2,7 +2,7 @@ import Footer from "../../src/components/Footer"
 
 
 
-describe('Accordion.cy.jsx', () => {
+describe('test footer', () => {
   it('test go to github', () => {
     cy.mount(<Footer />);
     cy.get("a").click();

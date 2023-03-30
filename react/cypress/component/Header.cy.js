@@ -1,11 +1,9 @@
-import React from "react";
-import { mount } from "@cypress/react";
 import Header from "../../src/components/Header";
 
-describe("Accordion.cy.jsx", () => {
+describe("testing header to show", () => {
   it("renders correctly", () => {
-    mount(<Header />);
-    cy.get("img[src='logo.svg']").should("exist"); 
+    cy.mount(<Header />);
+    cy.get("img[src='../../src/assets/logo.svg']").should("exist"); 
   });
 
   it("displays the navigation menu", () => {
