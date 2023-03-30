@@ -26,7 +26,7 @@ export default function Rubric({
       });
   }, []);
   return (
-    <div className="border rounded border-color-blue-p my-14 overflow-hidden">
+    <div className="border rounded border-color-blue-p my-14 overflow-hidden lg:w-4/5">
       <div className="flex bg-color-grey-bg p-2">
         <img className=" mx-2" src={icon} alt="Icono de doble check" />
         <h2 className="font-latocustom font-bold text-lg ml-1">

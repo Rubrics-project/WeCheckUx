@@ -33,7 +33,7 @@ export default function RubricDetail() {
   }, []);
 
   return (
-    <>
+    <div className="flex justify-center">
       {isLoading ? (
         <div className="flex justify-center mt-14">
           <Spinner />
@@ -51,6 +51,6 @@ export default function RubricDetail() {
           />
         </>)
       }
-    </>
+    </div>
   );
 }
