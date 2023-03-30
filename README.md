@@ -4,18 +4,24 @@
 
 ## Design :art:
 
-#### Atom Design
-
 - The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
-![Atom design](./react/src/assets/readme/atom_design.jpeg)
+#### Atom Design
+
+![Atom design](./react/src/assets/readme/atom_design.png)
 
 #### Responsive design
 
 ![Mobile](./react/src/assets/readme/figma_mobile.png)
-![Desktop](./react/src/assets/readme/figma_desktop_1.png)
+
+<!-- ![Desktop](./react/src/assets/readme/figma_desktop_1.png)
 ![Desktop](./react/src/assets/readme/figma_desktop_2.png)
-![Desktop](./react/src/assets/readme/figma_desktop_3.png)
+![Desktop](./react/src/assets/readme/figma_desktop_3.png) -->
+<div style="background-color:black; display:flex; flex-wrap:wrap; justify-content:center;">
+  <img src="./react/src/assets/readme/figma_desktop_1.png" alt="Desktop" style="width:50%; margin:10px;">
+  <img src="./react/src/assets/readme/figma_desktop_2.png" alt="Desktop" style="width:50%; margin:10px;">
+  <img src="./react/src/assets/readme/figma_desktop_3.png" alt="Desktop" style="width:50%; margin:10px;">
+</div>
 
 ## Demo :iphone:
 
