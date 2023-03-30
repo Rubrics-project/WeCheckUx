@@ -14,7 +14,7 @@
 
 ![Mobile](./react/src/assets/readme/figma_mobile.png)
 
-[Desktop](./react/src/assets/readme/figma_desktop_1.png)
+![Desktop](./react/src/assets/readme/figma_desktop_1.png)
 
 ## Demo :iphone:
 
