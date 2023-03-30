@@ -2,21 +2,14 @@
 
 :bulb: WeCheck is a rubric system for the critical evaluation of interfaces, this idea was developed by a research group from the [Universitat Oberta de Catalunya](https://estudios.uoc.edu/es/estudiar-online). Different evaluators can review web pages and score them using this system. The client needs a website where these rubrics can be entered, so that registered or unregistered users can evaluate websites and obtain a visual result of the evaluations, by evaluator and by average.
 
-## Design :art:
+## Demo & design :iphone:
 
 - The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
-#### Atom Design
-
-![Atom design](./react/src/assets/readme/atom_design.png)
-
-#### Responsive design
-
-![Mobile](./react/src/assets/readme/figma_mobile.png)
-
-![Desktop](./react/src/assets/readme/figma_desktop_1.png)
-
-## Demo :iphone:
+<video width="640" height="480" controls>
+  <source src="./react/src/assets/readme/demo.mp4" type="video/mp4">
+  Tu navegador no soporta la reproducción de videos.
+</video>
 
 ## Technologies used :gear:
 

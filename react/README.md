@@ -2,6 +2,20 @@
 
 This project was built using React.js and Vite.js. It also utilizes Tailwind CSS for styling.
 
+## Design :art:
+
+- The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
+
+#### Atom Design
+
+![Atom design](./react/src/assets/readme/atom_design.png)
+
+#### Responsive design
+
+![Mobile](./react/src/assets/readme/figma_mobile.png)
+
+![Desktop](./react/src/assets/readme/figma_desktop_1.png)
+
 ## Dependencies
 
 The following dependencies are used in this project:
