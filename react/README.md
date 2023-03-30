@@ -29,7 +29,7 @@ In addition to the dependencies, the following devDependencies are used:
 
 These devDependencies are only required for development purposes and will not be included in the final build.
 
-## How to Run
+## How to Run :mechanic:
 
 1. Clone this repository
 2. Navigate to the front-end directory with `cd react`
