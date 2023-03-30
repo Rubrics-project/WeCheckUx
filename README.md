@@ -6,7 +6,8 @@
 
 - The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
-<iframe src="https://giphy.com/embed/paBLR5LS6sRgi5KIlm" width="226" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/paBLR5LS6sRgi5KIlm">via GIPHY</a></p>
+![demo](https://media.giphy.com/media/paBLR5LS6sRgi5KIlm/giphy.gif)
+
 ## Technologies used :gear:
 
 - **React** - a JavaScript library used for building user interfaces and web applications
