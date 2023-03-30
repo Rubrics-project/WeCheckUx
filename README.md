@@ -1,74 +1,92 @@
-# ✓✓ WeCheck
-***
+![Image text](./react/src/assets/readme/Logo.jpeg)
 
-This project was created to evaluate, create, and check the results of different rubrics.
+:bulb: WeCheck is a rubric system for the critical evaluation of interfaces, this idea was developed by a research group from the [Universitat Oberta de Catalunya](https://estudios.uoc.edu/es/estudiar-online). Different evaluators can review web pages and score them using this system. The client needs a website where these rubrics can be entered, so that registered or unregistered users can evaluate websites and obtain a visual result of the evaluations, by evaluator and by average.
 
-## :iphone: Mobile Graphic reference
+## Demo & design :iphone:
 
-## `Design`
-![Image text](./react/src/assets/design_for_README.jpeg)
+- The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
+![demo](https://media.giphy.com/media/paBLR5LS6sRgi5KIlm/giphy.gif)
 
+## Technologies used :gear:
 
+- **React** - a JavaScript library used for building user interfaces and web applications
+- **Tailwind CSS** - a utility-first CSS framework used for styling web pages
+- **SweetAlert 2** - a JavaScript library used for creating alert dialogs
+- **Laravel** - a PHP web application framework used for building the back-end of web applications
+- **MySQL** - a relational database management system used for storing data
+- **Vite** - a build tool used for creating production-ready assets for web applications built with Laravel and React
+- **Axios** - a promise-based HTTP client used for making API requests from web applications
+- **Cypress** - a JavaScript end-to-end testing framework used for testing the front-end of web applications
+- **PHPUnit** - a unit testing framework for PHP used for testing the back-end of web applications.
 
+## Tools used :gear:
 
-## Tech/framework used :electric_plug
-* **React** - used for web page development
-* **JavaScript** - used web for page development
-* **Laravel** - used for backend
-* **Tailwind CSS** - used to edit the Front-end
-* **MySQL** - used for data base
-* **Vite** - to work with Laravel
-* **Axios** - for API functionallity
-* **Jest** - used for Front testing
-* **PHP Unit** - used for Back testing
+- **Git** - Version control system for tracking code changes and team collaboration. Used for codebase version control.
+- **GitHub** - Web-based Git repository hosting service for version control and team collaboration. Used for hosting and managing Git repositories.
+- **PhpMyAdmin** - Open-source web-based tool for managing and administering MySQL databases. Used for interacting with MySQL databases.
+- **Visual Studio Code** - Source-code editor developed by Microsoft used for writing and editing code. Used as the primary code editor.
+- **Trello** - Web-based project management tool for organizing and managing tasks and projects. Used for project management and team collaboration.
+- **Figma** - Web-based tool for designing user interfaces and web applications. Used for creating design mockups and wireframes.
+- **MAMP/XAMPP** - Local server environments for developing and testing web applications. Used for testing web applications locally before deployment.
+- **Postman** - Collaboration platform for API development used for designing, testing, and documenting APIs. Used for testing and debugging APIs.
 
+## How to Run :mechanic:
 
-## Tools :gear:
-* **phpMyAdmin** - used for data base
-* **VisualCode** - u
-* **Trello** - used
-* **Figma** - u
-* **MAMP/XAMP** - to get the information from the data base
-* **GIT/GitHub** - 
+### `git clone https://github.com/Rubrics-project/WeCheckUx.git`
 
+### `npm install`
 
+- First, in the project directory, run `cd react` and, after that, run `npm install`
 
+### `npm run dev`
 
-## Installation :mechanic:
-* Create a directory on your computer to store the project
-* Run ***$ git clone https://github.com/adoptacoder-app/adoptacoder.git*** 
+- Then, in the project directory (react/ folder), run `npm run dev`
+- The page will reload when you make changes.\
+  You may also see any lint errors in the console.
+- Open a web browser and navigate to `http://localhost:3000` to see the website.
 
-## `npm install` ![React](https://user-images.githubusercontent.com/116796625/216713430-33d87daf-c335-4155-8aa7-bcdc715c49d2.svg)
-* First, in te project directory, run ***$ cd react/*** and, after that, run ***$ npm install***
+### `php artisan serve`
 
-## `npm run dev`
-* Then, in the project directory (react/ folder), run ***$ npm run dev***
-* The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Run another terminal, go to the backend folder running `cd backend`
+- Run `composer install`
+- Run `php artisan serve`
+- Run the development server with Xamp or Mamp
 
-## `php artisan serve` ![Laravel]
-* Run another terminal, go to the backend folder running ***$ cd backend/***
-* Run ***$ composer install***
-* Run ***$ php artisan serve***.
+## Contributors :family_woman_woman_girl_girl:
 
-### `npm test`
-It runs the app in the development mode.
-* Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-Launches the test runner in the interactive watch mode.
-* See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Iris Leo](https://github.com/mauisiri) Scrum Master and Developer
+- [Cristina Hidalgo](https://github.com/Crisktina) Product Owner and Developer
+- [Raquel Caraballo](https://github.com/rcarabal2022) Developer
+- [Zindy Lucio](https://github.com/LittleZ17) Developer
+- [Shima Naderi](https://github.com/Archima20) Developer
 
-### `More information about React`
-You can know more details by checking the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Contributing Guidelines
 
+We appreciate your interest in contributing to our project! Before you get started, please read the following guidelines to ensure that your contributions align with our project's goals and standards.
 
+#### Code of Conduct
 
-## Contributors :family_woman_woman_girl_girl: 
-* [Iris Leo](https://github.com/mauisiri) Scrum Master and Developer
-* [Cristina Hidalgo](https://github.com/Crisktina)Product Owner and Developer
-* [Raquel Caraballo](https://github.com/rcarabal2022) Developer
-* [Zindy Lucio](https://github.com/LittleZ17) Developer
-* [Shima Naderi](https://github.com/Archima20) Developer
+We expect all contributors to adhere to our code of conduct. Please review it before making any contributions.
 
+#### How to Contribute
 
+1. Fork the repository
+2. Clone the forked repository to your local machine
+3. Create a new branch for your changes
+4. Make your changes and commit them with descriptive commit messages
+5. Push your changes to your forked repository
+6. Submit a pull request to the original repository
 
+#### Pull Request Guidelines
+
+When submitting a pull request, please ensure that:
+
+- Your changes do not conflict with the main branch
+- Your code follows our project's style and formatting guidelines
+- Your code passes all tests and does not introduce any new issues
+- Your pull request includes a description of the changes you made and why they are necessary or beneficial
+
+Thank you for considering contributing to our project! We look forward to reviewing your contributions.
+
+#### Enjoy WeCheck!
