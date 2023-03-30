@@ -6,7 +6,7 @@ WeCheck have an Api Rest that work as a database server for the project.
 
 -   The database design can be found [here](https://drawsql.app/teams/rubricas/diagrams/new-db).
 
-![data base](./react/src/assets/readme/data_base.png)
+![data base](../react/src/assets/readme/data_base.png)
 
 ## Installation
 
@@ -30,4 +30,4 @@ This folder is the backend part of the WeCheck project, which requires the follo
 
 Please see our contributing guidelines before making any contributions.
 
-Enjoy WeCheck!
+#### Enjoy WeCheck!

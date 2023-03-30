@@ -8,13 +8,13 @@ This project was built using React.js and Vite.js. It also utilizes Tailwind CSS
 
 #### Atom Design
 
-![Atom design](./react/src/assets/readme/atom_design.png)
+![Atom design](./src/assets/readme/atom_design.png)
 
 #### Responsive design
 
-![Mobile](./react/src/assets/readme/figma_mobile.png)
+![Mobile](./src/assets/readme/figma_mobile.png)
 
-![Desktop](./react/src/assets/readme/figma_desktop_1.png)
+![Desktop](./src/assets/readme/figma_desktop_1.png)
 
 ## Dependencies
 

@@ -6,10 +6,7 @@
 
 - The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
-<video width="640" height="480" controls>
-  <source src="./react/src/assets/readme/demo.mp4" type="video/mp4">
-  Tu navegador no soporta la reproducción de videos.
-</video>
+[![Video demo](./react/src/assets/readme/video_show.png)](./react/src/assets/readme/demo.mp4)
 
 ## Technologies used :gear:
 
