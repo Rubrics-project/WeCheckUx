@@ -14,14 +14,7 @@
 
 ![Mobile](./react/src/assets/readme/figma_mobile.png)
 
-<!-- ![Desktop](./react/src/assets/readme/figma_desktop_1.png)
-![Desktop](./react/src/assets/readme/figma_desktop_2.png)
-![Desktop](./react/src/assets/readme/figma_desktop_3.png) -->
-<div style="display:grid; grid-template-columns: repeat(3, 1fr); align-content:center; background-color:black;">
-  <img src="./react/src/assets/readme/figma_desktop_1.png" alt="Desktop1" style="width:100%; margin:10px;border:black 1px solid;">
-  <img src="./react/src/assets/readme/figma_desktop_2.png" alt="Desktop2" style="width:100%; margin:10px;border:black 1px solid;">
-  <img src="./react/src/assets/readme/figma_desktop_3.png" alt="Desktop3" style="width:100%; margin:10px;border:black 1px solid;">
-</div>
+[Desktop](./react/src/assets/readme/figma_desktop_1.png)
 
 ## Demo :iphone:
 
