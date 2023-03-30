@@ -1,5 +1,7 @@
 # ✓✓ WeCheck
 
+![Image text](./react/src/assets/readme/Logo.jpeg)
+
 There is a rubric system for the critical evaluation of interfaces, developed by a research group from the Universitat Oberta de Catalunya. Different evaluators can review web pages and score them using this system. The client needs a website where these rubrics can be entered, so that registered or unregistered users can evaluate websites and obtain a visual result of the evaluations, by evaluator and by average.
 
 ## :iphone: Mobile Graphic reference
@@ -8,7 +10,7 @@ There is a rubric system for the critical evaluation of interfaces, developed by
 
 ![Image text](./react/src/assets/design_for_README.jpeg)
 
-## Technologies Used :electric_plug
+## Technologies used :gear:
 
 - **React** - a JavaScript library used for building user interfaces and web applications
 - **Tailwind CSS** - a utility-first CSS framework used for styling web pages
@@ -20,22 +22,22 @@ There is a rubric system for the critical evaluation of interfaces, developed by
 - **Cypress** - a JavaScript end-to-end testing framework used for testing the front-end of web applications
 - **PHPUnit** - a unit testing framework for PHP used for testing the back-end of web applications.
 
-## Tools :gear:
+## Tools used :gear:
 
-- **Git** - a distributed version control system used for tracking changes in code and collaboration among team members. Used for version control of codebase.
-- **GitHub** - a web-based Git repository hosting service used for version control and collaboration among team members. Used for hosting and managing Git repositories.
-- **PhpMyAdmin** - a free and open-source web-based tool used for managing and administering MySQL databases. Used for interacting with MySQL databases.
-- **VisualCode** - a source-code editor developed by Microsoft used for writing and editing code. Used as the primary code editor.
-- **Trello** - a web-based project management tool used for organizing and managing tasks and projects. Used for project management and collaboration among team members.
-- **Figma** - a web-based vector graphics editor and prototyping tool used for designing user interfaces and web applications. Used for creating design mockups and wireframes.
-- **MAMP/XAMP** - local server environments used for developing and testing web applications. MAMP stands for Macintosh, Apache, MySQL, and PHP, while XAMPP stands for cross-platform, Apache, MySQL, PHP, and Perl. Used for testing web applications locally before deployment.
+- **Git** - Version control system for tracking code changes and team collaboration. Used for codebase version control.
+- **GitHub** - Web-based Git repository hosting service for version control and team collaboration. Used for hosting and managing Git repositories.
+- **PhpMyAdmin** - Open-source web-based tool for managing and administering MySQL databases. Used for interacting with MySQL databases.
+- **Visual Studio Code** - Source-code editor developed by Microsoft used for writing and editing code. Used as the primary code editor.
+- **Trello** - Web-based project management tool for organizing and managing tasks and projects. Used for project management and team collaboration.
+- **Figma** - Web-based tool for designing user interfaces and web applications. Used for creating design mockups and wireframes.
+- **MAMP/XAMPP** - Local server environments for developing and testing web applications. Used for testing web applications locally before deployment.
+- **Postman** - Collaboration platform for API development used for designing, testing, and documenting APIs. Used for testing and debugging APIs.
 
 ## How to Run :mechanic:
 
-- Create a directory on your computer to store the project
-- Run `git clone https://github.com/Rubrics-project/WeCheckUx.git`
+### `git clone https://github.com/Rubrics-project/WeCheckUx.git`
 
-### `npm install` ![React](https://user-images.githubusercontent.com/116796625/216713430-33d87daf-c335-4155-8aa7-bcdc715c49d2.svg)
+### `npm install`
 
 - First, in te project directory, run `cd react` and, after that, run `npm install`
 
@@ -44,12 +46,14 @@ There is a rubric system for the critical evaluation of interfaces, developed by
 - Then, in the project directory (react/ folder), run `npm run dev`
 - The page will reload when you make changes.\
   You may also see any lint errors in the console.
+- Open a web browser and navigate to `http://localhost:3000` to see the website.
 
 ### `php artisan serve`
 
 - Run another terminal, go to the backend folder running `cd backend`
 - Run `composer install`
 - Run `php artisan serve`
+- Run the development server with Xamp or Mamp
 
 ## Contributors :family_woman_woman_girl_girl:
 
@@ -87,4 +91,4 @@ When submitting a pull request, please ensure that:
 
 Thank you for considering contributing to our project! We look forward to reviewing your contributions.
 
-Enjoy WeCheck!
+#### Enjoy WeCheck!

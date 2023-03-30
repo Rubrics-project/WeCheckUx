@@ -2,6 +2,10 @@
 
 This project was built using React.js and Vite.js. It also utilizes Tailwind CSS for styling.
 
+## `Atomic Design`
+
+![Image text](./react/src/assets/design_for_README.jpeg)
+
 ## Dependencies
 
 The following dependencies are used in this project:
