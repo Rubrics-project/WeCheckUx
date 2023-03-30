@@ -10,7 +10,7 @@ export default function Footer() {
         className="flex  justify-between m-4"
       >
         <p className="font-opencustom text-xs">
-        Colabora en el código
+        ¿Quieres contribuir al código del proyecto? 
         </p>
 
         <div className="flex mr-3">

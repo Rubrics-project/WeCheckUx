@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { userAuthContext } from "../context/AuthProvider";
-import Browser from "../components/Browser";
-import RubricUser from "../components/Rubrics/RubricUser";
-import Title from "../components/Title";
 import { getItemById } from "../services/userService";
+
 import Spinner from "../components/Spinner";
+import Browser from "../components/Browser";
+import Title from "../components/Title";
+import RubricUser from "../components/Rubrics/RubricUser";
+import InformationBox from "../components/InformationBox";
 
 export default function MisRubricas() {
   const { userToken, currentUser } = userAuthContext();
@@ -56,26 +58,45 @@ export default function MisRubricas() {
 
   return (
     <>
-    {isLoading ? (
+      {isLoading ? (
         <div className="flex justify-center mt-14">
           <Spinner />
         </div>
       ) : (
         <>
-      <Browser search={search} handleChange={handleChange} />
-      <Title title={"Mis rúbricas"} />
-      {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
-        .map((rubric, index) => (
-          <RubricUser
-            key={index}
-            rubric_id={rubric.id}
-            rubric_title={rubric.title}
-            rubric_description={rubric.description}
-            project_title={rubric.project_name.name}
-            rubric_date={rubric.created_at.slice(0, 10)}
-          />
-        ))}
-   </>)}
+          <Browser search={search} handleChange={handleChange} />
+          <Title title={"Mis rúbricas"} />
+          {rubrics.length === 0 ? (
+            <div>
+              <InformationBox text={"No tienes rubricas todavía. ¿Te gustaría crear una ahora?"}/>
+            <Link
+              to="/crear"
+              className="flex justify-center font-opencustom text-color-blue-p font-extrabold bg-color-grey-bg px-4 py-2 mt-6 border-color-grey-border border border-solid rounded-md"
+            >
+              Crear rúbrica
+            </Link>
+          </div>
+          ) : (
+            rubrics
+              .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+              .map((rubric, index) => (
+                <RubricUser
+                  key={index}
+                  rubric_id={rubric.id}
+                  rubric_title={rubric.title}
+                  rubric_description={rubric.description}
+                  project_title={rubric.project_name.name}
+                  rubric_date={rubric.created_at.slice(0, 10)}
+                />
+              ))
+          )}
+        </>
+      )}
     </>
   );
 }
+
+
+
+
+
