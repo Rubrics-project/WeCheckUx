@@ -17,7 +17,7 @@
 <!-- ![Desktop](./react/src/assets/readme/figma_desktop_1.png)
 ![Desktop](./react/src/assets/readme/figma_desktop_2.png)
 ![Desktop](./react/src/assets/readme/figma_desktop_3.png) -->
-<div style="background-color:black; display:flex; flex-wrap:wrap; justify-content:center;">
+<div style="border:black 1px solid; display:flex; align-content:center;">
   <img src="./react/src/assets/readme/figma_desktop_1.png" alt="Desktop" style="width:50%; margin:10px;">
   <img src="./react/src/assets/readme/figma_desktop_2.png" alt="Desktop" style="width:50%; margin:10px;">
   <img src="./react/src/assets/readme/figma_desktop_3.png" alt="Desktop" style="width:50%; margin:10px;">
