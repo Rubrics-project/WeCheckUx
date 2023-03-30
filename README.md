@@ -1,20 +1,23 @@
 ![Image text](./react/src/assets/readme/Logo.jpeg)
 
-There is a rubric system for the critical evaluation of interfaces, developed by a research group from the Universitat Oberta de Catalunya. Different evaluators can review web pages and score them using this system. The client needs a website where these rubrics can be entered, so that registered or unregistered users can evaluate websites and obtain a visual result of the evaluations, by evaluator and by average.
+:bulb: WeCheck is a rubric system for the critical evaluation of interfaces, this idea was developed by a research group from the [Universitat Oberta de Catalunya](https://estudios.uoc.edu/es/estudiar-online). Different evaluators can review web pages and score them using this system. The client needs a website where these rubrics can be entered, so that registered or unregistered users can evaluate websites and obtain a visual result of the evaluations, by evaluator and by average.
 
-## Design
+## Design :art:
 
 #### Atom Design
 
 - The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
 
-![Image text](./react/src/assets/atom_design.jpeg)
+![Atom design](./react/src/assets/readme/atom_design.jpeg)
 
 #### Responsive design
 
-![Image text](./react/src/assets/design_for_README.jpeg)
+![Mobile](./react/src/assets/readme/figma_mobile.png)
+![Desktop](./react/src/assets/readme/figma_desktop_1.png)
+![Desktop](./react/src/assets/readme/figma_desktop_2.png)
+![Desktop](./react/src/assets/readme/figma_desktop_3.png)
 
-## :iphone: Demo
+## Demo :iphone:
 
 ## Technologies used :gear:
 

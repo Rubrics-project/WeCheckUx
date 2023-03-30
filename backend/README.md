@@ -6,7 +6,7 @@ WeCheck have an Api Rest that work as a database server for the project.
 
 -   The database design can be found [here](https://drawsql.app/teams/rubricas/diagrams/new-db).
 
-![Image text](./react/src/assets/readme/design_for_README.jpeg)
+![data base](./react/src/assets/readme/data_base.png)
 
 ## Installation
 
