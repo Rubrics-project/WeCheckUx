@@ -20,21 +20,22 @@ export default function Home() {
         <div className="md:flex flex-col md:items-center">
           <p className="font-latocustom text-sm">
             Esto es una plataforma de usuarios para{" "}
-            <b> evaluar distintas plataformas digitales mediante rúbricas</b>. Las
-            rúbricas son instrumentos de análisis cualitativo que nos permiten
-            revisar las propiedades, los puntos fuertes y flojos de una interfaz.
-            Este proyecto nace con la intención y el deseo de motivar e incentivar
-            el pensamiento crítico entorno al impacto que tienen las interfaces
-            gráficas de usuario en nuestro modo de relacionarnos como sociedad.
+            <b> evaluar distintas plataformas digitales mediante rúbricas</b>.
+            Las rúbricas son instrumentos de análisis cualitativo que nos
+            permiten revisar las propiedades, los puntos fuertes y flojos de una
+            interfaz. Este proyecto nace con la intención y el deseo de motivar
+            e incentivar el pensamiento crítico entorno al impacto que tienen
+            las interfaces gráficas de usuario en nuestro modo de relacionarnos
+            como sociedad.
           </p>
 
           <p className="font-latocustom text-sm py-10 ">
             En WeCheck puedes evaluar, mediante rúbricas creadas por diferentes
-            autores y autoras, la interfaz de cualquier espacio. Además, tienes la
-            posibilidad de <b>crear tus propias rúbricas</b> para ponerlas a
-            disposición de otros/as usuarios/as que quieran evaluar con sus puntos
-            de vista personales, sus conocimientos situados y que quieran compartir
-            y sumar su punto de vista con la comunidad. Por eso,{" "}
+            autores y autoras, la interfaz de cualquier espacio. Además, tienes
+            la posibilidad de <b>crear tus propias rúbricas</b> para ponerlas a
+            disposición de otros/as usuarios/as que quieran evaluar con sus
+            puntos de vista personales, sus conocimientos situados y que quieran
+            compartir y sumar su punto de vista con la comunidad. Por eso,{" "}
             <b>tu contribución es muy valiosa</b>.
           </p>
         </div>
@@ -72,10 +73,10 @@ export default function Home() {
           </Link>
         </div>
       ) : (
-        <div>
+        <div className="md:flex md:justify-center">
           <Link
             to="/crear"
-            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md mb-5"
+            className="flex justify-center font-opencustom text-color-blue-p font-bold bg-color-grey-bg px-4 py-2 border-color-grey-border border border-solid rounded-md mb-5 md:px-10"
           >
             Crear rúbrica
           </Link>

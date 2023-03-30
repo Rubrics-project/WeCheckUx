@@ -231,7 +231,7 @@ export default function Create() {
               //  onClickDeleteDimension={"TODO: funcion para eliminar dimesion"}
               />
             </div>
-            <div className="grid w-full grid-cols-2 gap-7">
+            <div className="grid w-full grid-cols-2 gap-7 lg:flex lg:justify-end ">
               <ButtonPrimary text={"Guardar"} />
               <ButtonSecondary
                 text={"Cancelar"}

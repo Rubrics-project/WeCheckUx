@@ -16,8 +16,8 @@ export default function RubricProject({
   rubric_id,
 }) {
   return (
-    <>
-      <div className="flex justify-center gap-4 mt-9 ">
+    <div className="md:grid md:grid-cols-6 md:gap-3 md:items-start">
+      <div className="flex justify-center gap-4 mt-9 md:flex-col-reverse md:col-span-1 md:col-start-6 md:order-last md:mt-5">
         <ButtonSecondaryIconBlue
           text={"Evaluar"}
           src={evaluate}
@@ -29,17 +29,20 @@ export default function RubricProject({
           alt={"Icono de ojo"}
         />
       </div>
-      <Link to={`/proyectos/${project_id}/rubricas/${rubric_id}`}>
-        <div className="border rounded border-color-blue-p my-5 overflow-hidden">
-          <div className="grid grid-cols-7 gap-4 justify-between bg-color-grey-bg p-2">
-            <div className="col-span-6 flex align-middle">
+      <Link
+        className="md:col-span-5"
+        to={`/proyectos/${project_id}/rubricas/${rubric_id}`}
+      >
+        <div className="border rounded border-color-blue-p my-5 overflow-hidden ">
+          <div className="grid grid-cols-7 gap-4 justify-between bg-color-grey-bg p-2 md:grid-cols-12 md:col-start-1">
+            <div className="col-span-6 flex align-middle md:col-span-11">
               <img className=" mx-2" src={icon} alt="Icono de doble check" />
               <h2 className="font-latocustom font-bold text-lg ml-1">
                 {rubric_title}
               </h2>
             </div>
             <div
-              className="col-span-1 flex align-middle mr-3"
+              className="col-span-1 flex align-middle mr-3 w-6"
               to={`/proyectos/${project_id}/rubricas/${rubric_id}`}
             >
               <img src={eye} alt="Icono de ojo" />
@@ -67,6 +70,6 @@ export default function RubricProject({
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
