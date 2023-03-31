@@ -7,10 +7,10 @@ export default function Footer() {
       <div className="bg-gradient-final h-1"></div>
       <a
         href="https://github.com/Rubrics-project/WeCheckUx"
-        className="flex  justify-between m-4"
+        className="flex justify-between sm:justify-end m-4"
       >
-        <p className="font-opencustom text-xs">
-        ¿Quieres contribuir al código del proyecto? 
+        <p className="font-opencustom text-xs sm:mr-3">
+          ¿Quieres contribuir al código del proyecto?
         </p>
 
         <div className="flex mr-3">
