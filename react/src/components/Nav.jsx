@@ -143,7 +143,7 @@ export default function Nav() {
           className="flex py-5 px-6 border-t border-t-gray-300 text-color-grey-title font-light font-opencustom"
         >
           <img src={gitHubIcon} alt="Icon de logout" className="mr-5" />
-          Colabora en el código
+          ¿Quieres contribuir al código del proyecto? 
         </a>
       </div>
     </div>

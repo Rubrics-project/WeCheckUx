@@ -1,25 +1,35 @@
-## React Project Readme
+# ✓✓ WeCheck - Front-end
 
-This project is a React application that uses several dependencies and devDependencies to build and run. The project has a package.json file that defines the structure of the project and lists all the dependencies and devDependencies.
+This project was built using React.js and Vite.js. It also utilizes Tailwind CSS for styling.
 
-### Dependencies
+## Design :art:
+
+- The Figma design can be found [here](https://www.figma.com/file/uj5xYEPs0rwCHLjeBRbEh6/WeCheck?node-id=0%3A1&t=lWAqGgO2NIY5jZ9t-1).
+
+#### Atom Design
+
+![Atom design](./src/assets/readme/atom_design.png)
+
+#### Responsive design
+
+![Mobile](./src/assets/readme/figma_mobile.png)
+
+![Desktop](./src/assets/readme/figma_desktop_1.png)
+
+## Dependencies
 
 The following dependencies are used in this project:
 
-- "@algolia/autocomplete-core": "^1.8.3"
-- "@heroicons/react": "^2.0.16"
 - "axios": "^1.3.4"
-- "hamburger-react": "^2.5.0"
 - "react": "^18.2.0"
 - "react-burger-menu": "^3.0.9"
-- "react-dom": "^18.2.0"
 - "react-google-recaptcha": "^2.1.0"
 - "react-router-dom": "^6.9.0"
 - "sweetalert2": "^11.7.3"
 
-These dependencies are necessary for the application to build and function as intended. In order to install them, run `npm install` in the project root.
+These dependencies are necessary for the application to build and function as intended. In order to install them, run `npm install` in the front-end project root.
 
-### DevDependencies
+## DevDependencies
 
 In addition to the dependencies, the following devDependencies are used:
 
@@ -33,14 +43,16 @@ In addition to the dependencies, the following devDependencies are used:
 
 These devDependencies are only required for development purposes and will not be included in the final build.
 
-### Scripts
+## How to Run :mechanic:
 
-The project includes several scripts that can be run with the `npm run` command:
+1. Clone this repository
+2. Navigate to the front-end directory with `cd react`
+3. Install dependencies with `npm install`
+4. Run the development server with `npm run dev`
+5. Open a web browser and navigate to `http://localhost:3000`
 
-- `dev`: runs the development server using Vite and starts the application at port 3000.
-- `build`: builds the application for production.
-- `preview`: a preview of the production build.
+## Contributing
 
-### License
+Please see our contributing guidelines before making any contributions.
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Enjoy WeCheck!

@@ -28,9 +28,9 @@ export default function ProjectCard({
   return (
     <Link to={`/proyectos/${id}`}>
       <div className="border rounded border-color-blue-p my-14 overflow-hidden">
-        <div className="grid grid-cols-7 gap-4 align-middle bg-color-grey-bg p-2">
-          <div className="col-span-6 flex mb-2">
-            <img className=" mx-2" src={icon} alt="Icono de doble check" />
+        <div className="grid grid-cols-7 gap-4 align-middle bg-color-grey-bg p-2 md:grid-cols-12">
+          <div className="col-span-6 flex mb-2 md:col-span-11">
+            <img className=" mx-2 " src={icon} alt="Icono de doble check" />
             <div>
               <h2 className="font-latocustom font-bold text-lg mb-0">
                 {project_name}
@@ -41,7 +41,7 @@ export default function ProjectCard({
             </div>
           </div>
           <div
-            className="col-span-1 flex align-middle mr-3"
+            className="col-span-1 flex align-middle mr-3 md:w-6"
             to={`/proyectos/${id}`}
           >
             <img src={eye} alt="Icono de ojo" />

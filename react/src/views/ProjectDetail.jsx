@@ -53,9 +53,15 @@ export default function ProjectDetail() {
     let result = table.filter((element) => {
       const removeDiacritics = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      }
-      const propertiesToSearch = ['title', 'description', 'user_name'];
-      if (propertiesToSearch.some(prop => removeDiacritics(element[prop].toString().toLowerCase()).includes(removeDiacritics(termsearch.toLowerCase())))) {
+      };
+      const propertiesToSearch = ["title", "description", "user_name"];
+      if (
+        propertiesToSearch.some((prop) =>
+          removeDiacritics(element[prop].toString().toLowerCase()).includes(
+            removeDiacritics(termsearch.toLowerCase())
+          )
+        )
+      ) {
         return element;
       }
     });
@@ -76,32 +82,34 @@ export default function ProjectDetail() {
             project_url={project.url}
             project_description={project.description}
           />
-      <InformationBox
-        text={
-          "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
-        }
-      />
-      {rubrics.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
-        .map((rubric, index) => (
-          <RubricProject
-            key={index}
-            rubric_id={rubric.id}
-            project_id={rubric.project_id}
-            rubric_title={rubric.title}
-            rubric_description={rubric.description}
-            rubric_author={rubric.user_name}
-            rubric_date={rubric.created_at.slice(0, 10)}
+          <InformationBox
+            text={
+              "Comprueba en esta lista que la rúbrica que quieres crear no se ha creado. Al final de la lista encontrarás el botón “Crear mi rúbrica”."
+            }
           />
-        ))}
-      <div className="flex justify-center mt-14">
-        <ButtonPrimaryIconBig
-          src={plusIcon}
-          alt={"Icono de añadir"}
-          text={"Crear mi rúbrica"}
-          to={!userToken ? "/acceso" : `/crear/${project.id}`}
-        />
-      </div>
-      </>)}
+          {rubrics
+            .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+            .map((rubric, index) => (
+              <RubricProject
+                key={index}
+                rubric_id={rubric.id}
+                project_id={rubric.project_id}
+                rubric_title={rubric.title}
+                rubric_description={rubric.description}
+                rubric_author={rubric.user_name}
+                rubric_date={rubric.created_at.slice(0, 10)}
+              />
+            ))}
+          <div className="flex justify-center mt-14 ">
+            <ButtonPrimaryIconBig
+              src={plusIcon}
+              alt={"Icono de añadir"}
+              text={"Crear mi rúbrica"}
+              to={!userToken ? "/acceso" : `/crear/${project.id}`}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 }

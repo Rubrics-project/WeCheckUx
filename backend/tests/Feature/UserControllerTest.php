@@ -35,9 +35,7 @@ class UserControllerTest extends TestCase
 
         $response->assertOk();
     }
-    /**
-     * A basic feature test example.
-     */
+    
     
     public function test_user_duplicate()
     {

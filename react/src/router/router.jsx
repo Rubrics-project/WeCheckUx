@@ -13,6 +13,7 @@ import MisRubricas from "../views/MisRubricas";
 import ProjectDetail from "../views/ProjectDetail";
 import RubricDetail from "../views/RubricDetail";
 import UserLayout from "../layout/UserLayout";
+import CreateRubric from "../views/CreateRubric";
 
 const router = createBrowserRouter([
   {
@@ -73,10 +74,10 @@ const router = createBrowserRouter([
         path: "/mis-rubricas/:id",
         element: <RubricDetail />,
       },
-      // {
-      //   path: "/crear",
-      //   element: <Create />,
-      // },
+      {
+        path: "/crear",
+        element: <CreateRubric />,
+      },
       {
         path: "/editar",
         element: <Edit />,

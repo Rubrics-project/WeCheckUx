@@ -69,7 +69,7 @@ export default function RubricUser({
 
   return (
     <div className="flex flex-col sm:flex-row-reverse sm:w-full">
-      <div className="flex justify-center gap-2 mt-9 sm:flex-col-reverse sm:mx-3 sm:mt-4 sm:flex-wrap sm:justify-end">
+      <div className="flex justify-center gap-2 mt-9 sm:flex-col-reverse sm:ml-3 sm:mt-4 sm:flex-wrap sm:justify-end">
         <ButtonSecondaryIconBlue
           text={"Editar"}
           src={edit}
@@ -82,7 +82,7 @@ export default function RubricUser({
           onClick={handleConfirmDelete}
         />
       </div>
-      <div className=" w-full sm:ml-10">
+      <div className=" w-full">
         <Link to={`/mis-rubricas/${rubric_id}`}>
           <div className="flex flex-col border rounded border-color-blue-p my-4 overflow-hidden sm:w-1/1">
             <div className="grid grid-cols-7 gap-4 justify-between bg-color-grey-bg p-2">
@@ -93,7 +93,7 @@ export default function RubricUser({
                 </h2>
               </div>
               <div
-                className="col-span-1 flex align-middle mr-3"
+                className="col-span-1 flex align-middle mr-3 sm"
                 to={`/mis-rubricas/${rubric_id}`}
               >
                 <img src={eye} alt="Icono de ojo" className="sm:hidden" />
