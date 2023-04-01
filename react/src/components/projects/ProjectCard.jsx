@@ -40,8 +40,7 @@ export default function ProjectCard({
               </p>
             </div>
           </div>
-          <div
-            className="col-span-1 flex align-middle mr-3 md:w-6"
+          <div className="col-span-1 flex align-middle mr-3 w-6"
             to={`/proyectos/${id}`}
           >
             <img src={eye} alt="Icono de ojo" />
