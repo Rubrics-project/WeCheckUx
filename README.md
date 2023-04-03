@@ -35,18 +35,15 @@
 
 ### `git clone https://github.com/Rubrics-project/WeCheckUx.git`
 
-### `npm install`
+### `Front-end`
 
 - First, in the project directory, run `cd react` and, after that, run `npm install`
-
-### `npm run dev`
-
 - Then, in the project directory (react/ folder), run `npm run dev`
 - The page will reload when you make changes.\
   You may also see any lint errors in the console.
 - Open a web browser and navigate to `http://localhost:3000` to see the website.
 
-### `php artisan serve`
+### `Back-end`
 
 - Run another terminal, go to the backend folder running `cd backend`
 - Run `composer install`

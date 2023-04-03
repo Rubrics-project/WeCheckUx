@@ -40,8 +40,7 @@ export default function ProjectCard({
               </p>
             </div>
           </div>
-          <div
-            className="col-span-1 flex align-middle mr-3 md:w-6"
+          <div className="col-span-1 flex align-middle mr-3 w-6"
             to={`/proyectos/${id}`}
           >
             <img src={eye} alt="Icono de ojo" />
@@ -64,7 +63,7 @@ export default function ProjectCard({
             </h3>
           </div>
           <div className="py-4 flex justify-center align-middle">
-            <h3 className="font-opencustom font-bold text-color-blue-p ">
+            <h3 className="font-opencustom font-bold text-color-blue-p">
               Evaluaciones:{" "}
               <span className="font-opencustom font-bold text-color-blue-p">
                 0{/* {totalEvaluations} */}

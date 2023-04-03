@@ -61,8 +61,6 @@ class RubricController extends Controller
         return $rubric;
         return response()->json([
             'rubric' => $rubric,
-            // 'user' =>$user
-            // 'project' =>$project
 
         ]);
     }
@@ -80,9 +78,6 @@ class RubricController extends Controller
 
     public function filterRubricByProject(Project $project){
         $idProject = Project::find($project);
-        // if ($idProject === $id_rubrica_columna_proye){
-        //     info
-        // }
         return $idProject;
     }
 }
