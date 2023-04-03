@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 Route::apiResource('users', UserController::class);
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
@@ -26,4 +23,3 @@ Route::apiResource('projects', ProjectController::class);
 Route::apiResource('rubrics', RubricController::class);
 Route::apiResource('evaluations', EvaluationController::class);
 Route::apiResource('answers', AnswerController::class);
-// Route::get('filter-rubric-by-project',[RubricController::class, 'filterRubricByProject']);

@@ -52,12 +52,8 @@ class ProjectController extends Controller
 
         $rubrics = $project->rubrics;
 
-        // $user = $rubrics->user;
-        // $user = $project->user;
-
         return response()->json([
             'project' => $project,
-            // 'user' =>$user
         ]);
     }
 
